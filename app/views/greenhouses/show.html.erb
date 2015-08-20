@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @greenhouse.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @greenhouse.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @greenhouse.location %>
+</p>
+
+<p>
+  <strong>Employees:</strong>
+  <% @greenhouse.employees.each do |employee| %>
+  	<%= employee.first_name %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_greenhouse_path(@greenhouse) %> |
+<%= link_to 'Back', greenhouses_path %>

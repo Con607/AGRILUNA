@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pay roll:</strong>
+  <%= @pay_roll_item.pay_roll_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @pay_roll_item.employee_id %>
+</p>
+
+<p>
+  <strong>Assistances:</strong>
+  <%= @pay_roll_item.total_assistances %>
+</p>
+
+<p>
+  <strong>Assistances:</strong>
+  <%= @pay_roll_item.assistance_ids %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @pay_roll_item.salary %>
+</p>
+
+<p>
+  <strong>Discounts:</strong>
+  <%= @pay_roll_item.discounts %>
+</p>
+
+<p>
+  <strong>Bonuses:</strong>
+  <%= @pay_roll_item.bonuses %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @pay_roll_item.total %>
+</p>
+
+<%= link_to 'Edit', edit_pay_roll_item_path(@pay_roll_item) %> |
+<%= link_to 'Back', pay_roll_items_path %>

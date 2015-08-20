@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @assistance.employee.first_name %>
+</p>
+
+<p>
+  <strong>Assistance date:</strong>
+  <%= @assistance.assistance_date %>
+</p>
+
+<p>
+  <strong>Assisted:</strong>
+  <%= @assistance.assisted %>
+</p>
+
+<%= link_to 'Edit', edit_assistance_path(@assistance) %> |
+<%= link_to 'Back', assistances_path %>

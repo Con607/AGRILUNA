@@ -1,0 +1,14 @@
+<%= csrf_meta_tags %>
+<%= simple_form_for(@assistance, remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :employee, label_method: :first_name, value_method: :id %>
+    <%= f.input :assistance_date %>
+    <%= f.input :assisted %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

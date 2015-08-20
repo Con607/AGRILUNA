@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pay_roll_id: 1
+  employee_id: 1
+  assistances: 1
+  salary: 1.5
+  discounts: 1.5
+  bonuses: 1.5
+  total: 1.5
+
+two:
+  pay_roll_id: 1
+  employee_id: 1
+  assistances: 1
+  salary: 1.5
+  discounts: 1.5
+  bonuses: 1.5
+  total: 1.5

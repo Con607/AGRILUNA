@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @employee.first_name %>
+</p>
+
+<p>
+  <strong>Second name:</strong>
+  <%= @employee.second_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @employee.last_name %>
+</p>
+
+<p>
+  <strong>Second last name:</strong>
+  <%= @employee.second_last_name %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @employee.salary %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <% @employee.greenhouses.each do |greenhouse| %>
+    <%= greenhouse.name unless greenhouse.name.nil? %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Job position:</strong>
+  <%= @employee.job_position_id %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

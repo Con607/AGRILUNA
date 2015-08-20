@@ -1,0 +1,41 @@
+<h1>Listing pay_roll_items</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Pay roll</th>
+      <th>Employee</th>
+      <th>Num Assistances</th>
+      <th>Salary</th>
+      <th>Discounts</th>
+      <th>Bonuses</th>
+      <th>Total</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pay_roll_items.each do |pay_roll_item| %>
+      <tr>
+        <td><%= pay_roll_item.id %></td>
+        <td><%= pay_roll_item.pay_roll_id %></td>
+        <td><%= pay_roll_item.employee.first_name %></td>
+        <td><%= pay_roll_item.total_assistances %></td>
+        <td><%= pay_roll_item.salary %></td>
+        <td><%= pay_roll_item.discounts %></td>
+        <td><%= pay_roll_item.bonuses %></td>
+        <td><%= pay_roll_item.total %></td>
+        <td><%= link_to 'Show', pay_roll_item %></td>
+        <td><%= link_to 'Edit', edit_pay_roll_item_path(pay_roll_item) %></td>
+        <td><%= link_to 'Destroy', pay_roll_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pay roll item', new_pay_roll_item_path %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  greenhouse_id: 1
+  employee_id: 1
+
+two:
+  greenhouse_id: 1
+  employee_id: 1

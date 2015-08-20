@@ -1,0 +1,29 @@
+<h1>Listing greenhouse_employees</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Greenhouse</th>
+      <th>Employee</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @greenhouse_employees.each do |greenhouse_employee| %>
+      <tr>
+        <td><%= greenhouse_employee.greenhouse_id %></td>
+        <td><%= greenhouse_employee.employee_id %></td>
+        <td><%= link_to 'Show', greenhouse_employee %></td>
+        <td><%= link_to 'Edit', edit_greenhouse_employee_path(greenhouse_employee) %></td>
+        <td><%= link_to 'Destroy', greenhouse_employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Greenhouse employee', new_greenhouse_employee_path %>

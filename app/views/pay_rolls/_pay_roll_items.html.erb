@@ -1,0 +1,73 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Days Assisted</th>
+      <th>Num Assistances</th>
+      <th>Salary</th>
+      <th>Discounts</th>
+      <th>Bonuses</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pay_roll_items.each do |pay_roll_item| %>
+      <tr>
+        <td><%= pay_roll_item.employee.first_name %></td>
+        <td>
+          <% pay_roll_item.assistances.each do |assistance| %>
+            <%= assistance.assistance_date.strftime('%a') %>
+          <% end %>
+        </td>
+        <td><%= pay_roll_item.total_assistances %></td>
+        <td><%= pay_roll_item.salary %></td>
+        <td>
+          <div class="pay_roll_item_discount_update" id="pay_roll_item_discounts_<%= pay_roll_item.id %>">
+            <!-- discounts value -->
+            <%= pay_roll_item.discounts %>
+          </div>
+          <!-- discounts form -->
+          <div class="discount_update_form" id="discount_update_form_<%= pay_roll_item.id %>">
+            <%= simple_form_for(pay_roll_item) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :discounts, label: false %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.submit 'Actualizar', class: "btn btn-mini discount_update_form_button", id: "pay_roll_item_submit_#{pay_roll_item.id}" %>
+              </div>
+            <% end %>
+          </div>
+        </td>
+        <td>
+          <div class="pay_roll_item_bonus_update" id="pay_roll_item_bonuses_<%= pay_roll_item.id %>">
+            <!-- bonuses value -->
+            <%= pay_roll_item.bonuses %>
+          </div>
+          <!-- bonuses form -->
+          <div class="bonus_update_form" id="bonus_update_form_<%= pay_roll_item.id %>">
+            <%= simple_form_for(pay_roll_item) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :bonuses, label: false %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.submit 'Actualizar', class: "btn btn-mini bonus_update_form_button", id: "pay_roll_item_submit_#{pay_roll_item.id}" %>
+              </div>
+            <% end %>
+          </div>
+        </td>
+        <td><div id="pay_roll_item_total_<%= pay_roll_item.id %>"><%= pay_roll_item.total %></div></td>
+        <td><%= link_to 'Destroy', pay_roll_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
