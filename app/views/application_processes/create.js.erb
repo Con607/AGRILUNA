@@ -1,0 +1,3 @@
+//alert('I was called');
+$("<%= escape_javascript(render @application_process) %>").appendTo("#application_processes").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#application_processes_form')[0].reset();

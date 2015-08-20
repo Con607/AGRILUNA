@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817034632) do
+ActiveRecord::Schema.define(version: 20150820061946) do
+
+  create_table "application_items", force: :cascade do |t|
+    t.integer  "application_id",         limit: 4
+    t.integer  "application_product_id", limit: 4
+    t.string   "unit_of_measure",        limit: 255
+    t.float    "quantity",               limit: 24
+    t.float    "h2o_quantity_liters",    limit: 24
+    t.float    "total_product_used",     limit: 24
+    t.float    "cost_per_unit",          limit: 24
+    t.float    "total_cost",             limit: 24
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "application_processes", force: :cascade do |t|
+    t.integer  "application_ids", limit: 4
+    t.string   "name",            limit: 255
+    t.text     "description",     limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "application_products", force: :cascade do |t|
+    t.integer  "application_item_ids", limit: 4
+    t.string   "name",                 limit: 255
+    t.text     "description",          limit: 65535
+    t.float    "quantity_available",   limit: 24
+    t.string   "units_of_measure",     limit: 255
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.date     "application_date"
+    t.integer  "application_process_id", limit: 4
+    t.text     "purpose",                limit: 65535
+    t.integer  "greenhouse_id",          limit: 4
+    t.integer  "application_item_ids",   limit: 4
+    t.float    "application_cost",       limit: 24
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
 
   create_table "assistances", force: :cascade do |t|
     t.integer  "employee_id",      limit: 4
@@ -49,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150817034632) do
     t.integer  "greenhouse_employee_ids", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "application_ids",         limit: 4
   end
 
   create_table "job_positions", force: :cascade do |t|

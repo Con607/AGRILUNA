@@ -22,21 +22,22 @@
 <br>
 
 
-<%= simple_form_for(@assistance, remote: true, html: { id: 'assistances_form' }) do |f| %>
-  <%= f.error_notification %>
+<div id="div_assistances_form">
+  <%= simple_form_for(@assistance, remote: true, html: { id: 'assistances_form' }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= f.association :employee, label_method: :first_name, value_method: :id %>
-    <%= f.input :assistance_date %>
-    <%= f.input :assisted %>
-  </div>
+    <div class="form-inputs">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= f.association :employee, label_method: :first_name, value_method: :id %>
+      <%= f.input :assistance_date %>
+      <%= f.input :assisted %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-
+    <div class="form-actions">
+      <%= f.button :submit, id: "new_assistance_submit_button" %>
+    </div>
+  <% end %>
+</div>
 
 
 <%= link_to 'New Assistance', new_assistance_path, remote: true, id: "new_assistance_link" %>

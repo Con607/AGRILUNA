@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :application_products
+  resources :application_items
+  resources :applications
+  resources :application_processes
   resources :greenhouse_employees
 
   resources :pay_roll_items do

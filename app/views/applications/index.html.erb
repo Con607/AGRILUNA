@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Applications</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Application date</th>
+      <th>Application process</th>
+      <th>Purpose</th>
+      <th>Greenhouse</th>
+      <th>Application item ids</th>
+      <th>Application cost</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="applications">
+    <% @applications.each do |application| %>
+      <%= render "application", :application => application %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Application', new_application_path, remote: true, id: 'new_application_link' %>
+
+<div class="col-md-5" id="div_new_application_form">
+  <%= simple_form_for(@application, remote: true, html: { id: 'new_application_form' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= f.input :application_date %>
+      <%= f.association :application_process %>
+      <%= f.input :purpose %>
+      <%= f.association :greenhouse %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, remote: true, id: 'new_application_submit_button' %>
+    </div>
+  <% end %>
+</div>

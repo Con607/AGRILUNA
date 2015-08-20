@@ -1,0 +1,2 @@
+module ApplicationItemsHelper
+end

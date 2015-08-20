@@ -6,17 +6,17 @@
 ready = ->
 
 	# Hide form from start
-	$('div#div_assistances_form').hide()
+	$('div#div_application_products_form').hide()
 
 	# Show form on click
-	$('#new_assistance_link').click ->
-		$('#new_assistance_link').fadeOut()
-		$('div#div_assistances_form').fadeIn()
+	$('#new_application_product_link').click ->
+		$('#new_application_product_link').fadeOut()
+		$('div#div_application_products_form').fadeIn()
 
 	# Hide form on click
-	$('#new_assistance_submit_button').click ->
-		$('div#div_assistances_form').fadeOut()
-		$('#new_assistance_link').fadeIn()
+	$('#new_application_product_submit_button').click ->
+		$('div#div_application_products_form').fadeOut()
+		$('#new_application_product_link').fadeIn()
 
 
 $(document).ready(ready)

@@ -1,0 +1,15 @@
+<%= simple_form_for(@application_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :application_product %>
+    <%= f.input :unit_of_measure %>
+    <%= f.input :quantity %>
+    <%= f.input :h2o_quantity_liters %>
+    <%= f.input :cost_per_unit %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

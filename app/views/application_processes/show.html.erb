@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application ids:</strong>
+  <%= @application_process.application_ids %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @application_process.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @application_process.description %>
+</p>
+
+<%= link_to 'Edit', edit_application_process_path(@application_process) %> |
+<%= link_to 'Back', application_processes_path %>

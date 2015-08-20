@@ -1,0 +1,14 @@
+      <tr id="application_<%= application.id %>">
+        <td><%= application.application_date %></td>
+        <td><%= application.application_process.name %></td>
+        <td><%= application.purpose %></td>
+        <td><%= application.greenhouse.name %></td>
+        <td>
+          <% application.application_items.each do |application_item| %>
+            <%= application_item.application_product.name %><br>
+          <% end %>
+        </td>
+        <td><%= application.application_cost %></td>
+        <td><%= link_to 'Show', application %></td>
+        <td><%= link_to 'Destroy', application, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

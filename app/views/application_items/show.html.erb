@@ -1,0 +1,44 @@
+  <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @application_item.application_id %>
+</p>
+
+<p>
+  <strong>Application product:</strong>
+  <%= @application_item.application_product_id %>
+</p>
+
+<p>
+  <strong>Unit of measure:</strong>
+  <%= @application_item.unit_of_measure %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @application_item.quantity %>
+</p>
+
+<p>
+  <strong>H2o quantity liters:</strong>
+  <%= @application_item.h2o_quantity_liters %>
+</p>
+
+<p>
+  <strong>Total product used:</strong>
+  <%= @application_item.total_product_used %>
+</p>
+
+<p>
+  <strong>Cost per unit:</strong>
+  <%= @application_item.cost_per_unit %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @application_item.total_cost %>
+</p>
+
+<%= link_to 'Edit', edit_application_item_path(@application_item) %> |
+<%= link_to 'Back', application_items_path %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(@application) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :application_date %>
+    <%= f.association :application_process %>
+    <%= f.input :purpose %>
+    <%= f.association :greenhouse %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

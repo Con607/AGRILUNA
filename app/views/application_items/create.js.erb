@@ -1,0 +1,5 @@
+//alert('I was called');
+$("<%= escape_javascript(render @application_item) %>").appendTo("#application_items").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#application_item_form')[0].reset();
+$('div#application_cost').fadeOut();
+$('div#application_cost').text("<%= number_to_currency(@application_item.application.application_cost, precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);

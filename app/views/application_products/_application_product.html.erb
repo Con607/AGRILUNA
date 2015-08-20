@@ -1,0 +1,10 @@
+
+	<tr id="application_product_<%= application_product.id %>">
+      <td><%= application_product.application_item_ids %></td>
+      <td><%= application_product.name %></td>
+      <td><%= application_product.description %></td>
+      <td><%= application_product.quantity_available %></td>
+      <td><%= application_product.units_of_measure %></td>
+      <td><%= link_to 'Show', application_product %></td>
+      <td><%= link_to 'Destroy', application_product, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+    </tr>

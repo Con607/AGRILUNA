@@ -48,6 +48,26 @@
                 <i class="fa fa-desktop"></i> <span class="nav-label">Pay Roll Items</span>
                 <% end %>
             </li>
+            <li class="<%= 'active' if current_page?('/home/minor') %>">
+                <%= link_to applications_path do %>
+                <i class="fa fa-desktop"></i> <span class="nav-label">Applications</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/home/minor') %>">
+                <%= link_to application_items_path do %>
+                <i class="fa fa-desktop"></i> <span class="nav-label">Application Items</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/home/minor') %>">
+                <%= link_to application_products_path do %>
+                <i class="fa fa-desktop"></i> <span class="nav-label">Application Products</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/home/minor') %>">
+                <%= link_to application_processes_path do %>
+                <i class="fa fa-desktop"></i> <span class="nav-label">Application Processes</span>
+                <% end %>
+            </li>
         </ul>
 
     </div>

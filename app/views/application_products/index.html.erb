@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Application Products</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Application item ids</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Quantity available</th>
+      <th>Units of measure</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="application_products">
+    <% @application_products.each do |application_product| %>
+      <%= render "application_product", :application_product => application_product %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div id="div_application_products_form">
+  <%= simple_form_for(@application_product, remote: true, html: { id: 'application_product_form' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :quantity_available %>
+      <%= f.input :units_of_measure %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_application_product_submit_button' %>
+    </div>
+  <% end %>
+</div>
+
+
+<br>
+
+<%= link_to 'New Application product', new_application_product_path, remote: true, id: "new_application_product_link" %>

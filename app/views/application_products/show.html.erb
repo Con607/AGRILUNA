@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application item ids:</strong>
+  <%= @application_product.application_item_ids %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @application_product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @application_product.description %>
+</p>
+
+<p>
+  <strong>Quantity available:</strong>
+  <%= @application_product.quantity_available %>
+</p>
+
+<p>
+  <strong>Units of measure:</strong>
+  <%= @application_product.units_of_measure %>
+</p>
+
+<%= link_to 'Edit', edit_application_product_path(@application_product) %> |
+<%= link_to 'Back', application_products_path %>

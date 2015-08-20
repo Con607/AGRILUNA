@@ -1,0 +1,7 @@
+	  
+	  <tr id="application_process_<%= application_process.id %>">
+        <td><%= application_process.name %></td>
+        <td><%= application_process.description %></td>
+        <td><%= link_to 'Show', application_process %></td>
+        <td><%= link_to 'Destroy', application_process, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
