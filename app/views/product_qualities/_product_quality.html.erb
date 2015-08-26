@@ -1,0 +1,9 @@
+	  <tr id="product_quality_<%= product_quality.id %>">
+        <td><%= product_quality.name %></td>
+        <td><%= product_quality.description %></td>
+        <td><%= product_quality.selection_item_ids %></td>
+        <td><%= product_quality.sale_item_ids %></td>
+        <td><%= product_quality.product_id %></td>
+        <td><%= link_to 'Show', product_quality %></td>
+        <td><%= link_to 'Destroy', product_quality, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

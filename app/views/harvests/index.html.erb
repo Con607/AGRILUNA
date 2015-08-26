@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Harvests</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Event date</th>
+      <th>Greenhouse</th>
+      <th>Product</th>
+      <th>Product variety</th>
+      <th>Product presentation</th>
+      <th>Product quantity</th>
+      <th>Total harvested</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="harvests">
+    <% @harvests.each do |harvest| %>
+      <%= render "harvest", :harvest => harvest %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Harvest', new_harvest_path, remote: true, id: 'new_harvest_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_harvest_form">
+  <%= simple_form_for(@harvest, remote: true, html: { id: 'new_harvest_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :event_date %>
+      <%= f.association :greenhouse %>
+      <%= f.association :product %>
+      <%= f.association :product_variety %>
+      <%= f.association :product_presentation %>
+      <%= f.input :product_quantity %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_harvest_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

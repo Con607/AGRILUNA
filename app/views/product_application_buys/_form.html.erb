@@ -1,0 +1,18 @@
+<%= simple_form_for(@product_application_buy) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :greenhouse %>
+    <%= f.input :buy_date %>
+    <%= f.association :application_product %>
+    <%= f.association :unit_type %>
+    <%= f.input :quanity %>
+    <%= f.association :unit_type %>
+    <%= f.input :total_cost %>
+    <%= f.association :supplier %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

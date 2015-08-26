@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sales</h1>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Event date</th>
+      <th>Poduct</th>
+      <th>Product variety</th>
+      <th>Product presentation</th> 
+      <th>Sales</th>
+      <th>Total price</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="sales">
+    <% @sales.each do |sale| %>
+      <%= render "sale", :sale => sale %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+<br>
+<br>
+  <strong>Total sold:  <%= number_to_currency(@sales.sum(:total_price), precision: 2) %></strong>
+</div>
+
+<div class="col-md-8">
+<br>
+<br>
+<br>
+  <%= link_to 'New Sale', new_sale_path, remote: true, id: 'new_sale_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_sale_form">
+  <%= simple_form_for(@sale, remote: true, html: { id: 'new_sale_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :event_date %>
+      <%= f.association :product %>
+      <%= f.association :product_variety %>
+      <%= f.association :product_presentation %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_sale_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

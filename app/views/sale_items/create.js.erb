@@ -1,0 +1,6 @@
+//alert('I was called');
+$('div#sale_total_price').fadeOut();
+$('div#sale_total_price').text("<%= number_with_precision(@sale_item.sale.total_price, precision: 2, delimiter: ',') %>").effect("highlight", {color: '#00DCB7'}, 2000);
+$("<%= escape_javascript(render @sale_item) %>").appendTo("#sale_items").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#new_sale_item_form')[0].reset();
+

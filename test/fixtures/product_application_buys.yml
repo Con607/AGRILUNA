@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  greenhouse_id: 1
+  buy_date: 2015-08-21
+  application_product_id: 1
+  unit: MyString
+  quanity: 1
+  unit_cost: 1.5
+  total_cost: 1.5
+  supplier_id: 1
+
+two:
+  greenhouse_id: 1
+  buy_date: 2015-08-21
+  application_product_id: 1
+  unit: MyString
+  quanity: 1
+  unit_cost: 1.5
+  total_cost: 1.5
+  supplier_id: 1

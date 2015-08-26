@@ -1,0 +1,11 @@
+	  <tr id="harvest_<%= harvest.id %>">
+        <td><%= harvest.event_date %></td>
+        <td><%= harvest.greenhouse.name %></td>
+        <td><%= harvest.product.name %></td>
+        <td><%= harvest.product_variety.name %></td>
+        <td><%= harvest.product_presentation.name %></td>
+        <td><%= harvest.product_quantity %></td>
+        <td><%= harvest.total_harvested %></td>
+        <td><%= link_to 'Show', harvest %></td>
+        <td><%= link_to 'Destroy', harvest, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

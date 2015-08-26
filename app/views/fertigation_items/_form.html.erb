@@ -1,0 +1,15 @@
+<%= simple_form_for(@fertigation_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :application_product %>
+    <%= f.input :unit_measure %>
+    <%= f.input :fertilizer_quantity %>
+    <%= f.input :h20_quantity %>
+    <%= f.input :injection_rate %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

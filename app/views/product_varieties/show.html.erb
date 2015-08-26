@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product_variety.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product_variety.description %>
+</p>
+
+<p>
+  <strong>Harvest ids:</strong>
+  <%= @product_variety.harvest_ids %>
+</p>
+
+<p>
+  <strong>Selection ids:</strong>
+  <%= @product_variety.selection_ids %>
+</p>
+
+<p>
+  <strong>Sale ids:</strong>
+  <%= @product_variety.sale_ids %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_variety.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_variety_path(@product_variety) %> |
+<%= link_to 'Back', product_varieties_path %>

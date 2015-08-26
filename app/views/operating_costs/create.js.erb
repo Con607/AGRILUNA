@@ -1,0 +1,5 @@
+//alert('I was called');
+$('div#operating_cost_total').fadeOut();
+$('div#operating_cost_total').text("<%= number_to_currency(@operating_cost.greenhouse.operating_costs.sum(:total), precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);
+$("<%= escape_javascript(render @operating_cost) %>").appendTo("#operating_costs").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#new_operating_cost_form')[0].reset();

@@ -1,0 +1,10 @@
+	  <tr id="unit_type_<% unit_type.id %>">
+        <td><%= unit_type.name %></td>
+        <td><%= unit_type.abbreviation %></td>
+        <td><%= unit_type.value %></td>
+        <td><%= unit_type.metric_system %></td>
+        <td><%= unit_type.measure_type %></td>
+        <td><%= unit_type.base %></td>
+        <td><%= link_to 'Show', unit_type %></td>
+        <td><%= link_to 'Destroy', unit_type, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

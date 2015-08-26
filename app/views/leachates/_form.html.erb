@@ -1,0 +1,20 @@
+<%= simple_form_for(@leachate) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :event_date %>
+    <%= f.input :greenhouse_id %>
+    <%= f.input :ddt %>
+    <%= f.input :ph_nutritive_solution %>
+    <%= f.input :ce_nutritive_solution %>
+    <%= f.input :dropper_spending %>
+    <%= f.input :ph_leachate %>
+    <%= f.input :ce_leachate %>
+    <%= f.input :irrigations %>
+    <%= f.input :phenological_stage_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

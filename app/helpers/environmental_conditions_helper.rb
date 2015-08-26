@@ -1,0 +1,2 @@
+module EnvironmentalConditionsHelper
+end

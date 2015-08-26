@@ -1,0 +1,14 @@
+	  <tr id="leachate_<%= leachate.id %>">
+        <td><%= leachate.event_date %></td>
+        <td><%= leachate.greenhouse.name unless leachate.greenhouse.nil? %></td>
+        <td><%= leachate.ddt %></td>
+        <td><%= leachate.ph_nutritive_solution %></td>
+        <td><%= leachate.ce_nutritive_solution %></td>
+        <td><%= leachate.dropper_spending %></td>
+        <td><%= leachate.ph_leachate %></td>
+        <td><%= leachate.ce_leachate %></td>
+        <td><%= leachate.irrigations %></td>
+        <td><%= leachate.phenological_stage.name unless leachate.phenological_stage.nil? %></td>
+        <td><%= link_to 'Show', leachate %></td>
+        <td><%= link_to 'Destroy', leachate, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

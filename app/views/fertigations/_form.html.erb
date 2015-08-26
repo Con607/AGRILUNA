@@ -1,0 +1,14 @@
+<%= simple_form_for(@fertigation) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :greenhouse %>
+    <%= f.input :fertigation_datetime %>
+    <%= f.input :tank %>
+    <%= f.association :fertigation_items %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

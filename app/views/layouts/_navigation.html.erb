@@ -23,50 +23,66 @@
                 <i class="fa fa-desktop"></i> <span class="nav-label">Greenhouses</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to employees_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Employees</span>
-                <% end %>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><%= link_to 'Applications', applications_path %></li>
+                    <li><%= link_to 'Fertigations', fertigations_path %></li>
+                    <li><%= link_to 'Leachates', leachates_path %></li>
+                    <li><%= link_to 'Environmental Conditions', environmental_conditions_path %></li>
+                    <li><%= link_to 'Harvests', harvests_path %></li>
+                    <li><%= link_to 'Selections', selections_path %></li>
+                    <li><%= link_to 'Sales', sales_path %></li>
+                </ul>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to job_positions_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Job Positions</span>
-                <% end %>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Manpower</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><%= link_to 'Assistances', assistances_path %></li>
+                    <li><%= link_to 'Pay Rolls', pay_rolls_path %></li>
+                </ul>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to assistances_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Asistances</span>
-                <% end %>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Expenses</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><%= link_to 'Operating Costs', operating_costs_path %></li>
+                    <li><%= link_to 'Administration Costs', administration_costs_path %></li>
+                    <li><%= link_to 'Product Application Buys', product_application_buys_path %></li>
+                </ul>
             </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to pay_rolls_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Pay Rolls</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to pay_roll_items_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Pay Roll Items</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to applications_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Applications</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to application_items_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Application Items</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to application_products_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Application Products</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to application_processes_path do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Application Processes</span>
-                <% end %>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Catalogs</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Applications<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li><%= link_to 'Application Products', application_products_path %></li>
+                            <li><%= link_to 'Application Processes', application_processes_path %></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Products<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li><%= link_to 'Products', products_path %></li>
+                            <li><%= link_to 'Product Presentations', product_presentations_path %></li>
+                            <li><%= link_to 'Product Qualities', product_qualities_path %></li>
+                            <li><%= link_to 'Product Varieties', product_varieties_path %></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Manpower<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li><%= link_to 'Employees', employees_path %></li>
+                            <li><%= link_to 'Job Positions', job_positions_path %></li>
+                        </ul>
+                    </li>
+                    <li><%= link_to 'Unit Types', unit_types_path %></li>
+                    <li><%= link_to 'Phenological Stages', phenological_stages_path %></li>
+                    <li><%= link_to 'Environments', environments_path %></li>
+                    <li><%= link_to 'Weathers', weathers_path %></li>
+                    <li><%= link_to 'Suppliers', suppliers_path %></li>
+                    <li></li>
+                </ul>
             </li>
         </ul>
 

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fertigation_id: 1
+  application_product_id: 1
+  unit_measure: MyString
+  fertilizer_quantity: 1.5
+  h20_quantity: 1.5
+  concentration: 1.5
+  injection_rate: 1.5
+  fertilizer_cost_per_unit: 1.5
+  cost: 1.5
+
+two:
+  fertigation_id: 1
+  application_product_id: 1
+  unit_measure: MyString
+  fertilizer_quantity: 1.5
+  h20_quantity: 1.5
+  concentration: 1.5
+  injection_rate: 1.5
+  fertilizer_cost_per_unit: 1.5
+  cost: 1.5

@@ -1,0 +1,10 @@
+	  <tr id="product_variety_<%= product_variety.id %>">
+        <td><%= product_variety.name %></td>
+        <td><%= product_variety.description %></td>
+        <td><%= product_variety.harvest_ids %></td>
+        <td><%= product_variety.selection_ids %></td>
+        <td><%= product_variety.sale_ids %></td>
+        <td><%= product_variety.product_id %></td>
+        <td><%= link_to 'Show', product_variety %></td>
+        <td><%= link_to 'Destroy', product_variety, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

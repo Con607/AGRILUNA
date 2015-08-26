@@ -1,0 +1,51 @@
+<p id="notice"><%%= notice %></p>
+
+<h1><%= plural_table_name.titleize %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%= attribute.human_name %></th>
+<% end -%>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="<%= plural_table_name %>">
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+      <tr id="<%= singular_table_name %>_<%% <%= singular_table_name %>.id %>">
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+        <td><%%= link_to 'Show', <%= singular_table_name %> %></td>
+        <td><%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path, remote: true, id: 'new_<%= singular_table_name %>_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_<%= singular_table_name %>_form">
+  <%%= simple_form_for(@<%= singular_table_name %>, remote: true, html: { id: 'new_<%= singular_table_name %>_from' }) do |f| %>
+    <%%= f.error_notification %>
+
+    <div class="form-inputs">
+    <%- attributes.each do |attribute| -%>
+      <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+    <%- end -%>
+    </div>
+
+    <div class="form-actions">
+      <%%= f.button :submit, id: 'new_<%= singular_table_name %>_submit_button' %>
+    </div>
+  <%% end %>
+
+</div>

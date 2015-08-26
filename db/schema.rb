@@ -11,19 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820061946) do
+ActiveRecord::Schema.define(version: 20150826034940) do
+
+  create_table "administration_costs", force: :cascade do |t|
+    t.integer  "greenhouse_id", limit: 4
+    t.date     "event_date"
+    t.string   "concept",       limit: 255
+    t.string   "display",       limit: 255
+    t.float    "unit_price",    limit: 24
+    t.integer  "quantity",      limit: 4
+    t.float    "total",         limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "application_items", force: :cascade do |t|
     t.integer  "application_id",         limit: 4
     t.integer  "application_product_id", limit: 4
-    t.string   "unit_of_measure",        limit: 255
     t.float    "quantity",               limit: 24
     t.float    "h2o_quantity_liters",    limit: 24
     t.float    "total_product_used",     limit: 24
     t.float    "cost_per_unit",          limit: 24
     t.float    "total_cost",             limit: 24
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "unit_type_id",           limit: 4
   end
 
   create_table "application_processes", force: :cascade do |t|
@@ -35,13 +47,14 @@ ActiveRecord::Schema.define(version: 20150820061946) do
   end
 
   create_table "application_products", force: :cascade do |t|
-    t.integer  "application_item_ids", limit: 4
-    t.string   "name",                 limit: 255
-    t.text     "description",          limit: 65535
-    t.float    "quantity_available",   limit: 24
-    t.string   "units_of_measure",     limit: 255
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "application_item_ids",        limit: 4
+    t.string   "name",                        limit: 255
+    t.text     "description",                 limit: 65535
+    t.float    "quantity_available",          limit: 24
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "application_product_buy_ids", limit: 4
+    t.integer  "unit_type_id",                limit: 4
   end
 
   create_table "applications", force: :cascade do |t|
@@ -77,6 +90,51 @@ ActiveRecord::Schema.define(version: 20150820061946) do
     t.integer  "pay_roll_item_ids",       limit: 4
   end
 
+  create_table "environmental_conditions", force: :cascade do |t|
+    t.date     "event_date"
+    t.integer  "greenhouse_id",    limit: 4
+    t.integer  "environment_id",   limit: 4
+    t.float    "max_temp",         limit: 24
+    t.float    "min_temp",         limit: 24
+    t.float    "max_rel_humidity", limit: 24
+    t.float    "min_rel_humidity", limit: 24
+    t.integer  "weather_id",       limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "environments", force: :cascade do |t|
+    t.string   "name",                        limit: 255
+    t.text     "description",                 limit: 65535
+    t.integer  "environmental_condition_ids", limit: 4
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  create_table "fertigation_items", force: :cascade do |t|
+    t.integer  "fertigation_id",           limit: 4
+    t.integer  "application_product_id",   limit: 4
+    t.string   "unit_measure",             limit: 255
+    t.float    "fertilizer_quantity",      limit: 24
+    t.float    "h20_quantity",             limit: 24
+    t.float    "concentration",            limit: 24
+    t.float    "injection_rate",           limit: 24
+    t.float    "fertilizer_cost_per_unit", limit: 24
+    t.float    "cost",                     limit: 24
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  create_table "fertigations", force: :cascade do |t|
+    t.integer  "greenhouse_id",        limit: 4
+    t.datetime "fertigation_datetime"
+    t.string   "tank",                 limit: 255
+    t.integer  "fertigation_item_ids", limit: 4
+    t.float    "total_cost",           limit: 24
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
   create_table "greenhouse_employees", force: :cascade do |t|
     t.integer  "greenhouse_id", limit: 4
     t.integer  "employee_id",   limit: 4
@@ -85,13 +143,29 @@ ActiveRecord::Schema.define(version: 20150820061946) do
   end
 
   create_table "greenhouses", force: :cascade do |t|
-    t.string   "name",                    limit: 255
-    t.string   "description",             limit: 255
-    t.string   "location",                limit: 255
-    t.integer  "greenhouse_employee_ids", limit: 4
+    t.string   "name",                        limit: 255
+    t.string   "description",                 limit: 255
+    t.string   "location",                    limit: 255
+    t.integer  "greenhouse_employee_ids",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "application_ids",         limit: 4
+    t.integer  "application_ids",             limit: 4
+    t.integer  "operating_cost_ids",          limit: 4
+    t.integer  "administration_cost_ids",     limit: 4
+    t.integer  "application_product_buy_ids", limit: 4
+    t.integer  "leachate_ids",                limit: 4
+  end
+
+  create_table "harvests", force: :cascade do |t|
+    t.date     "event_date"
+    t.integer  "greenhouse_id",           limit: 4
+    t.integer  "product_id",              limit: 4
+    t.integer  "product_variety_id",      limit: 4
+    t.integer  "product_presentation_id", limit: 4
+    t.float    "product_quantity",        limit: 24
+    t.float    "total_harvested",         limit: 24
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "job_positions", force: :cascade do |t|
@@ -100,6 +174,33 @@ ActiveRecord::Schema.define(version: 20150820061946) do
     t.integer  "employee_ids", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "leachates", force: :cascade do |t|
+    t.date     "event_date"
+    t.integer  "greenhouse_id",         limit: 4
+    t.float    "ddt",                   limit: 24
+    t.float    "ph_nutritive_solution", limit: 24
+    t.float    "ce_nutritive_solution", limit: 24
+    t.float    "dropper_spending",      limit: 24
+    t.float    "ph_leachate",           limit: 24
+    t.float    "ce_leachate",           limit: 24
+    t.integer  "irrigations",           limit: 4
+    t.integer  "phenological_stage_id", limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "operating_costs", force: :cascade do |t|
+    t.integer  "greenhouse_id", limit: 4
+    t.date     "event_date"
+    t.string   "concept",       limit: 255
+    t.string   "display",       limit: 255
+    t.float    "unit_price",    limit: 24
+    t.integer  "quantity",      limit: 4
+    t.float    "total",         limit: 24
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "pay_roll_items", force: :cascade do |t|
@@ -125,6 +226,153 @@ ActiveRecord::Schema.define(version: 20150820061946) do
     t.float    "total",             limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "phenological_stages", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "description",  limit: 255
+    t.integer  "leachate_ids", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "product_application_buys", force: :cascade do |t|
+    t.integer  "greenhouse_id",          limit: 4
+    t.date     "buy_date"
+    t.integer  "application_product_id", limit: 4
+    t.integer  "quanity",                limit: 4
+    t.float    "unit_cost",              limit: 24
+    t.float    "total_cost",             limit: 24
+    t.integer  "supplier_id",            limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "unit_type_id",           limit: 4
+  end
+
+  create_table "product_presentations", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "description",   limit: 255
+    t.integer  "harvest_ids",   limit: 4
+    t.integer  "selection_ids", limit: 4
+    t.integer  "sale_ids",      limit: 4
+    t.integer  "product_id",    limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "unit_type_id",  limit: 4
+    t.integer  "quantity",      limit: 4
+  end
+
+  create_table "product_qualities", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.string   "description",        limit: 255
+    t.integer  "selection_item_ids", limit: 4
+    t.integer  "sale_item_ids",      limit: 4
+    t.integer  "product_id",         limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "product_varieties", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "description",   limit: 255
+    t.integer  "harvest_ids",   limit: 4
+    t.integer  "selection_ids", limit: 4
+    t.integer  "sale_ids",      limit: 4
+    t.integer  "product_id",    limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name",                     limit: 255
+    t.text     "description",              limit: 65535
+    t.integer  "product_variety_ids",      limit: 4
+    t.integer  "product_presentation_ids", limit: 4
+    t.integer  "product_quality_ids",      limit: 4
+    t.integer  "harvest_ids",              limit: 4
+    t.integer  "selection_ids",            limit: 4
+    t.integer  "sale_ids",                 limit: 4
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "sale_items", force: :cascade do |t|
+    t.integer  "sale_id",            limit: 4
+    t.integer  "product_quality_id", limit: 4
+    t.integer  "quantity",           limit: 4
+    t.float    "unit_price",         limit: 24
+    t.float    "total_price",        limit: 24
+    t.string   "status",             limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.date     "event_date"
+    t.integer  "product_id",              limit: 4
+    t.integer  "product_variety_id",      limit: 4
+    t.integer  "product_presentation_id", limit: 4
+    t.float    "total_price",             limit: 24
+    t.string   "status",                  limit: 255
+    t.integer  "sale_item_ids",           limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "selection_items", force: :cascade do |t|
+    t.integer  "selection_id",       limit: 4
+    t.integer  "product_quality_id", limit: 4
+    t.float    "quantity",           limit: 24
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.date     "event_date"
+    t.integer  "greenhouse_id",           limit: 4
+    t.integer  "product_id",              limit: 4
+    t.integer  "product_variety_id",      limit: 4
+    t.integer  "product_presentation_id", limit: 4
+    t.float    "total_weight",            limit: 24
+    t.integer  "selection_item_ids",      limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name",                        limit: 255
+    t.text     "description",                 limit: 65535
+    t.string   "telephone",                   limit: 255
+    t.string   "celphone",                    limit: 255
+    t.string   "address",                     limit: 255
+    t.string   "contact_name",                limit: 255
+    t.string   "email",                       limit: 255
+    t.integer  "product_application_buy_ids", limit: 4
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  create_table "unit_types", force: :cascade do |t|
+    t.string   "name",                        limit: 255
+    t.string   "abbreviation",                limit: 255
+    t.float    "value",                       limit: 24
+    t.string   "metric_system",               limit: 255
+    t.boolean  "base"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "product_presentation_ids",    limit: 4
+    t.integer  "application_item_ids",        limit: 4
+    t.integer  "application_product_ids",     limit: 4
+    t.integer  "product_application_buy_ids", limit: 4
+    t.string   "measure_type",                limit: 255
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.string   "name",                        limit: 255
+    t.text     "description",                 limit: 65535
+    t.integer  "environmental_condition_ids", limit: 4
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
 end

@@ -1,0 +1,6 @@
+	  <tr id="selection_item_<%= selection_item.id %>">
+        <td><%= selection_item.product_quality.name %></td>
+        <td><%= selection_item.quantity %></td>
+        <td><%= link_to 'Show', selection_item %></td>
+        <td><%= link_to 'Destroy', selection_item, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

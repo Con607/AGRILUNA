@@ -1,2 +1,4 @@
 //alert('Hola');
+$('div#application_cost').fadeOut();
+$('div#application_cost').text("<%= number_to_currency(@application_item.application.application_cost, precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);
 $('#<%= dom_id(@application_item) %>').effect("highlight", {color: '#00DCB7'}, 800).fadeOut();

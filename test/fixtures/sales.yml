@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_date: 2015-08-22
+  poduct_id: 1
+  product_variety_id: 1
+  product_presentation_id: 1
+  total_price: 1.5
+  status: MyString
+  sale_item_ids: 1
+
+two:
+  event_date: 2015-08-22
+  poduct_id: 1
+  product_variety_id: 1
+  product_presentation_id: 1
+  total_price: 1.5
+  status: MyString
+  sale_item_ids: 1

@@ -1,0 +1,11 @@
+	  <tr id="administration_cost_<%= administration_cost.id %>">
+        <td><%= administration_cost.greenhouse.name %></td>
+        <td><%= administration_cost.event_date %></td>
+        <td><%= administration_cost.concept %></td>
+        <td><%= administration_cost.display %></td>
+        <td><%= administration_cost.unit_price %></td>
+        <td><%= administration_cost.quantity %></td>
+        <td><%= administration_cost.total %></td>
+        <td><%= link_to 'Show', administration_cost %></td>
+        <td><%= link_to 'Destroy', administration_cost, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

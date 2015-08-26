@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @product_application_buy.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Buy date:</strong>
+  <%= @product_application_buy.buy_date %>
+</p>
+
+<p>
+  <strong>Application product:</strong>
+  <%= @product_application_buy.application_product_id %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @product_application_buy.unit_type.name unless @product_application_buy.unit_type.nil? %>
+</p>
+
+<p>
+  <strong>Quanity:</strong>
+  <%= @product_application_buy.quanity %>
+</p>
+
+<p>
+  <strong>Unit cost:</strong>
+  <%= @product_application_buy.unit_cost %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @product_application_buy.total_cost %>
+</p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @product_application_buy.supplier_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_application_buy_path(@product_application_buy) %> |
+<%= link_to 'Back', product_application_buys_path %>

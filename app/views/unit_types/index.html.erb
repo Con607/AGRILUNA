@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Unit Types</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Abbreviation</th>
+      <th>Value</th>
+      <th>Metric system</th>
+      <th>Measure Type</th>
+      <th>Base</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="unit_types">
+    <% @unit_types.each do |unit_type| %>
+      <%= render "unit_type", :unit_type => unit_type %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Unit Type', new_unit_type_path, remote: true, id: 'new_unit_type_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_unit_type_form">
+  <%= simple_form_for(@unit_type, remote: true, html: { id: 'new_unit_type_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :abbreviation %>
+      <%= f.input :value %>
+      <%= f.input :metric_system %>
+      <%= f.input :measure_type, collection: ['Volume', 'Weight', 'Distance', 'Temperature'] %>
+      <%= f.input :base %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_unit_type_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

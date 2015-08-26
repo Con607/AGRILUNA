@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @leachate.event_date %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @leachate.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Ddt:</strong>
+  <%= @leachate.ddt %>
+</p>
+
+<p>
+  <strong>Ph nutritive solution:</strong>
+  <%= @leachate.ph_nutritive_solution %>
+</p>
+
+<p>
+  <strong>Ce nutritive solution:</strong>
+  <%= @leachate.ce_nutritive_solution %>
+</p>
+
+<p>
+  <strong>Dropper spending:</strong>
+  <%= @leachate.dropper_spending %>
+</p>
+
+<p>
+  <strong>Ph leachate:</strong>
+  <%= @leachate.ph_leachate %>
+</p>
+
+<p>
+  <strong>Ce leachate:</strong>
+  <%= @leachate.ce_leachate %>
+</p>
+
+<p>
+  <strong>Irrigations:</strong>
+  <%= @leachate.irrigations %>
+</p>
+
+<p>
+  <strong>Phenological stage:</strong>
+  <%= @leachate.phenological_stage_id %>
+</p>
+
+<%= link_to 'Edit', edit_leachate_path(@leachate) %> |
+<%= link_to 'Back', leachates_path %>

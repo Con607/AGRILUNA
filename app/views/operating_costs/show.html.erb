@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @operating_cost.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @operating_cost.event_date %>
+</p>
+
+<p>
+  <strong>Concept:</strong>
+  <%= @operating_cost.concept %>
+</p>
+
+<p>
+  <strong>Display:</strong>
+  <%= @operating_cost.display %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @operating_cost.unit_price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @operating_cost.quantity %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @operating_cost.total %>
+</p>
+
+<%= link_to 'Edit', edit_operating_cost_path(@operating_cost) %> |
+<%= link_to 'Back', operating_costs_path %>

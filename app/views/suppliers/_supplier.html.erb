@@ -1,0 +1,12 @@
+      <tr id="supplier_<%= supplier.id %>">
+        <td><%= supplier.name %></td>
+        <td><%= supplier.description %></td>
+        <td><%= supplier.telephone %></td>
+        <td><%= supplier.celphone %></td>
+        <td><%= supplier.address %></td>
+        <td><%= supplier.contact_name %></td>
+        <td><%= supplier.email %></td>
+        <td><%= supplier.product_application_buy_ids %></td>
+        <td><%= link_to 'Show', supplier %></td>
+        <td><%= link_to 'Destroy', supplier, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

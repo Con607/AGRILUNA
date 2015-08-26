@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Application item ids:</strong>
-  <%= @application_product.application_item_ids %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @application_product.name %>
 </p>
@@ -22,7 +17,7 @@
 
 <p>
   <strong>Units of measure:</strong>
-  <%= @application_product.units_of_measure %>
+  <%= @application_product.unit_type.name unless @application_product.unit_type.nil? %>
 </p>
 
 <%= link_to 'Edit', edit_application_product_path(@application_product) %> |

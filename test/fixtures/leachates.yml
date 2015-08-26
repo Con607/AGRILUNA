@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_date: 2015-08-22
+  greenhouse_id: 1
+  ddt: 1.5
+  ph_nutritive_solution: 1.5
+  ce_nutritive_solution: 1.5
+  dropper_spending: 1.5
+  ph_leachate: 1.5
+  ce_leachate: 1.5
+  irrigations: 1
+  phenological_stage_id: 1
+
+two:
+  event_date: 2015-08-22
+  greenhouse_id: 1
+  ddt: 1.5
+  ph_nutritive_solution: 1.5
+  ce_nutritive_solution: 1.5
+  dropper_spending: 1.5
+  ph_leachate: 1.5
+  ce_leachate: 1.5
+  irrigations: 1
+  phenological_stage_id: 1

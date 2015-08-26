@@ -22,7 +22,7 @@
       <tr>
         <td><%= application_item.application_id %></td>
         <td><%= application_item.application_product_id %></td>
-        <td><%= application_item.unit_of_measure %></td>
+        <td><%= application_item.unit_type.name unless application_item.unit_type.nil? %></td>
         <td><%= application_item.quantity %></td>
         <td><%= application_item.h2o_quantity_liters %></td>
         <td><%= application_item.total_product_used %></td>

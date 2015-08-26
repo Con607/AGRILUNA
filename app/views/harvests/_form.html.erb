@@ -1,0 +1,17 @@
+<%= simple_form_for(@harvest) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :event_date %>
+    <%= f.input :greenhouse_id %>
+    <%= f.input :product_id %>
+    <%= f.input :product_variety_id %>
+    <%= f.input :product_presentation_id %>
+    <%= f.input :product_quantity %>
+    <%= f.input :total_harvested %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

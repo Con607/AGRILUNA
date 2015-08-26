@@ -1,0 +1,4 @@
+//alert('Hola');
+$('#<%= dom_id(@operating_cost) %>').effect("highlight", {color: '#00DCB7'}, 800).fadeOut();
+$('div#operating_cost_total').fadeOut();
+$('div#operating_cost_total').text("<%= number_to_currency(@operating_cost.greenhouse.operating_costs.sum(:total), precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);

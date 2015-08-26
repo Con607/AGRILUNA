@@ -16,7 +16,8 @@
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/effect-highlight
+//= require jquery-ui/datepicker
 //= require_tree .
 
 

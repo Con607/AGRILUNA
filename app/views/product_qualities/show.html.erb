@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product_quality.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product_quality.description %>
+</p>
+
+<p>
+  <strong>Selection item ids:</strong>
+  <%= @product_quality.selection_item_ids %>
+</p>
+
+<p>
+  <strong>Sale item ids:</strong>
+  <%= @product_quality.sale_item_ids %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_quality.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_product_quality_path(@product_quality) %> |
+<%= link_to 'Back', product_qualities_path %>

@@ -1,0 +1,12 @@
+	  <tr id="environmental_condition_<%= environmental_condition.id %>">
+        <td><%= environmental_condition.event_date %></td>
+        <td><%= environmental_condition.greenhouse.name %></td>
+        <td><%= environmental_condition.environment.name %></td>
+        <td><%= environmental_condition.max_temp %></td>
+        <td><%= environmental_condition.min_temp %></td>
+        <td><%= environmental_condition.max_rel_humidity %></td>
+        <td><%= environmental_condition.min_rel_humidity %></td>
+        <td><%= environmental_condition.weather.name %></td>
+        <td><%= link_to 'Show', environmental_condition %></td>
+        <td><%= link_to 'Destroy', environmental_condition, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

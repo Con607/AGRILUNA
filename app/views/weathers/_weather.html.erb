@@ -1,0 +1,6 @@
+	  <tr id="weather_<%= weather.id %>">
+        <td><%= weather.name %></td>
+        <td><%= weather.description %></td>
+        <td><%= link_to 'Show', weather %></td>
+        <td><%= link_to 'Destroy', weather, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

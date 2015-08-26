@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @harvest.event_date %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @harvest.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @harvest.product_id %>
+</p>
+
+<p>
+  <strong>Product variety:</strong>
+  <%= @harvest.product_variety_id %>
+</p>
+
+<p>
+  <strong>Product presentation:</strong>
+  <%= @harvest.product_presentation_id %>
+</p>
+
+<p>
+  <strong>Product quantity:</strong>
+  <%= @harvest.product_quantity %>
+</p>
+
+<p>
+  <strong>Total harvested:</strong>
+  <%= @harvest.total_harvested %>
+</p>
+
+<%= link_to 'Edit', edit_harvest_path(@harvest) %> |
+<%= link_to 'Back', harvests_path %>

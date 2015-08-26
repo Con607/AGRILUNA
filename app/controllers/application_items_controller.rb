@@ -1,5 +1,6 @@
 class ApplicationItemsController < ApplicationController
   before_action :set_application_item, only: [:show, :edit, :update, :destroy]
+  before_action :get_application_before_destroy, only: [:destroy]
   #after_action :update_application_and_costs, only: [:create, :update]
 
   # GET /application_items
@@ -69,6 +70,7 @@ class ApplicationItemsController < ApplicationController
   # DELETE /application_items/1.json
   def destroy
     @application_item.destroy
+    update_application_on_destroy
     respond_to do |format|
       format.js
       format.html { redirect_to application_items_url }
@@ -84,16 +86,29 @@ class ApplicationItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_item_params
-      params.require(:application_item).permit(:application_id, :application_product_id, :unit_of_measure, :quantity, :h2o_quantity_liters, :total_product_used, :cost_per_unit, :total_cost)
+      params.require(:application_item).permit(:application_id, :application_product_id, :unit_type_id, 
+                                          :quantity, :h2o_quantity_liters, :total_product_used, :cost_per_unit, 
+                                          :total_cost)
     end
 
     def update_application_and_costs
-      @application_item.total_product_used = @application_item.quantity * @application_item.h2o_quantity_liters
+      quantity = @application_item.quantity
+      h2o = @application_item.h2o_quantity_liters
+      @application_item.total_product_used = quantity * h2o # units/Liter
       @application_item.save
       @application_item.total_cost = @application_item.cost_per_unit * @application_item.total_product_used
       @application_item.save
       application = @application_item.application
       application.application_cost = application.application_items.sum(:total_cost)
       application.save
+    end
+
+    def get_application_before_destroy
+      @application = @application_item.application
+    end
+
+    def update_application_on_destroy
+      @application.application_cost = @application.application_items.sum(:total_cost)
+      @application.save
     end
 end

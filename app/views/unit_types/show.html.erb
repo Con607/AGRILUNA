@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unit_type.name %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @unit_type.abbreviation %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @unit_type.value %>
+</p>
+
+<p>
+  <strong>Metric system:</strong>
+  <%= @unit_type.metric_system %>
+</p>
+
+<p>
+  <strong>Measure type:</strong>
+  <%= @unit_type.measure_type %>
+</p>
+
+<p>
+  <strong>Base:</strong>
+  <%= @unit_type.base %>
+</p>
+
+<p>
+  <strong>Under base:</strong>
+  <%= @unit_type.under_base %>
+</p>
+
+<p>
+  <strong>Over base:</strong>
+  <%= @unit_type.over_base %>
+</p>
+
+<%= link_to 'Edit', edit_unit_type_path(@unit_type) %> |
+<%= link_to 'Back', unit_types_path %>

@@ -1,0 +1,1 @@
+json.extract! @leachate, :id, :event_date, :greenhouse_id, :ddt, :ph_nutritive_solution, :ce_nutritive_solution, :dropper_spending, :ph_leachate, :ce_leachate, :irrigations, :phenological_stage_id, :created_at, :updated_at

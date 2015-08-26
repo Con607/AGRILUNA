@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @environment.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @environment.description %>
+</p>
+
+<p>
+  <strong>Environmental condition ids:</strong>
+  <%= @environment.environmental_condition_ids %>
+</p>
+
+<%= link_to 'Edit', edit_environment_path(@environment) %> |
+<%= link_to 'Back', environments_path %>

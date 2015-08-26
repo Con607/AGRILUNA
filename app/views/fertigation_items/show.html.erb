@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fertigation:</strong>
+  <%= @fertigation_item.fertigation_id %>
+</p>
+
+<p>
+  <strong>Application product:</strong>
+  <%= @fertigation_item.application_product_id %>
+</p>
+
+<p>
+  <strong>Unit measure:</strong>
+  <%= @fertigation_item.unit_measure %>
+</p>
+
+<p>
+  <strong>Fertilizer quantity:</strong>
+  <%= @fertigation_item.fertilizer_quantity %>
+</p>
+
+<p>
+  <strong>H20 quantity:</strong>
+  <%= @fertigation_item.h20_quantity %>
+</p>
+
+<p>
+  <strong>Concentration:</strong>
+  <%= @fertigation_item.concentration %>
+</p>
+
+<p>
+  <strong>Injection rate:</strong>
+  <%= @fertigation_item.injection_rate %>
+</p>
+
+<p>
+  <strong>Fertilizer cost per unit:</strong>
+  <%= @fertigation_item.fertilizer_cost_per_unit %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @fertigation_item.cost %>
+</p>
+
+<%= link_to 'Edit', edit_fertigation_item_path(@fertigation_item) %> |
+<%= link_to 'Back', fertigation_items_path %>

@@ -1,0 +1,16 @@
+<%= simple_form_for(@product_variety) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :harvest_ids %>
+    <%= f.input :selection_ids %>
+    <%= f.input :sale_ids %>
+    <%= f.input :product_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

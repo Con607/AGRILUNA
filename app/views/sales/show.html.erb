@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-8">
+  <div class="col-md-4">
+    <strong>Event date:</strong>
+    <%= @sale.event_date %>
+  </div>
+
+  <div class="col-md-4">
+    <strong>Poduct:</strong>
+    <%= @sale.product.name %>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="col-md-4">
+    <strong>Product variety:</strong>
+    <%= @sale.product_variety.name %>
+  </div>
+
+  <div class="col-md-4">
+    <strong>Product presentation:</strong>
+    <%= @sale.product_presentation.name %>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="col-md-4">
+    <strong>Status:</strong>
+    <%= @sale.status %>
+  </div>
+</div>
+
+<div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Product quality</th>
+          <th>Quantity</th>
+          <th>Unit price</th>
+          <th>Total price</th>
+          <th>Status</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody id="sale_items"  data-turbolinks-temporary>
+        <% @sale_items.each do |sale_item| %>
+          <%= render "sale_item", :sale_item => sale_item %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <div class="col-md-8">
+      <%= link_to 'New Sale Item', new_sale_item_path, remote: true, id: 'new_sale_item_link' %>
+    </div>
+
+
+    <br>
+    <div class="col-md-5" id="div_new_sale_item_form">
+      <%= simple_form_for(@sale_item, remote: true, html: { id: 'new_sale_item_from' }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.association :sale, :as => :hidden, input_html: { value: @sale.id } %>
+          <%= f.association :product_quality %>
+          <%= f.input :quantity %>
+          <%= f.input :unit_price %>
+          <%= f.input :status, collection: ["Payed", "Credit"] %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, id: 'new_sale_item_submit_button' %>
+        </div>
+      <% end %>
+
+    </div>
+</div>
+
+<div class="col-md-8">
+  <div class="col-md-4">
+    <strong>Total price:</strong>
+    <div id="sale_total_price"><%= @sale.total_price %></div>
+  </div>
+</div>
+
+
+
+<div class="col-md-8">
+  <%= link_to 'Edit', edit_sale_path(@sale) %> |
+  <%= link_to 'Back', sales_path %>
+</div>

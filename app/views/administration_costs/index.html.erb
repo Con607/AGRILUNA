@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Administration Costs</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Greenhouse</th>
+      <th>Event date</th>
+      <th>Concept</th>
+      <th>Display</th>
+      <th>Unit price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="administration_costs">
+    <% @administration_costs.each do |administration_cost| %>
+      <%= render "administration_cost", :administration_cost => administration_cost %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<div class="col-md-8">
+  <br>
+  <strong>Total:</strong>
+  <div id="administration_cost_total"><%= @administration_costs.sum(:total) %></div>
+</div>
+
+<br>
+<br>
+<div class="col-md-8">
+  <%= link_to 'New Administration cost', new_administration_cost_path, remote: true, id: 'new_administration_cost_link' %>
+</div>
+
+<br>
+<div class="col-md-5" id="div_new_<%= singular_table_name %>_form">
+  <%= simple_form_for(@administration_cost, remote: true, html: { id: 'new_administration_cost_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :greenhouse %>
+      <%= f.input :event_date %>
+      <%= f.input :concept %>
+      <%= f.input :display %>
+      <%= f.input :unit_price %>
+      <%= f.input :quantity %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_administration_cost_submit_button' %>
+    </div>
+  <% end %>
+</div>
+

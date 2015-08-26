@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Weathers</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th
+      <th>Environmental condition ids</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="weathers">
+    <% @weathers.each do |weather| %>
+      <%= render "weather", :weather => weather %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Weather', new_weather_path, remote: true, id: 'new_weather_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_weather_form">
+  <%= simple_form_for(@weather, remote: true, html: { id: 'new_weather_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_weather_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

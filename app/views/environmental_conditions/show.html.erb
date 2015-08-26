@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @environmental_condition.event_date %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @environmental_condition.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Environment:</strong>
+  <%= @environmental_condition.environment_id %>
+</p>
+
+<p>
+  <strong>Max temp:</strong>
+  <%= @environmental_condition.max_temp %>
+</p>
+
+<p>
+  <strong>Min temp:</strong>
+  <%= @environmental_condition.min_temp %>
+</p>
+
+<p>
+  <strong>Max rel humidity:</strong>
+  <%= @environmental_condition.max_rel_humidity %>
+</p>
+
+<p>
+  <strong>Min rel humidity:</strong>
+  <%= @environmental_condition.min_rel_humidity %>
+</p>
+
+<p>
+  <strong>Weather:</strong>
+  <%= @environmental_condition.weather_id %>
+</p>
+
+<%= link_to 'Edit', edit_environmental_condition_path(@environmental_condition) %> |
+<%= link_to 'Back', environmental_conditions_path %>

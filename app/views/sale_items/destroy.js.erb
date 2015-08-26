@@ -1,0 +1,4 @@
+//alert('Hola');
+$('#<%= dom_id(@sale_item) %>').effect("highlight", {color: '#00DCB7'}, 800).fadeOut();
+$('div#sale_total_price').fadeOut();
+$('div#sale_total_price').text("<%= number_with_precision(@sale_item.sale.total_price, precision: 2, delimiter: ',') %>").effect("highlight", {color: '#00DCB7'}, 2000);

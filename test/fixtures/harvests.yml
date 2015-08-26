@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_date: 2015-08-22
+  greenhouse_id: 1
+  product_id: 1
+  product_variety_id: 1
+  product_presentation_id: 1
+  product_quantity: 1.5
+  total_harvested: 1.5
+
+two:
+  event_date: 2015-08-22
+  greenhouse_id: 1
+  product_id: 1
+  product_variety_id: 1
+  product_presentation_id: 1
+  product_quantity: 1.5
+  total_harvested: 1.5

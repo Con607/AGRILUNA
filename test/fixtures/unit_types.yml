@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  abbreviation: MyString
+  value: 1.5
+  metric_system: MyString
+  base: false
+
+two:
+  name: MyString
+  abbreviation: MyString
+  value: 1.5
+  metric_system: MyString
+  base: false

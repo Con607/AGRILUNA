@@ -1,0 +1,12 @@
+      <tr id="product_application_buy_<%= product_application_buy.id %>">
+        <td><%= product_application_buy.greenhouse.name unless product_application_buy.greenhouse.nil? %></td>
+        <td><%= product_application_buy.buy_date %></td>
+        <td><%= product_application_buy.application_product.name unless product_application_buy.application_product.nil? %></td>
+        <td><%= product_application_buy.unit_type.name unless product_application_buy.unit_type.nil? %></td>
+        <td><%= product_application_buy.unit_cost %></td>
+        <td><%= product_application_buy.quanity %></td>
+        <td><%= product_application_buy.total_cost %></td>
+        <td><%= product_application_buy.supplier.name unless product_application_buy.supplier.nil? %></td>
+        <td><%= link_to 'Show', product_application_buy %></td>
+        <td><%= link_to 'Destroy', product_application_buy, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

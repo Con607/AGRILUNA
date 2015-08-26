@@ -1,0 +1,11 @@
+      <tr id="fertigation_item_<%= fertigation_item.id %>">
+        <td><%= fertigation_item.application_product.name %></td>
+        <td><%= fertigation_item.unit_measure %></td>
+        <td><%= fertigation_item.fertilizer_quantity %></td>
+        <td><%= fertigation_item.h20_quantity %></td>
+        <td><%= fertigation_item.concentration %></td>
+        <td><%= fertigation_item.injection_rate %></td>
+        <td><%= fertigation_item.fertilizer_cost_per_unit %></td>
+        <td><%= fertigation_item.cost %></td>
+        <td><%= link_to 'Destroy', fertigation_item, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

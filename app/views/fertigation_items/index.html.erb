@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Fertigation Items</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Fertigation</th>
+      <th>Application product</th>
+      <th>Unit measure</th>
+      <th>Fertilizer quantity</th>
+      <th>H20 quantity</th>
+      <th>Concentration</th>
+      <th>Injection rate</th>
+      <th>Fertilizer cost per unit</th>
+      <th>Cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="fertigation_items">
+    <% @fertigation_items.each do |fertigation_item| %>
+      <%= render 'fertigation_item', :fertigation_item => fertigation_item %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fertigation item', new_fertigation_item_path, remote:true, id: 'new_fertigation_item_link' %>
+
+<div class="col-md-8" id="div_new_fertigation_item_form">
+  <%= simple_form_for(@fertigation_item, remote: true, html: { id: 'new_fertigation_item_link' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :application_product %>
+      <%= f.input :unit_measure %>
+      <%= f.input :fertilizer_quantity %>
+      <%= f.input :h20_quantity %>
+      <%= f.input :injection_rate %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_fertigation_item_submit_button' %>
+    </div>
+  <% end %>
+</div>

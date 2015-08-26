@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @phenological_stage.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @phenological_stage.description %>
+</p>
+
+<p>
+  <strong>Leachate ids:</strong>
+  <%= @phenological_stage.leachate_ids %>
+</p>
+
+<%= link_to 'Edit', edit_phenological_stage_path(@phenological_stage) %> |
+<%= link_to 'Back', phenological_stages_path %>

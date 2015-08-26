@@ -1,0 +1,13 @@
+	  <tr id="fertigation_<%= fertigation.id %>">
+        <td><%= fertigation.greenhouse.name %></td>
+        <td><%= fertigation.fertigation_datetime %></td>
+        <td><%= fertigation.tank %></td>
+        <td>
+        	<% fertigation.fertigation_items.each do |fertigation_item| %>
+        		<%= fertigation_item.application_product.name %>
+        	<% end %>
+        </td>
+        <td><%= fertigation.total_cost %></td>
+        <td><%= link_to 'Show', fertigation %></td>
+        <td><%= link_to 'Destroy', fertigation, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

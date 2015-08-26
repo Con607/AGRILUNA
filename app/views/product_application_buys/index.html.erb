@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Product Application Buys</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Greenhouse</th>
+      <th>Buy date</th>
+      <th>Application product</th>
+      <th>Unit type</th>
+       <th>Unit cost</th>
+      <th>Quanity</th>
+      <th>Unit type</th>
+      <th>Total cost</th>
+      <th>Supplier</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="product_application_buys">
+    <% @product_application_buys.each do |product_application_buy| %>
+      <%= render "product_application_buy", :product_application_buy => product_application_buy %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Product Application Buy', new_product_application_buy_path, remote: true, id: 'new_product_application_buy_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_product_application_buy_form">
+  <%= simple_form_for(@product_application_buy, remote: true, html: { id: 'new_product_application_buy_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :greenhouse %>
+      <%= f.input :buy_date %>
+      <%= f.association :application_product, :label_method => lambda { |item| "#{item.name} (#{item.unit_type.abbreviation})".html_safe },
+                                              value_method: :id %>
+      <%= f.input :quanity %>
+      <%= f.association :unit_type %>
+      <%= f.input :total_cost %>
+      <%= f.association :supplier %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_product_application_buy_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

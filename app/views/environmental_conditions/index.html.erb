@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Environmental Conditions</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Event date</th>
+      <th>Greenhouse</th>
+      <th>Environment</th>
+      <th>Max temp</th>
+      <th>Min temp</th>
+      <th>Max rel humidity</th>
+      <th>Min rel humidity</th>
+      <th>Weather</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="environmental_conditions">
+    <% @environmental_conditions.each do |environmental_condition| %>
+      <%= render "environmental_condition", :environmental_condition => environmental_condition %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Environmental Condition', new_environmental_condition_path, remote: true, id: 'new_environmental_condition_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_environmental_condition_form">
+  <%= simple_form_for(@environmental_condition, remote: true, html: { id: 'new_environmental_condition_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :event_date %>
+      <%= f.association :greenhouse %>
+      <%= f.association :environment %>
+      <%= f.input :max_temp %>
+      <%= f.input :min_temp %>
+      <%= f.input :max_rel_humidity %>
+      <%= f.input :min_rel_humidity %>
+      <%= f.association :weather %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_environmental_condition_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

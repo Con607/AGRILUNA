@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Selection Items</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Product quality</th>
+      <th>Quantity</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="selection_items">
+    <% @selection_items.each do |selection_item| %>
+      <%= render "selection_item", :selection_item => selection_item %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Selection Item', new_selection_item_path, remote: true, id: 'new_selection_item_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_selection_item_form">
+  <%= simple_form_for(@selection_item, remote: true, html: { id: 'new_selection_item_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :product_quality %>
+      <%= f.input :quantity %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_selection_item_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

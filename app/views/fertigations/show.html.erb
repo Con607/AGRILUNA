@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-8">
+  <div class="col-md-4">
+    <strong>Greenhouse:</strong>
+    <%= @fertigation.greenhouse.name %>
+  </div>
+
+  <div class="col-md-4">
+    <strong>Fertigation datetime:</strong>
+    <%= @fertigation.fertigation_datetime %>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="col-md-4">
+    <strong>Tank:</strong>
+    <%= @fertigation.tank %>
+    </div>
+</div>
+
+<div class="col-md-8">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Application product</th>
+        <th>Unit measure</th>
+        <th>Fertilizer quantity</th>
+        <th>H20 quantity</th>
+        <th>Concentration</th>
+        <th>Injection rate</th>
+        <th>Fertilizer cost per unit</th>
+        <th>Cost</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody id="fertigation_items">
+      <% @fertigation_items.each do |fertigation_item| %>
+        <%= render 'fertigation_item', :fertigation_item => fertigation_item %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Fertigation item', new_fertigation_item_path, remote: true, id: 'new_fertigation_item_link' %>
+
+  <div class="col-md-8" id="div_new_fertigation_item_form">
+    <%= simple_form_for(@fertigation_item, remote: true, html: { id: 'new_fertigation_item_link' }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.association :fertigation, :as => :hidden, input_html: { value: @fertigation.id } %>
+        <%= f.association :application_product %>
+        <%= f.input :unit_measure %>
+        <%= f.input :fertilizer_quantity, placeholder: 'Kilogramos o Litros' %>
+        <%= f.input :h20_quantity, placeholder: 'Litros' %>
+        <%= f.input :injection_rate %>
+        <%= f.input :fertilizer_cost_per_unit, placeholder: 'Por Kilogramo o por Litro' %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, id: 'new_fertigation_item_submit_button' %>
+      </div>
+    <% end %>
+</div>
+
+</div>
+
+<div class="col-md-8">
+<br>
+<br>
+<br>
+  <div class="col-md-4">
+    <strong>Total cost:</strong>
+    <div id="fertigation_cost"><%= @fertigation.total_cost %></div>
+  </div>
+</div>
+
+<div class="col-md-8">
+<br>
+<br>
+  <%= link_to 'Edit', edit_fertigation_path(@fertigation) %> |
+  <%= link_to 'Back', fertigations_path %>
+</div>

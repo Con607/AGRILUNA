@@ -1,0 +1,6 @@
+//alert('Hola');
+$('div#selection_total_quantity').fadeOut();
+$('div#selection_total_quantity').text("<%= number_with_precision(@selection_item.selection.selection_items.sum(:quantity), precision: 0, delimiter: ',') %>    <%= @selection_item.selection.product_presentation.name%>").effect("highlight", {color: '#00DCB7'}, 2000);
+$('div#selection_total_weight').fadeOut();
+$('div#selection_total_weight').text("<%= number_with_precision(@selection_item.selection.total_weight, precision: 2, delimiter: ',') %>  <%= @selection_item.selection.product_presentation.unit_type.abbreviation %>").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#<%= dom_id(@selection_item) %>').effect("highlight", {color: '#00DCB7'}, 800).fadeOut();

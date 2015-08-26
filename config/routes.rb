@@ -1,4 +1,40 @@
 Myapp::Application.routes.draw do
+  resources :unit_types
+  resources :unit_types
+  resources :selections
+  resources :selections
+  resources :selections
+  resources :product_varieties
+  resources :product_presentations
+  resources :product_qualities
+  resources :selection_items
+  resources :sales
+  resources :selections
+  resources :sale_items
+  resources :sale_items
+  resources :selections
+  resources :sales
+  resources :selection_items
+  resources :products
+  resources :product_qualities
+  resources :product_presentations
+  resources :product_varieties
+  resources :harvests
+  resources :products
+  resources :products
+  resources :weathers
+  resources :environments
+  resources :environmental_conditions
+  resources :phenological_stages
+  resources :leachates
+  resources :product_application_buys
+  resources :product_application_buys
+  resources :suppliers
+  resources :product_application_buys
+  resources :administration_costs
+  resources :operating_costs
+  resources :fertigations
+  resources :fertigation_items
   resources :application_products
   resources :application_items
   resources :applications
@@ -36,8 +72,7 @@ root to: 'home#index'
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
+  # 
   # Example resource route with options:
   #   resources :products do
   #     member do
@@ -75,6 +110,5 @@ root to: 'home#index'
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #     #   end
 end

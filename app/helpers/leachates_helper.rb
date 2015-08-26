@@ -1,0 +1,2 @@
+module LeachatesHelper
+end

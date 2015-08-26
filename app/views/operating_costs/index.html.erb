@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Operating Costs</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Greenhouse</th>
+      <th>Event date</th>
+      <th>Concept</th>
+      <th>Display</th>
+      <th>Unit price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="operating_costs">
+    <% @operating_costs.each do |operating_cost| %>
+      <%= render "operating_cost", :operating_cost => operating_cost %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<div class="col-md-8">
+  <br>
+  <strong>Total:</strong>
+  <div id="operating_cost_total"><%= @operating_costs.sum(:total) %></div>
+</div>
+
+<br>
+<br>
+<div class="col-md-8">
+  <%= link_to 'New Operating cost', new_operating_cost_path, remote: true, id: 'new_operating_cost_link' %>
+</div>
+
+<br>
+<div class="col-md-5" id="div_new_operating_cost_form">
+  <%= simple_form_for(@operating_cost, remote: true, html: { id: 'new_operating_cost_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :greenhouse %>
+      <%= f.input :event_date %>
+      <%= f.input :concept %>
+      <%= f.input :display %>
+      <%= f.input :unit_price %>
+      <%= f.input :quantity %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_operating_cost_submit_button' %>
+    </div>
+  <% end %>
+</div>
+

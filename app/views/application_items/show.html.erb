@@ -12,7 +12,7 @@
 
 <p>
   <strong>Unit of measure:</strong>
-  <%= @application_item.unit_of_measure %>
+  <%= @application_item.unit_type.name unless @application_item.unit_type.nil? %>
 </p>
 
 <p>

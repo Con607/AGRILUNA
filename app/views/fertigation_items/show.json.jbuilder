@@ -1,0 +1,1 @@
+json.extract! @fertigation_item, :id, :fertigation_id, :application_product_id, :unit_measure, :fertilizer_quantity, :h20_quantity, :concentration, :injection_rate, :fertilizer_cost_per_unit, :cost, :created_at, :updated_at

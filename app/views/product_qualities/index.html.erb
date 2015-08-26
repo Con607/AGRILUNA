@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Product Qualities</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Selection item ids</th>
+      <th>Sale item ids</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="product_qualities">
+    <% @product_qualities.each do |product_quality| %>
+      <%= render "product_quality", :product_quality => product_quality %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Product Quality', new_product_quality_path, remote: true, id: 'new_product_quality_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_product_quality_form">
+  <%= simple_form_for(@product_quality, remote: true, html: { id: 'new_product_quality_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.association :product %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_product_quality_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

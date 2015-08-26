@@ -1,0 +1,8 @@
+//alert('I was called');
+
+$('div#fertigation_cost').fadeOut();
+$('div#fertigation_cost').text("<%= number_to_currency(@fertigation_item.fertigation.total_cost, precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);
+$("<%= escape_javascript(render @fertigation_item) %>").appendTo("#fertigation_items").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#new_fertigation_item_form')[0].reset();
+
+
