@@ -23,8 +23,18 @@
                 </div>
             </li>
             <li class="<%= 'active' if current_page?('/home/minor') %>">
+                <%= link_to companies_path do %>
+                <i class="fa fa-desktop"></i> <span class="nav-label">Companies</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/home/minor') %>">
                 <%= link_to greenhouses_path do %>
                 <i class="fa fa-desktop"></i> <span class="nav-label">Greenhouses</span>
+                <% end %>
+            </li>
+            <li class="<%= 'active' if current_page?('/home/minor') %>">
+                <%= link_to cycles_path do %>
+                <i class="fa fa-desktop"></i> <span class="nav-label">Cycles</span>
                 <% end %>
             </li>
             <li>
