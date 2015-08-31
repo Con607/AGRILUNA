@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @cycle.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cycle.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @cycle.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @cycle.end_date %>
+</p>
+
+<p>
+  <strong>Estimated performance per m2:</strong>
+  <%= @cycle.estimated_performance_per_m2 %>
+</p>
+
+<p>
+  <strong>Greenhouse estimated performance:</strong>
+  <%= @cycle.greenhouse_estimated_performance %>
+</p>
+
+<p>
+  <strong>Maximum estimated production cost:</strong>
+  <%= @cycle.maximum_estimated_production_cost %>
+</p>
+
+<p>
+  <strong>Expected average selling price per kg:</strong>
+  <%= @cycle.expected_average_selling_price_per_kg %>
+</p>
+
+<p>
+  <strong>Expected total expenses:</strong>
+  <%= @cycle.expected_total_expenses %>
+</p>
+
+<p>
+  <strong>Expected total profit:</strong>
+  <%= @cycle.expected_total_profit %>
+</p>
+
+<%= link_to 'Edit', edit_cycle_path(@cycle) %> |
+<%= link_to 'Back', cycles_path %>

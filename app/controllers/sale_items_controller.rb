@@ -1,4 +1,5 @@
 class SaleItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_sale_item, only: [:show, :edit, :update, :destroy]
   before_action :set_sale_item_total_price, only: [:update, :create]
   #after_action :get_total_cost, only: [:update, :create]

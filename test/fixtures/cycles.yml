@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  greenhouse_id: 1
+  name: MyString
+  start_date: 2015-08-31
+  end_date: 2015-08-31
+  estimated_performance_per_m2: 1.5
+  greenhouse_estimated_performance: 1.5
+  maximum_estimated_production_cost: 1.5
+  expected_average_selling_price_per_kg: 1.5
+  expected_total_expenses: 1.5
+  expected_total_profit: 1.5
+
+two:
+  greenhouse_id: 1
+  name: MyString
+  start_date: 2015-08-31
+  end_date: 2015-08-31
+  estimated_performance_per_m2: 1.5
+  greenhouse_estimated_performance: 1.5
+  maximum_estimated_production_cost: 1.5
+  expected_average_selling_price_per_kg: 1.5
+  expected_total_expenses: 1.5
+  expected_total_profit: 1.5

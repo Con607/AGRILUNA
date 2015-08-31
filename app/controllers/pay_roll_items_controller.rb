@@ -1,4 +1,5 @@
 class PayRollItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_pay_roll_item, only: [:show, :edit, :update, :destroy, :update_discount, :update_bonus]
 
   # GET /pay_roll_items

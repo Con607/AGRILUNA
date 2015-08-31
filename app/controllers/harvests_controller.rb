@@ -1,4 +1,5 @@
 class HarvestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_harvest, only: [:show, :edit, :update, :destroy]
   before_action :get_total_harvested, only: [:update, :create]
 

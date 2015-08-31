@@ -1,4 +1,5 @@
 class ApplicationProcessesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_application_process, only: [:show, :edit, :update, :destroy]
 
   # GET /application_processes

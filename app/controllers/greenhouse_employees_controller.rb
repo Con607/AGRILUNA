@@ -1,4 +1,5 @@
 class GreenhouseEmployeesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_greenhouse_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /greenhouse_employees

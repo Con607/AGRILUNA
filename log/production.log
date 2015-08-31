@@ -1,1 +1,351 @@
 
+I, [2015-08-31T04:00:16.295514 #6867]  INFO -- : Started GET "/reports/quick_general_status" for 192.168.0.4 at 2015-08-31 04:00:16 -0500
+F, [2015-08-31T04:00:16.329420 #6867] FATAL -- : 
+ActiveRecord::NoDatabaseError (Unknown database 'agriluna_production'):
+  activerecord (4.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `rescue in mysql2_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:10:in `mysql2_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/irving/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/irving/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.3) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.3) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.3) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.3) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+I, [2015-08-31T04:00:23.160616 #6867]  INFO -- : Started GET "/reports/quick_general_status" for 192.168.0.4 at 2015-08-31 04:00:23 -0500
+F, [2015-08-31T04:00:23.164657 #6867] FATAL -- : 
+ActiveRecord::NoDatabaseError (Unknown database 'agriluna_production'):
+  activerecord (4.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `rescue in mysql2_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:10:in `mysql2_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/irving/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/irving/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.3) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.3) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.3) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.3) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+I, [2015-08-31T04:00:23.507233 #6867]  INFO -- : Started GET "/favicon.ico" for 192.168.0.4 at 2015-08-31 04:00:23 -0500
+F, [2015-08-31T04:00:23.509753 #6867] FATAL -- : 
+ActiveRecord::NoDatabaseError (Unknown database 'agriluna_production'):
+  activerecord (4.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `rescue in mysql2_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/mysql2_adapter.rb:10:in `mysql2_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/irving/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/irving/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.3) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.3) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.3) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.3) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+I, [2015-08-31T04:02:30.047640 #6867]  INFO -- : Started GET "/reports/quick_general_status" for 192.168.0.4 at 2015-08-31 04:02:30 -0500
+I, [2015-08-31T04:02:30.142179 #6867]  INFO -- : Processing by ReportsController#quick_general_status as HTML
+I, [2015-08-31T04:02:30.214224 #6867]  INFO -- :   Rendered reports/quick_general_status.html.erb within layouts/application (38.2ms)
+I, [2015-08-31T04:02:47.807701 #6867]  INFO -- :   Rendered layouts/_navigation.html.erb (24.3ms)
+I, [2015-08-31T04:02:47.808749 #6867]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.4ms)
+I, [2015-08-31T04:02:47.809739 #6867]  INFO -- :   Rendered layouts/_footer.html.erb (0.3ms)
+I, [2015-08-31T04:02:47.810125 #6867]  INFO -- : Completed 200 OK in 17668ms (Views: 17636.1ms | ActiveRecord: 11.3ms)
+I, [2015-08-31T04:02:47.989805 #6867]  INFO -- : Started GET "/assets/application-9b3bccad9501e1608f95718822ffc344.js" for 192.168.0.4 at 2015-08-31 04:02:47 -0500
+I, [2015-08-31T04:02:48.000967 #6867]  INFO -- : Started GET "/assets/application-ebb6b03a9b1f4f9542821b762adb0474.css" for 192.168.0.4 at 2015-08-31 04:02:48 -0500
+I, [2015-08-31T04:02:48.611934 #6867]  INFO -- : Started GET "/assets/patterns/header-profile-d98c6b0179ab1f1422d151d07b250ed5.png" for 192.168.0.4 at 2015-08-31 04:02:48 -0500
+I, [2015-08-31T04:02:48.613588 #6867]  INFO -- : Started GET "/assets/fontawesome-webfont-b4162ecf90a4889ff3ed2f5dff4e2baa.woff2?v=4.4.0" for 192.168.0.4 at 2015-08-31 04:02:48 -0500
+I, [2015-08-31T04:02:49.079134 #6867]  INFO -- : Started GET "/favicon.ico" for 192.168.0.4 at 2015-08-31 04:02:49 -0500
+F, [2015-08-31T04:02:49.081397 #6867] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.3) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.3) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+I, [2015-08-31T04:02:55.417420 #6867]  INFO -- : Started GET "/reports/quick_general_status" for 192.168.0.4 at 2015-08-31 04:02:55 -0500
+I, [2015-08-31T04:02:55.418759 #6867]  INFO -- : Processing by ReportsController#quick_general_status as HTML
+I, [2015-08-31T04:02:55.433875 #6867]  INFO -- :   Rendered reports/quick_general_status.html.erb within layouts/application (4.4ms)
+I, [2015-08-31T04:02:55.436211 #6867]  INFO -- :   Rendered layouts/_navigation.html.erb (1.6ms)
+I, [2015-08-31T04:02:55.436582 #6867]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.1ms)
+I, [2015-08-31T04:02:55.436918 #6867]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-08-31T04:02:55.437316 #6867]  INFO -- : Completed 200 OK in 18ms (Views: 8.1ms | ActiveRecord: 2.8ms)
+I, [2015-08-31T04:02:55.558391 #6867]  INFO -- : Started GET "/assets/application-ebb6b03a9b1f4f9542821b762adb0474.css" for 192.168.0.4 at 2015-08-31 04:02:55 -0500
+I, [2015-08-31T04:02:55.577640 #6867]  INFO -- : Started GET "/assets/application-9b3bccad9501e1608f95718822ffc344.js" for 192.168.0.4 at 2015-08-31 04:02:55 -0500
+I, [2015-08-31T04:02:56.062221 #6867]  INFO -- : Started GET "/assets/patterns/header-profile-d98c6b0179ab1f1422d151d07b250ed5.png" for 192.168.0.4 at 2015-08-31 04:02:56 -0500
+I, [2015-08-31T04:02:56.068318 #6867]  INFO -- : Started GET "/assets/fontawesome-webfont-b4162ecf90a4889ff3ed2f5dff4e2baa.woff2?v=4.4.0" for 192.168.0.4 at 2015-08-31 04:02:56 -0500
+I, [2015-08-31T04:02:56.482375 #6867]  INFO -- : Started GET "/favicon.ico" for 192.168.0.4 at 2015-08-31 04:02:56 -0500
+F, [2015-08-31T04:02:56.483853 #6867] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.3) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.3) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+I, [2015-08-31T09:23:58.751685 #2686]  INFO -- : Started GET "/reports/quick_general_status" for 192.168.1.145 at 2015-08-31 09:23:58 -0500
+I, [2015-08-31T09:23:58.901876 #2686]  INFO -- : Processing by ReportsController#quick_general_status as HTML
+I, [2015-08-31T09:23:59.042871 #2686]  INFO -- :   Rendered reports/quick_general_status.html.erb within layouts/application (82.0ms)
+I, [2015-08-31T09:23:59.976080 #2686]  INFO -- :   Rendered layouts/_navigation.html.erb (6.0ms)
+I, [2015-08-31T09:23:59.989114 #2686]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.4ms)
+I, [2015-08-31T09:23:59.995589 #2686]  INFO -- :   Rendered layouts/_footer.html.erb (0.4ms)
+I, [2015-08-31T09:23:59.996840 #2686]  INFO -- : Completed 200 OK in 1095ms (Views: 1067.4ms | ActiveRecord: 7.3ms)
+I, [2015-08-31T09:24:00.132277 #2686]  INFO -- : Started GET "/assets/application-ebb6b03a9b1f4f9542821b762adb0474.css" for 192.168.1.145 at 2015-08-31 09:24:00 -0500
+I, [2015-08-31T09:24:00.474314 #2686]  INFO -- : Started GET "/assets/application-9b3bccad9501e1608f95718822ffc344.js" for 192.168.1.145 at 2015-08-31 09:24:00 -0500
+I, [2015-08-31T09:24:01.579919 #2686]  INFO -- : Started GET "/assets/patterns/header-profile-d98c6b0179ab1f1422d151d07b250ed5.png" for 192.168.1.145 at 2015-08-31 09:24:01 -0500
+I, [2015-08-31T09:24:01.627161 #2686]  INFO -- : Started GET "/assets/fontawesome-webfont-b4162ecf90a4889ff3ed2f5dff4e2baa.woff2?v=4.4.0" for 192.168.1.145 at 2015-08-31 09:24:01 -0500
+I, [2015-08-31T09:24:10.144033 #2686]  INFO -- : Started GET "/reports/quick_general_status" for 192.168.1.145 at 2015-08-31 09:24:10 -0500
+I, [2015-08-31T09:24:10.146933 #2686]  INFO -- : Processing by ReportsController#quick_general_status as HTML
+I, [2015-08-31T09:24:10.156406 #2686]  INFO -- :   Rendered reports/quick_general_status.html.erb within layouts/application (4.3ms)
+I, [2015-08-31T09:24:10.160434 #2686]  INFO -- :   Rendered layouts/_navigation.html.erb (1.9ms)
+I, [2015-08-31T09:24:10.160594 #2686]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.0ms)
+I, [2015-08-31T09:24:10.160765 #2686]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-08-31T09:24:10.160967 #2686]  INFO -- : Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 1.5ms)
+I, [2015-08-31T09:24:10.282177 #2686]  INFO -- : Started GET "/assets/application-ebb6b03a9b1f4f9542821b762adb0474.css" for 192.168.1.145 at 2015-08-31 09:24:10 -0500
+I, [2015-08-31T09:24:10.283432 #2686]  INFO -- : Started GET "/assets/application-9b3bccad9501e1608f95718822ffc344.js" for 192.168.1.145 at 2015-08-31 09:24:10 -0500
+I, [2015-08-31T09:24:10.970911 #2686]  INFO -- : Started GET "/assets/patterns/header-profile-d98c6b0179ab1f1422d151d07b250ed5.png" for 192.168.1.145 at 2015-08-31 09:24:10 -0500
+I, [2015-08-31T09:24:10.978158 #2686]  INFO -- : Started GET "/assets/fontawesome-webfont-b4162ecf90a4889ff3ed2f5dff4e2baa.woff2?v=4.4.0" for 192.168.1.145 at 2015-08-31 09:24:10 -0500
+I, [2015-08-31T09:24:11.468734 #2686]  INFO -- : Started GET "/favicon.ico" for 192.168.1.145 at 2015-08-31 09:24:11 -0500
+F, [2015-08-31T09:24:11.470697 #2686] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.7) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.4) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.4) lib/rack/server.rb:286:in `start'
+  railties (4.2.3) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.3) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.3) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+

@@ -1,4 +1,5 @@
 class WeathersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_weather, only: [:show, :edit, :update, :destroy]
 
   # GET /weathers

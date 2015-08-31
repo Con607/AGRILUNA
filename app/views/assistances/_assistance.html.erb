@@ -2,6 +2,6 @@
       <tr id="assistance_<%= assistance.id %>">
         <td><%= assistance.employee.first_name %></td>
         <td><%= assistance.assistance_date %></td>
-        <td><%= assistance.assisted %></td>
-        <td><%= link_to 'Destroy', assistance, method: :delete, remote: true, data: { confirm: 'Confirmar eliminacion?' } %></td>
+        <td><% if assistance.assisted %><li class="fa fa-check-square-o"></li><% end %></td>
+        <td><%= link_to t(:destroy), assistance, method: :delete, remote: true, data: { confirm: 'Confirmar eliminacion?' } %></td>
       </tr>

@@ -1,4 +1,5 @@
 class PhenologicalStagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_phenological_stage, only: [:show, :edit, :update, :destroy]
 
   # GET /phenological_stages

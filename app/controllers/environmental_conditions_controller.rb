@@ -1,4 +1,5 @@
 class EnvironmentalConditionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_environmental_condition, only: [:show, :edit, :update, :destroy]
 
   # GET /environmental_conditions

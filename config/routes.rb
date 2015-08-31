@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :cycles
+  resources :cycles
+  resources :cycles
+  resources :companies
   devise_for :users
   get 'reports/index'
 

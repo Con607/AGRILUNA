@@ -1,4 +1,5 @@
 class ApplicationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_application, only: [:show, :edit, :update, :destroy]
   before_action :update_application_product_destroy, only: [:destroy]
 

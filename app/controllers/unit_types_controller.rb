@@ -1,4 +1,5 @@
 class UnitTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_unit_type, only: [:show, :edit, :update, :destroy]
 
   # GET /unit_types

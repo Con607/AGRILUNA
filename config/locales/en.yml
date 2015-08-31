@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+
+  # Assistances
+  listing_assistances: "Assitances"
+  employee: "Employee"
+  assistance_date: "Assistance date"
+  assisted: "Assisted"
+  destroy: "Destroy"
+  new_assistance: "New Assistance"
+  create_assistance: "Create Assistance"

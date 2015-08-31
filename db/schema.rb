@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831053636) do
+ActiveRecord::Schema.define(version: 20150831161824) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.integer  "greenhouse_id", limit: 4
@@ -77,6 +77,31 @@ ActiveRecord::Schema.define(version: 20150831053636) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pay_roll_item_id", limit: 4
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.text     "description",    limit: 65535
+    t.text     "address",        limit: 65535
+    t.string   "telephone",      limit: 255
+    t.integer  "greenhouse_ids", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "cycles", force: :cascade do |t|
+    t.integer  "greenhouse_id",                         limit: 4
+    t.string   "name",                                  limit: 255
+    t.date     "start_date"
+    t.date     "end_date"
+    t.float    "estimated_performance_per_m2",          limit: 24
+    t.float    "greenhouse_estimated_performance",      limit: 24
+    t.float    "maximum_estimated_production_cost",     limit: 24
+    t.float    "expected_average_selling_price_per_kg", limit: 24
+    t.float    "expected_total_expenses",               limit: 24
+    t.float    "expected_total_profit",                 limit: 24
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -156,6 +181,8 @@ ActiveRecord::Schema.define(version: 20150831053636) do
     t.integer  "administration_cost_ids",     limit: 4
     t.integer  "application_product_buy_ids", limit: 4
     t.integer  "leachate_ids",                limit: 4
+    t.integer  "company_id",                  limit: 4
+    t.integer  "cycle_ids",                   limit: 4
   end
 
   create_table "harvests", force: :cascade do |t|

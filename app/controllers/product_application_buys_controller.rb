@@ -1,4 +1,5 @@
 class ProductApplicationBuysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_product_application_buy, only: [:show, :edit, :update, :destroy]
   before_action :set_unit_cost, only: [:create, :update]
   after_action :update_application_product, only: [:create, :update]

@@ -1,4 +1,5 @@
 class FertigationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_fertigation, only: [:show, :edit, :update, :destroy]
   before_action :update_application_product_destroy, only: [:destroy]
 

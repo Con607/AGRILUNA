@@ -1,12 +1,12 @@
-<h1>Listing assistances</h1>
+<h1><%=t :listing_assistances %></h1>
 
 <div class="table-responsive">
   <table class="table table-hover dataTable table-striped table-bordered">
     <thead>
       <tr>
-        <th>Employee</th>
-        <th>Assistance date</th>
-        <th>Assisted</th>
+        <th><%=t :employee %></th>
+        <th><%=t :assistance_date %></th>
+        <th><%=t :assisted %></th>
         <th></th>
       </tr>
     </thead>
@@ -28,16 +28,16 @@
 
     <div class="form-inputs">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= f.association :employee, label_method: :first_name, value_method: :id %>
-      <%= f.input :assistance_date %>
-      <%= f.input :assisted %>
+      <%= f.association :employee, label: t(:employee), label_method: :first_name, value_method: :id %>
+      <%= f.input :assistance_date, label: t(:assistance_date) %>
+      <%= f.input :assisted, label: t(:assisted) %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, id: "new_assistance_submit_button" %>
+      <%= f.submit t(:create_assistance), id: "new_assistance_submit_button", class: 'btn btn-default' %>
     </div>
   <% end %>
 </div>
 
 
-<%= link_to 'New Assistance', new_assistance_path, remote: true, id: "new_assistance_link" %>
+<%= link_to t(:new_assistance), new_assistance_path, remote: true, id: "new_assistance_link" %>

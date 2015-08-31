@@ -1,4 +1,5 @@
 class SelectionItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_selection_item, only: [:show, :edit, :update, :destroy]
   #after_action :get_total_weight, only: [:update, :create]
 

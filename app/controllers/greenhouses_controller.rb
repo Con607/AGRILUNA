@@ -1,4 +1,5 @@
 class GreenhousesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_greenhouse, only: [:show, :edit, :update, :destroy]
 
   # GET /greenhouses
@@ -69,6 +70,6 @@ class GreenhousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def greenhouse_params
-      params.require(:greenhouse).permit(:name, :description, :location, :greenhouse_employee_ids => [], :employee_ids => [])
+      params.require(:greenhouse).permit(:name, :description, :location, :company_id, :cycle_ids, :greenhouse_employee_ids => [], :employee_ids => [])
     end
 end

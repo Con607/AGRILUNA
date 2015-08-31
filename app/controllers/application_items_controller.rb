@@ -1,4 +1,5 @@
 class ApplicationItemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_application_item, only: [:show, :edit, :update, :destroy]
   before_action :get_application_before_destroy, only: [:destroy]
   before_action :set_cost_per_unit, only: [:create]

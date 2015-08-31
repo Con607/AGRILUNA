@@ -1,4 +1,5 @@
 class Greenhouse < ActiveRecord::Base
+	belongs_to :company
 	has_many :greenhouse_employees
 	has_many :employees, through: :greenhouse_employees
 	has_many :applications
@@ -8,4 +9,5 @@ class Greenhouse < ActiveRecord::Base
 	has_many :product_application_buys
 	has_many :leachates
 	has_many :environmental_conditions
+	has_many :cycles
 end
