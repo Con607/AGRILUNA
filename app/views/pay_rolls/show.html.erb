@@ -11,18 +11,40 @@
   <%= @pay_roll.end_date %>
 </div>
 
-<div class="col-md-4"></div>
-
-
 
 <div class="col-md-8">
-  <%= render 'pay_roll_items' %>
+  <div class="table-responsive">
+    <table class="table table-hover dataTable table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Employee</th>
+          <th>Days Assisted</th>
+          <th>Num Assistances</th>
+          <th>Salary</th>
+          <th>Discounts</th>
+          <th>Bonuses</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody  id="pay_roll_items">
+        <% @pay_roll_items.each do |pay_roll_item| %>
+          <%= render 'pay_roll_item', :pay_roll_item => pay_roll_item %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
 </div>
 
-
-<div class="col-md-8"></div>
+<div class="col-md-8">
+  
+</div>
 
 <div class="col-md-8">
+    <br>
     <div class="col-md-2"><strong>Subtotal:</strong></div>
     <div class="col-md-1 text-right" id="pay_roll_subtotal"><%= @pay_roll.subtotal %></div>
 </div>
@@ -43,11 +65,38 @@
 </div>
   
 
+<% @pay_roll_items.each do |pay_roll_item| %>
+  <div class="col-md-8 div_edit_pay_roll_item_form" id="div_edit_pay_roll_item_form_<%= pay_roll_item.id %>">
+    <%= simple_form_for(pay_roll_item, remote: true, html: { id: 'new_pay_roll_item_link' }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.association :employee, label_method: :first_name, value_method: :id, disabled: true %>
+        <%= f.input :discounts %>
+        <%= f.input :bonuses %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: 'edit_pay_roll_item_submit_button' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+<div class="col-md-8">
+  <br>
+  <br>
+  <br>
+  <%= link_to 'Edit', edit_pay_roll_path(@pay_roll) %> |
+  <%= link_to 'Back', pay_rolls_path %>
 </div>
 
 
 <br>
-<div class="col-md-8">
-<%= link_to 'Edit', edit_pay_roll_path(@pay_roll) %> |
-<%= link_to 'Back', pay_rolls_path %>
-</div>
+
+
+
+

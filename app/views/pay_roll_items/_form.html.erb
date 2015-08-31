@@ -2,14 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :pay_roll, :label_method => lambda { |pay_roll| "#{pay_roll.start_date} | #{pay_roll.end_date}" }, 
-                            value_method: :id %>
-    <%= f.association :employee, label_method: :first_name, value_method: :id %>
-    <%= f.input :total_assistances %>
-    <%= f.input :salary %>
     <%= f.input :discounts %>
     <%= f.input :bonuses %>
-    <%= f.input :total %>
   </div>
 
   <div class="form-actions">

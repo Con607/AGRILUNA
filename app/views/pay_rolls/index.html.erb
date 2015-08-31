@@ -1,36 +1,38 @@
 <h1>Listing pay_rolls</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Pay roll item</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Subtotal</th>
-      <th>Discount</th>
-      <th>Bonus</th>
-      <th>Total</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pay_rolls.each do |pay_roll| %>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= pay_roll.id %></td>
-        <td><%= pay_roll.pay_roll_item_ids %></td>
-        <td><%= pay_roll.start_date %></td>
-        <td><%= pay_roll.end_date %></td>
-        <td><%= pay_roll.subtotal %></td>
-        <td><%= pay_roll.discount %></td>
-        <td><%= pay_roll.bonus %></td>
-        <td><%= pay_roll.total %></td>
-        <td><%= link_to 'Show', pay_roll %></td>
+        <th>Id</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Subtotal</th>
+        <th>Discount</th>
+        <th>Bonus</th>
+        <th>Total</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @pay_rolls.each do |pay_roll| %>
+        <tr>
+          <td><%= pay_roll.id %></td>
+          <td><%= pay_roll.start_date %></td>
+          <td><%= pay_roll.end_date %></td>
+          <td><%= pay_roll.subtotal %></td>
+          <td><%= pay_roll.discount %></td>
+          <td><%= pay_roll.bonus %></td>
+          <td><%= pay_roll.total %></td>
+          <td><%= link_to 'Show', pay_roll %></td>
+          <td><%= link_to 'Destroy', pay_roll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

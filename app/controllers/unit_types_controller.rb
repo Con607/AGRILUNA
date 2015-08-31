@@ -4,7 +4,7 @@ class UnitTypesController < ApplicationController
   # GET /unit_types
   # GET /unit_types.json
   def index
-    @unit_types = UnitType.all
+    @unit_types = UnitType.all.order(:measure_type)
     @unit_type = UnitType.new
   end
 
@@ -78,6 +78,7 @@ class UnitTypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_type_params
       params.require(:unit_type).permit(:name, :abbreviation, :value, :metric_system, :base, :product_presentation_ids, :application_item_ids,
-                                      :application_product_ids, :product_application_buy_ids, :measure_type, :under_base, :over_base)
+                                      :application_product_ids, :product_application_buy_ids, :measure_type, :under_base, :over_base,
+                                      :unit_conversion_ids, :fertigation_item_ids)
     end
 end

@@ -1,0 +1,4 @@
+$('#pay_roll_item_bonuses_' + <%= @pay_roll_item.id %>).fadeOut();
+$('#pay_roll_item_bonuses_' + <%= @pay_roll_item.id %>).text(<%= @pay_roll_item.bonuses %>).toFixed(2)).slideDown().effect("highlight", {color: '#00DCB7'}, 2000);
+$('#pay_roll_item_total_' + <%= @pay_roll_item.id %>).fadeOut();
+$('#pay_roll_item_total_' + <%= @pay_roll_item.id %>).text(<%= @pay_roll_item.total %>).toFixed(2)).slideDown().effect("highlight", {color: '#00DCB7'}, 2000);

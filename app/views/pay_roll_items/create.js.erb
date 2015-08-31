@@ -1,0 +1,8 @@
+//alert('I was called');
+
+//$('div#fertigation_cost').fadeOut();
+//$('div#fertigation_cost').text("<%= number_to_currency(@pay_roll_item.pay_roll.total, precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);
+$("<%= escape_javascript(render @pay_roll_item) %>").appendTo("#pay_roll_items").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#new_pay_roll_item_form')[0].reset();
+
+

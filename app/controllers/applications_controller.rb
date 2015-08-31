@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
+  before_action :update_application_product_destroy, only: [:destroy]
 
   # GET /applications
   # GET /applications.json
@@ -83,6 +84,23 @@ class ApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
-      params.require(:application).permit(:application_date, :application_process_id, :purpose, :greenhouse_id, :application_cost, :application_item_ids => [])
+      params.require(:application).permit(:application_date, :application_process_id, :purpose, :greenhouse_id, 
+                  :application_cost, :application_item_ids => [])
     end
+
+    def update_application_product_destroy
+      @application.application_items.each do |application_item|
+        application_product = @application_item.application_product
+        unit_type = application_item.unit_type
+        quantity = application_item.total_product_used
+        converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
+        application_product.quantity_available += converted_quantity
+        application_product.save
+
+        # Now update the total_cost
+        application_product.total_cost = application_product.unit_cost * application_product.quantity_available
+        application_product.save
+      end
+    end
+
 end

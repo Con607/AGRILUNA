@@ -6,6 +6,8 @@ class CreateApplicationProducts < ActiveRecord::Migration
       t.text :description
       t.float :quantity_available
       t.string :units_of_measure
+      t.float :total_cost
+      t.float :unit_cost
 
       t.timestamps null: false
     end

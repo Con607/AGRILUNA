@@ -1,34 +1,36 @@
 <h1>Listing job_positions</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Employee ids</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @job_positions.each do |job_position| %>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= job_position.name %></td>
-        <td><%= job_position.description %></td>
-        <td>
-          <% job_position.employees.each do |employee| %>
-            <%= employee.first_name %><br>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', job_position %></td>
-        <td><%= link_to 'Edit', edit_job_position_path(job_position) %></td>
-        <td><%= link_to 'Destroy', job_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Employee ids</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @job_positions.each do |job_position| %>
+        <tr>
+          <td><%= job_position.name %></td>
+          <td><%= job_position.description %></td>
+          <td>
+            <% job_position.employees.each do |employee| %>
+              <%= employee.first_name %><br>
+            <% end %>
+          </td>
+          <td><%= link_to 'Show', job_position %></td>
+          <td><%= link_to 'Edit', edit_job_position_path(job_position) %></td>
+          <td><%= link_to 'Destroy', job_position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

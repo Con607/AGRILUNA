@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Unit Conversions</h1>
+
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Unit type</th>
+        <th>Convert to</th>
+        <th>Value</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody id="unit_conversions">
+      <% @unit_conversions.each do |unit_conversion| %>
+        <%= render "unit_conversion", :unit_conversion => unit_conversion %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Unit Conversion', new_unit_conversion_path, remote: true, id: 'new_unit_conversion_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_unit_conversion_form">
+  <%= simple_form_for(@unit_conversion, remote: true, html: { id: 'new_unit_conversion_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :unit_type %>
+      <%= f.input :convert_to, collection: @unit_types, label_method: :name, value_method: :abbreviation %>
+      <%= f.input :value %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_unit_conversion_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

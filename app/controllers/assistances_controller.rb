@@ -35,6 +35,10 @@ class AssistancesController < ApplicationController
 
   # GET /assistances/1/edit
   def edit
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # POST /assistances
@@ -88,6 +92,6 @@ class AssistancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assistance_params
-      params.require(:assistance).permit(:employee_id, :assistance_date, :assisted)
+      params.require(:assistance).permit(:employee_id, :assistance_date, :assisted, :pay_roll_item_id)
     end
 end

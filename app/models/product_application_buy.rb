@@ -1,5 +1,4 @@
 class ProductApplicationBuy < ActiveRecord::Base
-	belongs_to :greenhouse
 	belongs_to :supplier
 	belongs_to :application_product
 	belongs_to :unit_type

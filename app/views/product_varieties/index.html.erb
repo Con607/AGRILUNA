@@ -2,25 +2,27 @@
 
 <h1>Product Varieties</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Harvest ids</th>
-      <th>Selection ids</th>
-      <th>Sale ids</th>
-      <th>Product</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Harvest ids</th>
+        <th>Selection ids</th>
+        <th>Sale ids</th>
+        <th>Product</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody id="product_varieties">
-    <% @product_varieties.each do |product_variety| %>
-      <%= render "product_variety", :product_variety => product_variety %>
-    <% end %>
-  </tbody>
-</table>
+    <tbody id="product_varieties">
+      <% @product_varieties.each do |product_variety| %>
+        <%= render "product_variety", :product_variety => product_variety %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

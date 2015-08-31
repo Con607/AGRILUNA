@@ -5,25 +5,27 @@
         <td><%= selection.product_variety.name %></td>
         <td><%= selection.product_presentation.name %></td>
         <td>
-            <table class="table table-condensed table-bordered">
-                <thead>
-                    <tr>
-                        <% @product_quality_ids = selection.selection_items.order(:product_quality_id).pluck(:product_quality_id).uniq %>
-                        <% @product_quality_ids.each do |product_quality_id| %>
-                            <% @product_quality = ProductQuality.find(product_quality_id) %>
-                            <td><strong><%= @product_quality.name %></strong></td>
-                        <% end %>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <% @product_quality_ids.each do |product_quality_id| %>
-                            <% @product_quality = ProductQuality.find(product_quality_id) %>
-                                <td><%= selection.selection_items.where(product_quality_id: product_quality_id).sum(:quantity) %></td>
-                        <% end %>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover dataTable table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <% @product_quality_ids = selection.selection_items.order(:product_quality_id).pluck(:product_quality_id).uniq %>
+                            <% @product_quality_ids.each do |product_quality_id| %>
+                                <% @product_quality = ProductQuality.find(product_quality_id) %>
+                                <td><strong><%= @product_quality.name %></strong></td>
+                            <% end %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <% @product_quality_ids.each do |product_quality_id| %>
+                                <% @product_quality = ProductQuality.find(product_quality_id) %>
+                                    <td><%= selection.selection_items.where(product_quality_id: product_quality_id).sum(:quantity) %></td>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <strong><%= number_with_precision(selection.selection_items.sum(:quantity), precision: 0, delimiter: ',') %>  <%= selection.product_presentation.name%></strong>
         </td>
         <td>

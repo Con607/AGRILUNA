@@ -2,24 +2,26 @@
 
 <h1>Product Presentations</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Product</th>
-      <th>Unit Type</th>
-      <th>Quantity</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Product</th>
+        <th>Unit Type</th>
+        <th>Quantity</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
 
-  <tbody id="product_presentations">
-    <% @product_presentations.each do |product_presentation| %>
-      <%= render "product_presentation", :product_presentation => product_presentation %>
-    <% end %>
-  </tbody>
-</table>
+    <tbody id="product_presentations">
+      <% @product_presentations.each do |product_presentation| %>
+        <%= render "product_presentation", :product_presentation => product_presentation %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

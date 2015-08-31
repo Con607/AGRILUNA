@@ -30,21 +30,23 @@
 </div>
 
 <div class="col-md-8">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Product quality</th>
-          <th>Quantity</th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
+    <div class="table-responsive">
+    <table class="table table-hover dataTable table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Product quality</th>
+            <th>Quantity</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
 
-      <tbody id="selection_items">
-        <% @selection_items.each do |selection_item| %>
-          <%= render "selection_item", :selection_item => selection_item %>
-        <% end %>
-      </tbody>
-    </table>
+        <tbody id="selection_items">
+          <% @selection_items.each do |selection_item| %>
+            <%= render "selection_item", :selection_item => selection_item %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
     <br>
 

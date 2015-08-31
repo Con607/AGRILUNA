@@ -27,11 +27,18 @@
             <!-- Page wrapper -->
             <%= render 'layouts/topnavbar' %>
 
+            <% if notice %>
+              <p class="alert alert-success"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="alert alert-danger"><%= alert %></p>
+            <% end %>
+
             <!-- Main view  -->
             <%= yield %>
 
             <!-- Footer -->
-            <%= render 'layouts/footer' %>
+            <!-- <%= render 'layouts/footer' %> -->
 
         </div>
         <!-- End page wrapper-->

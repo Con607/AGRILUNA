@@ -79,7 +79,8 @@ class SelectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def selection_params
-      params.require(:selection).permit(:event_date, :greenhouse_id, :product_id, :product_variety_id, :product_presentation_id, :total_weight, :selection_item_ids)
+      params.require(:selection).permit(:event_date, :greenhouse_id, :product_id, :product_variety_id, :product_presentation_id, 
+        :total_weight, :selection_item_ids)
     end
 
 end

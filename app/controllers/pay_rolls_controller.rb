@@ -18,6 +18,10 @@ class PayRollsController < ApplicationController
   # GET /pay_rolls/1.json
   def show
     @pay_roll_items = @pay_roll.pay_roll_items
+    @new_pay_roll_item = PayRollItem.new
+    @assistances = Assistance.where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(pay_roll_item_id: nil)
+    @employee_ids = @assistances.where(assisted: true).distinct.pluck(:employee_id)
+    @employees = Employee.where(id: @employee_ids.first..@employee_ids.last)
 
     respond_to do |format|
       format.js
@@ -99,22 +103,40 @@ class PayRollsController < ApplicationController
     # Get assistances on a given range of dates
     def get_assistances
       assistances = Assistance.where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(pay_roll_item_id: nil).order(:employee_id)
-      employees = assistances.select(:employee_id).distinct
-      employees.each do |employee_id|
+      employee_ids = assistances.select(:employee_id).distinct
+      employee_ids.each do |employee_id|
+        puts "!!!!!!!!!!!!!!!!!!! employee_id = #{employee_id.employee_id}"
         pay_roll_item = PayRollItem.new
         pay_roll_item.save
-        employee = Employee.find(employee_id.employee_id)
-        employee_assistances = assistances.where(employee: employee)
-        employee.pay_roll_items << pay_roll_item
-        pay_roll_item.assistances << employee_assistances
+        employee = employee_id.employee
+        pay_roll_item.employee = employee
+        pay_roll_item.assistances = employee.assistances
+        #pay_roll_item.save
         pay_roll_item.total_assistances = pay_roll_item.assistances.where(assisted: true).count
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        employee = #{employee_id.employee.first_name}
+        pay_roll_item.employee = #{pay_roll_item.employee.first_name}
+        pay_roll_item.assistances.count = #{pay_roll_item.assistances.count}
+        employee.assistances.count = #{employee.assistances.count}
+        pay_roll_item.assistances.count = #{pay_roll_item.assistances.count}
+          
+          pay_roll_item.assistances.where(assisted: true).count = #{pay_roll_item.assistances.where(assisted: true).count}
+          pay_roll_item.assistances = #{pay_roll_item.assistances.count}
+          pay_roll_item.total_assistances = #{pay_roll_item.total_assistances}
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         pay_roll_item.salary = employee.salary
         pay_roll_item.discounts = 0.0
         pay_roll_item.bonuses = 0.0
-        if pay_roll_item.save
-          pay_roll_item.total = ((pay_roll_item.salary * pay_roll_item.total_assistances) - pay_roll_item.discounts) + pay_roll_item.bonuses
-          pay_roll_item.save
-        end
+        pay_roll_item.save
+        pay_roll_item.total = ((pay_roll_item.salary * pay_roll_item.total_assistances) - pay_roll_item.discounts) + pay_roll_item.bonuses
+        pay_roll_item.save
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!
+              pay_roll_item.total_assistances = #{pay_roll_item.total_assistances}
+              pay_roll_item.salary = #{pay_roll_item.salary}
+              pay_roll_item.discounts = #{pay_roll_item.discounts}
+              pay_roll_item.bonuses = #{pay_roll_item.bonuses}
+              pay_roll_item.total = ((#{pay_roll_item.salary} * #{pay_roll_item.total_assistances}) - #{pay_roll_item.discounts}) + #{pay_roll_item.bonuses}
+              !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         @pay_roll.pay_roll_items << pay_roll_item
         @pay_roll.save
       end

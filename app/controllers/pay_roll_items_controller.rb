@@ -10,6 +10,10 @@ class PayRollItemsController < ApplicationController
   # GET /pay_roll_items/1
   # GET /pay_roll_items/1.json
   def show
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /pay_roll_items/new
@@ -28,9 +32,11 @@ class PayRollItemsController < ApplicationController
 
     respond_to do |format|
       if @pay_roll_item.save
+        format.js
         format.html { redirect_to @pay_roll_item, notice: 'Pay roll item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pay_roll_item }
       else
+        format.js
         format.html { render action: 'new' }
         format.json { render json: @pay_roll_item.errors, status: :unprocessable_entity }
       end
@@ -42,9 +48,11 @@ class PayRollItemsController < ApplicationController
   def update
     respond_to do |format|
       if @pay_roll_item.update(pay_roll_item_params)
+        format.js
         format.html { redirect_to @pay_roll_item, notice: 'Pay roll item was successfully updated.' }
         format.json { render json: @pay_roll_item }
       else
+        format.js
         format.html { render action: 'edit' }
         format.json { render json: @pay_roll_item.errors.full_messages, status: :unprocessable_entity }
       end
@@ -56,6 +64,7 @@ class PayRollItemsController < ApplicationController
   def destroy
     @pay_roll_item.destroy
     respond_to do |format|
+      format.js
       format.html { redirect_to pay_roll_items_url }
       format.json { head :no_content }
     end
@@ -119,7 +128,7 @@ class PayRollItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_roll_item_params
-      params.require(:pay_roll_item).permit(:pay_roll_id, :employee_id, :assistances, :salary, :discounts, :bonuses, :total)
+      params.require(:pay_roll_item).permit(:pay_roll_id, :employee_id, :salary, :discounts, :bonuses, :total, :assistance_ids)
     end
 
 

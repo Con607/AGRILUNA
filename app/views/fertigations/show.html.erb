@@ -20,27 +20,28 @@
 </div>
 
 <div class="col-md-8">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Application product</th>
-        <th>Unit measure</th>
-        <th>Fertilizer quantity</th>
-        <th>H20 quantity</th>
-        <th>Concentration</th>
-        <th>Injection rate</th>
-        <th>Fertilizer cost per unit</th>
-        <th>Cost</th>
-        <th></th>
-      </tr>
-    </thead>
+  <div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Application product</th>
+          <th>Unit measure</th>
+          <th>Fertilizer quantity</th>
+          <th>Concentration</th>
+          <th>Injection rate</th>
+          <th>Fertilizer cost per unit</th>
+          <th>Cost</th>
+          <th></th>
+        </tr>
+      </thead>
 
-    <tbody id="fertigation_items">
-      <% @fertigation_items.each do |fertigation_item| %>
-        <%= render 'fertigation_item', :fertigation_item => fertigation_item %>
-      <% end %>
-    </tbody>
-  </table>
+      <tbody id="fertigation_items">
+        <% @fertigation_items.each do |fertigation_item| %>
+          <%= render 'fertigation_item', :fertigation_item => fertigation_item %>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
 
   <br>
 
@@ -52,12 +53,11 @@
 
       <div class="form-inputs">
         <%= f.association :fertigation, :as => :hidden, input_html: { value: @fertigation.id } %>
-        <%= f.association :application_product %>
-        <%= f.input :unit_measure %>
-        <%= f.input :fertilizer_quantity, placeholder: 'Kilogramos o Litros' %>
-        <%= f.input :h20_quantity, placeholder: 'Litros' %>
-        <%= f.input :injection_rate %>
-        <%= f.input :fertilizer_cost_per_unit, placeholder: 'Por Kilogramo o por Litro' %>
+        <%= f.association :application_product, collection: ApplicationProduct.where("quantity_available > ?", 0), label_method: :name_quantity_available, value_method: :id %>
+        <%= f.association :unit_type, label_method: :name_abbreviation, value_method: :id %>
+        <%= f.input :fertilizer_quantity %>
+        <!-- Lo dejaremos pendiente hasta saber como utilizarlo
+        <%= f.input :injection_rate %> -->
       </div>
 
       <div class="form-actions">

@@ -4,25 +4,27 @@
         <td><%= sale.product_variety.name %></td>
         <td><%= sale.product_presentation.name %></td>
         <td>
-            <table class="table table-condensed table-bordered">
-                <thead>
-                    <tr>
-                        <% @product_quality_ids = sale.sale_items.order(:product_quality_id).pluck(:product_quality_id).uniq %>
-                        <% @product_quality_ids.each do |product_quality_id| %>
-                            <% @product_quality = ProductQuality.find(product_quality_id) %>
-                            <td><strong><%= @product_quality.name %></strong></td>
-                        <% end %>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <% @product_quality_ids.each do |product_quality_id| %>
-                            <% @product_quality = ProductQuality.find(product_quality_id) %>
-                                <td><%= sale.sale_items.where(product_quality_id: product_quality_id).sum(:quantity) %></td>
-                        <% end %>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover dataTable table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <% @product_quality_ids = sale.sale_items.order(:product_quality_id).pluck(:product_quality_id).uniq %>
+                            <% @product_quality_ids.each do |product_quality_id| %>
+                                <% @product_quality = ProductQuality.find(product_quality_id) %>
+                                <td><strong><%= @product_quality.name %></strong></td>
+                            <% end %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <% @product_quality_ids.each do |product_quality_id| %>
+                                <% @product_quality = ProductQuality.find(product_quality_id) %>
+                                    <td><%= sale.sale_items.where(product_quality_id: product_quality_id).sum(:quantity) %></td>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <strong>
                 Total quantity: <%= number_with_precision(sale.sale_items.sum(:quantity), precision: 0, delimiter: ',') %>
             </strong>

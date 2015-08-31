@@ -1,5 +1,6 @@
 class ApplicationProductsController < ApplicationController
   before_action :set_application_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_to_ceros, only: [:create]
 
   # GET /application_products
   # GET /application_products.json
@@ -78,6 +79,13 @@ class ApplicationProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_product_params
-      params.require(:application_product).permit(:application_item_ids, :name, :description, :quantity_available, :units_of_measure, :unit_type_id)
+      params.require(:application_product).permit(:application_item_ids, :name, :description, :quantity_available, 
+                            :units_of_measure, :unit_type_id, :total_cost, :unit_cost)
+    end
+
+    def set_to_ceros
+      params[:application_product][:quantity_available] = 0.0
+      params[:application_product][:unit_cost] = 0.0
+      params[:application_product][:total_cost] = 0.0
     end
 end

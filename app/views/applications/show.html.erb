@@ -33,26 +33,28 @@
 <div class="col-md-8">
   <br>
   <br>
-  <table  class="table table-hover">
-    <thead>
-      <tr>
-        <th>Application product</th>
-        <th>Unit of measure</th>
-        <th>Quantity</th>
-        <th>H2o quantity liters</th>
-        <th>Total product used</th>
-        <th>Cost per unit</th>
-        <th>Total cost</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <div class="table-responsive">
+    <table  class="table table-hover dataTable table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Application product</th>
+          <th>Unit of measure</th>
+          <th>Quantity per L of water</th>
+          <th>Liters of water</th>
+          <th>Total product used</th>
+          <th>Cost per unit</th>
+          <th>Total cost</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-    <tbody id="application_items">
-      <% @application.application_items.each do |application_item| %>
-        <%= render 'application_item', :application_item => application_item %>
-      <% end %>
-    </tbody>
-  </table>
+      <tbody id="application_items">
+        <% @application.application_items.each do |application_item| %>
+          <%= render 'application_item', :application_item => application_item %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 
   <%= link_to 'New Application item', new_application_item_path, remote: true, id: 'new_application_item_link' %>
@@ -64,11 +66,10 @@
       <div class="form-inputs">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%= f.association :application, :as => :hidden, input_html: { value: @application.id } %>
-        <%= f.association :application_product %>
+        <%= f.association :application_product, collection: ApplicationProduct.where("quantity_available > ?", 0), :label_method => :name_quantity_available, value_method: :id %>
         <%= f.association :unit_type %>
-        <%= f.input :quantity %>
-        <%= f.input :h2o_quantity_liters %>
-        <%= f.input :cost_per_unit %>
+        <%= f.input :total_product_used %>
+        <%= f.input :h2o_quantity_liters, label: 'Water quantity' %>
       </div>
 
       <div class="form-actions">

@@ -81,7 +81,7 @@ class ProductApplicationBuysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_application_buy_params
-      params.require(:product_application_buy).permit(:greenhouse_id, :buy_date, :application_product_id, :unit, :quanity, 
+      params.require(:product_application_buy).permit(:buy_date, :application_product_id, :unit, :quanity, 
                                                         :unit_cost, :total_cost, :supplier_id, :unit_type_id)
     end
 
@@ -105,56 +105,36 @@ class ProductApplicationBuysController < ApplicationController
       application_product = @product_application_buy.application_product
       unit_type = @product_application_buy.unit_type
       quantity = @product_application_buy.quanity
-      product_unit_type_id = application_product.unit_type.id
-      product_unit_type_value = application_product.unit_type.value
-      unit_type_id = unit_type.id
-      unit_type_value = unit_type.value
-      # Check if unit_type is different 
-      if product_unit_type_id != unit_type_id
-        # The divider and multiplier change
-        if product_unit_type_value < 1
-          divider = product_unit_type_value / 10
-          multiplier = unit_type_value
-          application_product.quantity_available += ((quantity * multiplier) / divider)
-        else
-          divider =  product_unit_type_value
-          multiplier = unit_type_value
-          application_product.quantity_available += ((quantity * multiplier) / divider)
-        end
-        application_product.save
-      end
-      if application_product.unit_type.id == unit_type.id
-        application_product.quantity_available += quantity
-        application_product.save
-      end 
+      converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
+      application_product.quantity_available += converted_quantity
+      application_product.save
+
+      # Now update the total_cost
+      application_product.total_cost += @product_application_buy.total_cost
+      application_product.save
+      application_product.unit_cost = application_product.total_cost / application_product.quantity_available
+      application_product.save
     end
 
     def update_application_product_destroy
       application_product = @product_application_buy.application_product
       unit_type = @product_application_buy.unit_type
       quantity = @product_application_buy.quanity
-      product_unit_type_id = application_product.unit_type.id
-      product_unit_type_value = application_product.unit_type.value
-      unit_type_id = unit_type.id
-      unit_type_value = unit_type.value
-      # Check if unit_type is different 
-      if product_unit_type_id != unit_type_id
-        # The divider and multiplier change
-        if product_unit_type_value < 1
-          divider = product_unit_type_value / 10
-          multiplier = unit_type_value
-          application_product.quantity_available -= ((quantity * multiplier) / divider)
-        else
-          divider =  product_unit_type_value
-          multiplier = unit_type_value
-          application_product.quantity_available -= ((quantity * multiplier) / divider)
-        end
+      converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
+      application_product.quantity_available -= converted_quantity
+      application_product.save
+
+      if application_product.quantity_available = 0.0
+        application_product.total_cost = 0.0
+        application_product.unit_cost = 0.0
+        application_product.save
+      else
+        # Now update the total_cost
+        application_product.total_cost -= @product_application_buy.total_cost
+        application_product.save
+        application_product.unit_cost = application_product.total_cost / application_product.quantity_available
         application_product.save
       end
-      if application_product.unit_type.id == unit_type.id
-        application_product.quantity_available -= quantity
-        application_product.save
-      end 
     end
 
 end

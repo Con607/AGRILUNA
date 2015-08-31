@@ -2,26 +2,28 @@
 
 <h1>Harvests</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Event date</th>
-      <th>Greenhouse</th>
-      <th>Product</th>
-      <th>Product variety</th>
-      <th>Product presentation</th>
-      <th>Product quantity</th>
-      <th>Total harvested</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Event date</th>
+        <th>Greenhouse</th>
+        <th>Product</th>
+        <th>Product variety</th>
+        <th>Product presentation</th>
+        <th>Product quantity</th>
+        <th>Total harvested</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
 
-  <tbody id="harvests">
-    <% @harvests.each do |harvest| %>
-      <%= render "harvest", :harvest => harvest %>
-    <% end %>
-  </tbody>
-</table>
+    <tbody id="harvests">
+      <% @harvests.each do |harvest| %>
+        <%= render "harvest", :harvest => harvest %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

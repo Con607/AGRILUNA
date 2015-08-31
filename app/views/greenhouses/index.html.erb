@@ -1,36 +1,38 @@
 <h1>Listing greenhouses</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Employees</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @greenhouses.each do |greenhouse| %>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= greenhouse.name %></td>
-        <td><%= greenhouse.description %></td>
-        <td><%= greenhouse.location %></td>
-        <td>
-          <% greenhouse.employees.each do |employee| %>
-            <%= employee.first_name %><br>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', greenhouse %></td>
-        <td><%= link_to 'Edit', edit_greenhouse_path(greenhouse) %></td>
-        <td><%= link_to 'Destroy', greenhouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Employees</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @greenhouses.each do |greenhouse| %>
+        <tr>
+          <td><%= greenhouse.name %></td>
+          <td><%= greenhouse.description %></td>
+          <td><%= greenhouse.location %></td>
+          <td>
+            <% greenhouse.employees.each do |employee| %>
+              <%= employee.first_name %><br>
+            <% end %>
+          </td>
+          <td><%= link_to 'Show', greenhouse %></td>
+          <td><%= link_to 'Edit', edit_greenhouse_path(greenhouse) %></td>
+          <td><%= link_to 'Destroy', greenhouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

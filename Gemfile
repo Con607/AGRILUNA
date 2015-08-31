@@ -10,6 +10,12 @@ gem 'simple_form'
 gem 'country_select'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'devise'
+
+group :development, :test, :production do
+  gem 'thin'
+end
+
 
 
 # Use sqlite3 as the database for Active Record
@@ -41,6 +47,11 @@ end
 group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
+	gem 'capistrano', '~> 3.0.1'
+	gem 'capistrano-bundler'
+	gem 'capistrano-rails', '~> 1.1.0'
+	gem 'capistrano-rails-console'
+	gem 'capistrano-rvm', '~> 0.1.1'
 end
 
 # Use ActiveModel has_secure_password

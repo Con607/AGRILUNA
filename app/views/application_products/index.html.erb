@@ -2,23 +2,27 @@
 
 <h1>Listing Application Products</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Quantity available</th>
-      <th>Units of measure</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Units of measure</th>
+        <th>Quantity available</th>
+        <th>Unit Cost</th>
+        <th>Total Cost</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
 
-  <tbody id="application_products">
-    <% @application_products.each do |application_product| %>
-      <%= render "application_product", :application_product => application_product %>
-    <% end %>
-  </tbody>
-</table>
+    <tbody id="application_products">
+      <% @application_products.each do |application_product| %>
+        <%= render "application_product", :application_product => application_product %>
+      <% end %>
+    </tbody> 
+  </table>
+</div>
 
 <br>
 
@@ -29,7 +33,6 @@
     <div class="form-inputs">
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.input :quantity_available %>
       <%= f.association :unit_type %>
     </div>
 

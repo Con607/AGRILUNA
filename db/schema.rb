@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826034940) do
+ActiveRecord::Schema.define(version: 20150831053636) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.integer  "greenhouse_id", limit: 4
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20150826034940) do
     t.datetime "updated_at",                                null: false
     t.integer  "application_product_buy_ids", limit: 4
     t.integer  "unit_type_id",                limit: 4
+    t.float    "total_cost",                  limit: 24
+    t.float    "unit_cost",                   limit: 24
   end
 
   create_table "applications", force: :cascade do |t|
@@ -114,15 +116,14 @@ ActiveRecord::Schema.define(version: 20150826034940) do
   create_table "fertigation_items", force: :cascade do |t|
     t.integer  "fertigation_id",           limit: 4
     t.integer  "application_product_id",   limit: 4
-    t.string   "unit_measure",             limit: 255
     t.float    "fertilizer_quantity",      limit: 24
-    t.float    "h20_quantity",             limit: 24
     t.float    "concentration",            limit: 24
     t.float    "injection_rate",           limit: 24
     t.float    "fertilizer_cost_per_unit", limit: 24
     t.float    "cost",                     limit: 24
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "unit_type_id",             limit: 4
   end
 
   create_table "fertigations", force: :cascade do |t|
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 20150826034940) do
     t.float    "total_cost",           limit: 24
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.float    "h2o_quantity",         limit: 24
   end
 
   create_table "greenhouse_employees", force: :cascade do |t|
@@ -237,7 +239,6 @@ ActiveRecord::Schema.define(version: 20150826034940) do
   end
 
   create_table "product_application_buys", force: :cascade do |t|
-    t.integer  "greenhouse_id",          limit: 4
     t.date     "buy_date"
     t.integer  "application_product_id", limit: 4
     t.integer  "quanity",                limit: 4
@@ -352,6 +353,14 @@ ActiveRecord::Schema.define(version: 20150826034940) do
     t.datetime "updated_at",                                null: false
   end
 
+  create_table "unit_conversions", force: :cascade do |t|
+    t.integer  "unit_type_id", limit: 4
+    t.string   "convert_to",   limit: 255
+    t.float    "value",        limit: 24
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "unit_types", force: :cascade do |t|
     t.string   "name",                        limit: 255
     t.string   "abbreviation",                limit: 255
@@ -365,7 +374,27 @@ ActiveRecord::Schema.define(version: 20150826034940) do
     t.integer  "application_product_ids",     limit: 4
     t.integer  "product_application_buy_ids", limit: 4
     t.string   "measure_type",                limit: 255
+    t.integer  "unit_converion_ids",          limit: 4
+    t.integer  "fertigation_item_ids",        limit: 4
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "weathers", force: :cascade do |t|
     t.string   "name",                        limit: 255

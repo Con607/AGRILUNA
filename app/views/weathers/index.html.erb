@@ -2,22 +2,24 @@
 
 <h1>Weathers</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th
-      <th>Environmental condition ids</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th
+        <th>Environmental condition ids</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
 
-  <tbody id="weathers">
-    <% @weathers.each do |weather| %>
-      <%= render "weather", :weather => weather %>
-    <% end %>
-  </tbody>
-</table>
+    <tbody id="weathers">
+      <% @weathers.each do |weather| %>
+        <%= render "weather", :weather => weather %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

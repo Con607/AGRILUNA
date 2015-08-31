@@ -1,0 +1,7 @@
+	  <tr id="unit_conversion_<%= unit_conversion.id %>">
+        <td><%= unit_conversion.unit_type.name %></td>
+        <td><%= unit_conversion.convert_to %></td>
+        <td><%= unit_conversion.value %></td>
+        <td><%= link_to 'Show', unit_conversion %></td>
+        <td><%= link_to 'Destroy', unit_conversion, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

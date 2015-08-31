@@ -1,9 +1,7 @@
 
       <tr id="assistance_<%= assistance.id %>">
-      	<td><%= assistance.pay_roll_item_id %></td>
         <td><%= assistance.employee.first_name %></td>
         <td><%= assistance.assistance_date %></td>
         <td><%= assistance.assisted %></td>
-        <td><%= link_to 'Show', assistance %></td>
         <td><%= link_to 'Destroy', assistance, method: :delete, remote: true, data: { confirm: 'Confirmar eliminacion?' } %></td>
       </tr>

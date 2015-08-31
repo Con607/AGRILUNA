@@ -1,4 +1,10 @@
 Myapp::Application.routes.draw do
+  devise_for :users
+  get 'reports/index'
+
+  get 'reports/quick_general_status'
+
+  resources :unit_conversions
   resources :unit_types
   resources :unit_types
   resources :selections

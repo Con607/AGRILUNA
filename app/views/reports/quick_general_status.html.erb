@@ -1,0 +1,121 @@
+<h1>General status report by greenhouse</h1>
+
+
+
+<div class="col-md-4">
+	<div class="table-responsive">
+	  <table class="table table-hover dataTable table-striped table-bordered">
+	  <thead>
+	      <tr>
+	        <th>Global Concepts</th>
+	        <th>Cost</th>
+	      </tr>
+	    </thead>
+
+	    <tbody id="sales">
+	      <tr>
+	      	<td>Man Power</td>
+	      	<td class="alnright"><%= number_to_currency(@manpower_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Fertigation</td>
+	      	<td class="alnright"><%= number_to_currency(@fertigation_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Applications</td>
+	      	<td class="alnright"><%= number_to_currency(@applications_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Operating costs</td>
+	      	<td class="alnright"><%= number_to_currency(@operating_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Administration costs</td>
+	      	<td class="alnright"><%= number_to_currency(@administration_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td><strong>Total Expenses</strong></td>
+	      	<td class="alnright"><strong><%= number_to_currency(@total_expenses, precision: 2) %></strong></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+</div>
+
+<div class="col-md-4">
+	<div class="table-responsive">
+	  <table class="table table-hover dataTable table-striped table-bordered">
+	  <thead>
+	      <tr>
+	        <th colspan="2">Esperado</th>
+	      </tr>
+	    </thead>
+
+	    <tbody id="sales">
+	      <tr>
+	      	<td>Rendimiento esperado por m2</td>
+	      	<td class="alnright"><%= number_with_precision(@estimated_performance_per_m2, precision: 2) %> Kg</td>
+	      </tr>
+	      <tr>
+	      	<td>Rendimiento esperado por nave (2500 m2)</td>
+	      	<td class="alnright"><%= number_with_precision(@greenhouse_estimated_performance, precision: 2) %> Kg</td>
+	      </tr>
+	      <tr>
+	      	<td>Costo de produccion maximo esperado</td>
+	      	<td class="alnright"><%= number_to_currency(@maximum_estimated_production_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Precio de venta promedio esperado (por kg)</td>
+	      	<td class="alnright"><%= number_to_currency(@expected_average_selling_price_per_kg, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Gastos Totales esperados</td>
+	      	<td class="alnright"><%= number_to_currency(@expected_total_expenses, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td><strong>Ganancia Total esperada</strong></td>
+	      	<td class="alnright"><strong><%= number_to_currency(@expected_total_profit, precision: 2) %></strong></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+</div>
+
+<div class="col-md-4">
+	<div class="table-responsive">
+	  <table class="table table-hover dataTable table-striped table-bordered">
+	  <thead>
+	      <tr>
+	        <th colspan="2">Actual / Real</th>
+	      </tr>
+	    </thead>
+
+	    <tbody id="sales">
+	      <tr>
+	      	<td>Rendimiento por m2</td>
+	      	<td class="alnright"><%= number_with_precision(@performance_per_m2, precision: 2) %> Kg</td>
+	      </tr>
+	      <tr>
+	      	<td>Rendimiento por nave (2500 m2)</td>
+	      	<td class="alnright"><%= number_with_precision(@greenhouse_performance, precision: 2) %> Kg</td>
+	      </tr>
+	      <tr>
+	      	<td>Costo de produccion maximo</td>
+	      	<td class="alnright"><%= number_to_currency(@production_cost, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Precio de venta promedio (por kg)</td>
+	      	<td class="alnright"><%= number_to_currency(@average_selling_price_per_kg, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td>Gastos Totales</td>
+	      	<td class="alnright"><%= number_to_currency(@total_expenses, precision: 2) %></td>
+	      </tr>
+	      <tr>
+	      	<td><strong>Ganancia Total</strong></td>
+	      	<td class="alnright"><strong><%= number_to_currency(@total_profit, precision: 2) %></strong></td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</div>
+</div>

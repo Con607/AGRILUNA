@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit type:</strong>
+  <%= @unit_conversion.unit_type_id %>
+</p>
+
+<p>
+  <strong>Convert to:</strong>
+  <%= @unit_conversion.convert_to %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @unit_conversion.value %>
+</p>
+
+<%= link_to 'Edit', edit_unit_conversion_path(@unit_conversion) %> |
+<%= link_to 'Back', unit_conversions_path %>

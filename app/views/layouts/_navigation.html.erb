@@ -6,13 +6,21 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">Example user</strong>
+                                <strong class="font-bold"><%= current_user.email if user_signed_in? %></strong>
                             </span> <span class="text-muted text-xs block">Example menu <b class="caret"></b></span>
                         </span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="#">Logout</a></li>
-                    </ul>
+                    <% if user_signed_in? %>
+                      <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+                          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                      </ul>
+                    <% else %>
+                      <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+                          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+                      </ul>
+                    <% end %>
                 </div>
                 <div class="logo-element">
                     IN+
@@ -77,11 +85,19 @@
                         </ul>
                     </li>
                     <li><%= link_to 'Unit Types', unit_types_path %></li>
+                    <li><%= link_to 'Unit Conversions', unit_conversions_path %></li>
                     <li><%= link_to 'Phenological Stages', phenological_stages_path %></li>
                     <li><%= link_to 'Environments', environments_path %></li>
                     <li><%= link_to 'Weathers', weathers_path %></li>
                     <li><%= link_to 'Suppliers', suppliers_path %></li>
                     <li></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><%= link_to 'Listado', reports_index_path %></li>
+                    <li><%= link_to 'General Status', reports_quick_general_status_path %></li>
                 </ul>
             </li>
         </ul>

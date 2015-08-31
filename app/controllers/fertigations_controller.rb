@@ -1,5 +1,6 @@
 class FertigationsController < ApplicationController
   before_action :set_fertigation, only: [:show, :edit, :update, :destroy]
+  before_action :update_application_product_destroy, only: [:destroy]
 
   # GET /fertigations
   # GET /fertigations.json
@@ -84,6 +85,22 @@ class FertigationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fertigation_params
-      params.require(:fertigation).permit(:greenhouse_id, :fertigation_datetime, :tank, :fertigation_item_ids, :total_cost)
+      params.require(:fertigation).permit(:greenhouse_id, :fertigation_datetime, :tank, :fertigation_item_ids, :total_cost, :h2o_quantity)
     end
+
+    def update_application_product_destroy
+      @fertigation.fertigation_items.each do |fertigation_item|
+        application_product = fertigation_item.application_product
+        unit_type = fertigation_item.unit_type
+        quantity = fertigation_item.fertilizer_quantity
+        converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
+        application_product.quantity_available += converted_quantity
+        application_product.save
+
+        # Now update the total_cost
+        application_product.total_cost = application_product.unit_cost * application_product.quantity_available
+        application_product.save
+      end
+    end
+
 end
