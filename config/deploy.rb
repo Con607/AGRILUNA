@@ -9,7 +9,7 @@ set :user, 'confiuzer'
 set :deploy_to, "/home/confiuzer/#{fetch(:application)}"
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.2'
-#set :rvm_ruby_version, '2.2.1@rails-devise-roles'
+set :rvm_ruby_version, '2.2.2@agriluna'
 
 #set :puma_bind,  "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 #set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
