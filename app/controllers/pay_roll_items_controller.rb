@@ -1,5 +1,7 @@
 class PayRollItemsController < ApplicationController
-  before_action :set_pay_roll_item, only: [:show, :edit, :update, :destroy, :update_discount, :update_bonus]
+  before_action :set_pay_roll_item, only: [:show, :edit, :update, :destroy]
+  before_action :do_calcs, only: [:update]
+  after_action :update_pay_roll, only: [:update]
 
   # GET /pay_roll_items
   # GET /pay_roll_items.json
@@ -49,7 +51,7 @@ class PayRollItemsController < ApplicationController
     respond_to do |format|
       if @pay_roll_item.update(pay_roll_item_params)
         format.js
-        format.html { redirect_to @pay_roll_item, notice: 'Pay roll item was successfully updated.' }
+        format.html { redirect_to @pay_roll_item.pay_roll, notice: 'Pay roll item was successfully updated.' }
         format.json { render json: @pay_roll_item }
       else
         format.js
@@ -68,6 +70,25 @@ class PayRollItemsController < ApplicationController
       format.html { redirect_to pay_roll_items_url }
       format.json { head :no_content }
     end
+  end
+
+  def do_calcs
+    # Update discount
+    salary = params[:pay_roll_item][:salary].to_f
+    discounts = params[:pay_roll_item][:discounts].to_f
+    bonuses = params[:pay_roll_item][:bonuses].to_f
+    params[:pay_roll_item][:total] = ((@pay_roll_item.total_assistances * salary) - discounts) + bonuses
+  end
+
+  def update_pay_roll
+    @pay_roll = @pay_roll_item.pay_roll
+        
+    # Update pay_roll
+    @pay_roll.subtotal = (@pay_roll.pay_roll_items.sum(:total) + @pay_roll.pay_roll_items.sum(:discounts)) - @pay_roll.pay_roll_items.sum(:bonuses)
+    @pay_roll.discount = @pay_roll.pay_roll_items.sum(:discounts)
+    @pay_roll.bonus = @pay_roll.pay_roll_items.sum(:bonuses)
+    @pay_roll.total = @pay_roll.pay_roll_items.sum(:total)
+    @pay_roll.save
   end
 
   def update_discount

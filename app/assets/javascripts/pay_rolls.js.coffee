@@ -9,37 +9,45 @@ ready = ->
 
 	###  show view  ###
 	# Hide form from start
-	$('div.div_edit_pay_roll_item_form').hide()
+	#$('div.div_edit_pay_roll_item_form').hide()
+#
+#	## Show form on click
+#	#$('.edit_pay_roll_item_link').click ->
+#	#	domid = $(this).attr('id')
+#	#	pay_roll_item_id = domid.replace(/[^0-9]/g, '')
+#	#	#$('.edit_pay_roll_item_link').fadeOut()
+	#	$('div#div_edit_pay_roll_item_form_' + pay_roll_item_id).fadeIn()
 
-	# Show form on click
-	$('.edit_pay_roll_item_link').click ->
-		domid = $(this).attr('id')
-		pay_roll_item_id = domid.replace(/[^0-9]/g, '')
-		#$('.edit_pay_roll_item_link').fadeOut()
-		$('div#div_edit_pay_roll_item_form_' + pay_roll_item_id).fadeIn()
+
+
+
+
+
+
+
 
 	# Hide form on click
-	$('.edit_pay_roll_item_submit_button').click ->
-		$('div.div_edit_pay_roll_item_form').fadeOut()
-		#$('.edit_pay_roll_item_link').fadeIn()
+	#$('.edit_pay_roll_item_submit_button').click ->
+	#	$('div.div_edit_pay_roll_item_form').fadeOut()
+	#	#$('.edit_pay_roll_item_link').fadeIn()
 
 
 
 	###  index view  ###
 	# Hide form from start
-	$('div#div_new_fertigation_form').hide()
-
-	# Show form on click
-	$('#new_fertigation_link').click ->
-		$('#new_fertigation_link').fadeOut()
-		$('div#div_new_fertigation_form').fadeIn()
-
-	# Hide form on click
-	$('#new_fertigation_submit_button').click ->
-		$('div#div_new_fertigation_form').fadeOut()
-		$('#new_fertigation_link').fadeIn()
-
-
+	#$('div#div_new_fertigation_form').hide()
+#
+#	## Show form on click
+#	#$('#new_fertigation_link').click ->
+#	#	$('#new_fertigation_link').fadeOut()
+#	#	$('div#div_new_fertigation_form').fadeIn()
+#
+#	## Hide form on click
+#	#$('#new_fertigation_submit_button').click ->
+#	#	$('div#div_new_fertigation_form').fadeOut()
+#	#	$('#new_fertigation_link').fadeIn()
+#
+#
 
 #	# Hide discounts and bonuses form from the start
 #	$("div.discount_update_form").hide();

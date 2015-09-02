@@ -20,6 +20,6 @@
               </div>
             </td>
             <td><div id="pay_roll_item_total_<%= pay_roll_item.id %>"><%= pay_roll_item.total %></div></td>
-            <td><%= link_to 'Edit', edit_pay_roll_item_path(pay_roll_item), remote: true, id: "edit_pay_roll_item_link_#{pay_roll_item.id}", class: 'edit_pay_roll_item_link' %></td>
+            <td><%= link_to 'Edit', edit_pay_roll_item_path(pay_roll_item), id: "edit_pay_roll_item_link_#{pay_roll_item.id}", class: 'edit_pay_roll_item_link' %></td>
             <td><%= link_to 'Destroy', pay_roll_item, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
           </tr>

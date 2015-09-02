@@ -124,7 +124,7 @@ class PayRollsController < ApplicationController
           pay_roll_item.assistances = #{pay_roll_item.assistances.count}
           pay_roll_item.total_assistances = #{pay_roll_item.total_assistances}
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-        pay_roll_item.salary = employee.salary
+        #pay_roll_item.salary = employee.salary
         pay_roll_item.discounts = 0.0
         pay_roll_item.bonuses = 0.0
         pay_roll_item.save
