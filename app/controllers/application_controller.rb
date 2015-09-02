@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  #before_action :check_if_allowed_controller, if: :user_signed_in?
+  before_action :check_if_allowed_controller, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Prevent CSRF attacks by raising an exception.
