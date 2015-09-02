@@ -97,7 +97,8 @@ class PayRollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_roll_params
-      params.require(:pay_roll).permit(:pay_roll_item_id, :start_date, :end_date, :subtotal, :discount, :bonus, :total, :total_assistances)
+      params.require(:pay_roll).permit(:pay_roll_item_id, :start_date, :end_date, :greenhouse_id, 
+                  :subtotal, :discount, :bonus, :total, :total_assistances)
     end
 
     # Get assistances on a given range of dates
