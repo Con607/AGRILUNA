@@ -19,7 +19,7 @@
     <tbody>
       <% @greenhouses.each do |greenhouse| %>
         <tr>
-          <td><%= greenhouse.company.name %></td>
+          <td><%= greenhouse.company.name unless greenhouse.company.nil? %></td>
           <td><%= greenhouse.name %></td>
           <td><%= greenhouse.description %></td>
           <td><%= greenhouse.area %></td>

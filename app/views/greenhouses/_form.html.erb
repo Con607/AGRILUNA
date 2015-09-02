@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :company %>
+    <%= f.association :company, collection: current_user.companies, label_method: :name, value_method: :id %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :area, placeholder: 'Area of the greenhouse in m2' %>
