@@ -1,5 +1,6 @@
 class PayRollsController < ApplicationController
   before_action :set_pay_roll, only: [:show, :edit, :update, :destroy]
+  before_action :set_unpayed, only: [:destroy]
   #after_action :get_assistances, only: [:create]
 
   # GET /pay_rolls
@@ -99,6 +100,18 @@ class PayRollsController < ApplicationController
     def pay_roll_params
       params.require(:pay_roll).permit(:pay_roll_item_id, :start_date, :end_date, :greenhouse_id, 
                   :subtotal, :discount, :bonus, :total, :total_assistances)
+    end
+
+    def set_unpayed
+      @pay_roll.pay_roll_items.each do |pay_roll_item|
+        pay_roll_item.assistances.each do |assistance|
+          assistance.payed = false
+          assistance.save
+          puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+                assistance.payed = #{assistance.payed}
+                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1"
+        end
+      end
     end
 
     # Get assistances on a given range of dates

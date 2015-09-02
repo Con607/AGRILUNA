@@ -1,9 +1,10 @@
 class PayRollItemsController < ApplicationController
   before_action :set_pay_roll_item, only: [:show, :edit, :update, :destroy]
   before_action :do_calcs, only: [:update]
+  before_action :set_unpayed, only: [:destroy]
   after_action :update_pay_roll, only: [:update]
   after_action :set_payed, only: [:create]
-  after_action :set_unpayed, only: [:destroy] 
+   
 
   # GET /pay_roll_items
   # GET /pay_roll_items.json
@@ -87,6 +88,9 @@ class PayRollItemsController < ApplicationController
     @pay_roll_item.assistances.each do |assistance|
       assistance.payed = false
       assistance.save
+      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+            assistance.payed = #{assistance.payed}
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1"
     end
   end
 
