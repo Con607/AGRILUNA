@@ -3,6 +3,7 @@ class PayRollItemsController < ApplicationController
   before_action :do_calcs, only: [:update]
   after_action :update_pay_roll, only: [:update]
   after_action :set_payed, only: [:create]
+  after_action :set_unpayed, only: [:destroy]
 
   # GET /pay_roll_items
   # GET /pay_roll_items.json
@@ -74,8 +75,17 @@ class PayRollItemsController < ApplicationController
   end
 
   def set_payed
-    @pay_roll_item.payed = true
-    @pay_roll_item.save
+    @pay_roll_item.assistances.each do |assisance|
+      assistance.payed = true
+      assistance.save
+    end
+  end
+
+  def set_unpayed
+    @pay_roll_item.assistances.each do |assisance|
+      assistance.payed = false
+      assistance.save
+    end
   end
 
   def do_calcs
