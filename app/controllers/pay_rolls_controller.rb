@@ -111,7 +111,7 @@ class PayRollsController < ApplicationController
         pay_roll_item.save
         employee = employee_id.employee
         pay_roll_item.employee = employee
-        pay_roll_item.assistances = employee.assistances
+        pay_roll_item.assistances = employee.assistances.where("payed != ?", true)
         #pay_roll_item.save
         pay_roll_item.total_assistances = pay_roll_item.assistances.where(assisted: true).count
         puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

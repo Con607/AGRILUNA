@@ -2,6 +2,7 @@ class PayRollItemsController < ApplicationController
   before_action :set_pay_roll_item, only: [:show, :edit, :update, :destroy]
   before_action :do_calcs, only: [:update]
   after_action :update_pay_roll, only: [:update]
+  after_action :set_payed, only: [:create]
 
   # GET /pay_roll_items
   # GET /pay_roll_items.json
@@ -70,6 +71,11 @@ class PayRollItemsController < ApplicationController
       format.html { redirect_to pay_roll_items_url }
       format.json { head :no_content }
     end
+  end
+
+  def set_payed
+    @pay_roll_item.payed = true
+    @pay_roll_item.save
   end
 
   def do_calcs
@@ -149,7 +155,7 @@ class PayRollItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_roll_item_params
-      params.require(:pay_roll_item).permit(:pay_roll_id, :employee_id, :salary, :discounts, :bonuses, :total, :assistance_ids)
+      params.require(:pay_roll_item).permit(:pay_roll_id, :employee_id, :payed, :salary, :discounts, :bonuses, :total, :assistance_ids)
     end
 
 
