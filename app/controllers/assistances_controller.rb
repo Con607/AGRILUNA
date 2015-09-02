@@ -4,7 +4,7 @@ class AssistancesController < ApplicationController
   # GET /assistances
   # GET /assistances.json
   def index
-    @assistances = Assistance.where(pay_roll_item_id: nil)
+    @assistances = Assistance.not_payed.where(pay_roll_item_id: nil) 
     @assistance = Assistance.new
   end 
 
