@@ -4,5 +4,5 @@ class Assistance < ActiveRecord::Base
 
 	validates :employee, :assistance_date, :assisted, presence: true
 
-	scope :not_payed, -> { where(payed: false) }
+	scope :not_payed, -> { where(payed: [false, nil]) }
 end
