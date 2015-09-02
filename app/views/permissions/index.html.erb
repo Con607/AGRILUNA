@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Permissions</h1>
+
+<table class="table table-hover dataTable table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Value</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody id="permissions">
+    <% @permissions.each do |permission| %>
+      <%= render "permission", :permission => permission %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Permission', new_permission_path, remote: true, id: 'new_permission_link' %>
+</div>
+
+
+<br>
+<div class="col-md-5" id="div_new_permission_form">
+  <%= simple_form_for(@permission, remote: true, html: { id: 'new_permission_from' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :value %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, id: 'new_permission_submit_button' %>
+    </div>
+  <% end %>
+
+</div>

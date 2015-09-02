@@ -4,8 +4,10 @@
   <table class="table table-hover dataTable table-striped table-bordered">
     <thead>
       <tr>
+        <th>Company</th>
         <th>Name</th>
         <th>Description</th>
+        <th>Area</th>
         <th>Location</th>
         <th>Employees</th>
         <th></th>
@@ -17,8 +19,10 @@
     <tbody>
       <% @greenhouses.each do |greenhouse| %>
         <tr>
+          <td><%= greenhouse.company.name %></td>
           <td><%= greenhouse.name %></td>
           <td><%= greenhouse.description %></td>
+          <td><%= greenhouse.area %></td>
           <td><%= greenhouse.location %></td>
           <td>
             <% greenhouse.employees.each do |employee| %>

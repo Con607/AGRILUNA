@@ -1,5 +1,4 @@
 class SalesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
   # GET /sales
@@ -80,6 +79,7 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:event_date, :product_id, :product_variety_id, :product_presentation_id, :total_price, :status, :sale_item_ids)
+      params.require(:sale).permit(:event_date, :product_id, :product_variety_id, :product_presentation_id, 
+        :total_price, :status, :greenhouse_id, :sale_item_ids)
     end
 end

@@ -1,16 +1,20 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
   # GET /companies.json
   def index
     @companies = Company.all
+    @company = Company.new
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   # GET /companies/new
@@ -29,9 +33,11 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
+        format.js
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render action: 'show', status: :created, location: @company }
       else
+        format.js
         format.html { render action: 'new' }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
@@ -57,6 +63,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     respond_to do |format|
+      format.js
       format.html { redirect_to companies_url }
       format.json { head :no_content }
     end
@@ -70,6 +77,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :description, :address, :telephone, :greenhouse_ids)
+      params.require(:company).permit(:name, :description, :address, :telephone, :greenhouse_ids, :user_ids)
     end
 end

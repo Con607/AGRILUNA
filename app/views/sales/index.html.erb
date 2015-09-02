@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Event date</th>
+        <th>Greenhouse</th>
         <th>Poduct</th>
         <th>Product variety</th>
         <th>Product presentation</th> 
@@ -48,6 +49,7 @@
 
     <div class="form-inputs">
       <%= f.input :event_date %>
+      <%= f.association :greenhouse %>
       <%= f.association :product %>
       <%= f.association :product_variety %>
       <%= f.association :product_presentation %>

@@ -1,0 +1,17 @@
+<tr id="role_<%= role.id %>">
+        <td><%= role.company.name %></td>
+        <td>
+        	<% role.users.each do |user| %>
+        		<%= user.full_name unless user.nil? %><br>
+        	<% end %>
+        </td>
+        <td><%= role.name %></td>
+        <td><%= role.description %></td>
+        <td>
+        	<% role.permissions.each do |permission| %>
+        		<%= permission.name unless permission.nil? %><br>
+        	<% end %>
+        </td>
+        <td><%= link_to 'Show', role %></td>
+        <td><%= link_to 'Destroy', role, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

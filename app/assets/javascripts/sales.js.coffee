@@ -20,7 +20,6 @@ ready = ->
 	$('#new_sale_submit_button').click ->
 		$('div#div_new_sale_form').fadeOut()
 		$('#new_sale_link').fadeIn()
-		Turbolinks.visit(location.toString())
 
 
 $(document).ready(ready)

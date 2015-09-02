@@ -7,6 +7,7 @@
         <th>Id</th>
         <th>Start date</th>
         <th>End date</th>
+        <th>Greenhouse</th>
         <th>Subtotal</th>
         <th>Discount</th>
         <th>Bonus</th>
@@ -22,6 +23,7 @@
           <td><%= pay_roll.id %></td>
           <td><%= pay_roll.start_date %></td>
           <td><%= pay_roll.end_date %></td>
+          <td><%= pay_roll.greenhouse.name unless pay_roll.greenhouse.nil? %></td>
           <td><%= pay_roll.subtotal %></td>
           <td><%= pay_roll.discount %></td>
           <td><%= pay_roll.bonus %></td>

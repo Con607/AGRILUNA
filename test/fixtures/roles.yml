@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 1
+  user_ids: 1
+  name: MyString
+  description: MyText
+  role_permission_ids: 1
+
+two:
+  company_id: 1
+  user_ids: 1
+  name: MyString
+  description: MyText
+  role_permission_ids: 1

@@ -1,0 +1,7 @@
+<tr id="permission_<%= permission.id %>">
+        <td><%= permission.name %></td>
+        <td><%= permission.description %></td>
+        <td><%= permission.value %></td>
+        <td><%= link_to 'Show', permission %></td>
+        <td><%= link_to 'Destroy', permission, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

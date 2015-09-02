@@ -1,0 +1,18 @@
+<%= simple_form_for(@user, :url => { :controller => :manage_users, 
+                       :action => :update_user, 
+                       :id => @user }, method: :post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :second_last_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

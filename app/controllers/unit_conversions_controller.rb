@@ -1,5 +1,4 @@
 class UnitConversionsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_unit_conversion, only: [:show, :edit, :update, :destroy]
 
   # GET /unit_conversions

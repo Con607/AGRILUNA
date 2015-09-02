@@ -2,13 +2,14 @@
 
 <h1>Cycles</h1>
 
-<table class="table table-hover">
+<table class="table table-hover dataTable table-striped table-bordered">
   <thead>
     <tr>
       <th>Greenhouse</th>
       <th>Name</th>
       <th>Start date</th>
       <th>End date</th>
+      <th>Active</th>
       <th>Estimated performance per m2</th>
       <th>Greenhouse estimated performance</th>
       <th>Maximum estimated production cost</th>
@@ -21,20 +22,7 @@
 
   <tbody id="cycles">
     <% @cycles.each do |cycle| %>
-      <tr id="cycle_<% cycle.id %>">
-        <td><%= cycle.greenhouse_id %></td>
-        <td><%= cycle.name %></td>
-        <td><%= cycle.start_date %></td>
-        <td><%= cycle.end_date %></td>
-        <td><%= cycle.estimated_performance_per_m2 %></td>
-        <td><%= cycle.greenhouse_estimated_performance %></td>
-        <td><%= cycle.maximum_estimated_production_cost %></td>
-        <td><%= cycle.expected_average_selling_price_per_kg %></td>
-        <td><%= cycle.expected_total_expenses %></td>
-        <td><%= cycle.expected_total_profit %></td>
-        <td><%= link_to 'Show', cycle %></td>
-        <td><%= link_to 'Destroy', cycle, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render "cycle", :cycle => cycle %>
     <% end %>
   </tbody>
 </table>
@@ -52,16 +40,14 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :greenhouse_id %>
-      <%= f.input :name %>
+      <%= f.association :greenhouse %>
+      <%= f.input :name, placeholder: 'Ej. Verano 2015.  o   Enero - Julio 2015' %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
+      <%= f.input :active %>
       <%= f.input :estimated_performance_per_m2 %>
-      <%= f.input :greenhouse_estimated_performance %>
       <%= f.input :maximum_estimated_production_cost %>
       <%= f.input :expected_average_selling_price_per_kg %>
-      <%= f.input :expected_total_expenses %>
-      <%= f.input :expected_total_profit %>
     </div>
 
     <div class="form-actions">

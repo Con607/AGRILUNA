@@ -1,5 +1,4 @@
 class ProductPresentationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_product_presentation, only: [:show, :edit, :update, :destroy]
 
   # GET /product_presentations

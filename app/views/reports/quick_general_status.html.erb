@@ -1,121 +1,158 @@
 <h1>General status report by greenhouse</h1>
 
 
+<% if @show_report == true  %> 
+	<% @company.greenhouses.joins(:cycles).where(cycles: { active: true }).each do |greenhouse| %>
+		<% @manpower_cost = greenhouse.pay_rolls.sum(:total) %>
+		<% @fertigation_cost = greenhouse.fertigations.sum(:total_cost) %>
+		<% @application_cost = greenhouse.applications.sum(:application_cost) %>
+		<% @operating_cost = greenhouse.operating_costs.sum(:total) %>
+		<% @administration_cost = greenhouse.administration_costs.sum(:total) %>
+		<% @total_expenses = @manpower_cost + @fertigation_cost + @application_cost + @operating_cost + @administration_cost %>
 
-<div class="col-md-4">
-	<div class="table-responsive">
-	  <table class="table table-hover dataTable table-striped table-bordered">
-	  <thead>
-	      <tr>
-	        <th>Global Concepts</th>
-	        <th>Cost</th>
-	      </tr>
-	    </thead>
+		<% @cycle = greenhouse.cycles.active.first %>
+		<% @estimated_performance_per_m2 = @cycle.estimated_performance_per_m2 %>
+		<% @greenhouse_estimated_performance = greenhouse.area * @estimated_performance_per_m2 %>
+		<% @maximum_estimated_production_cost = @cycle.maximum_estimated_production_cost %>
+		<% @expected_average_selling_price_per_kg = @cycle.expected_average_selling_price_per_kg %>
+		<% @expected_total_expenses = @maximum_estimated_production_cost * @greenhouse_estimated_performance %>
+		<% @expected_total_profit = ((@expected_average_selling_price_per_kg * @greenhouse_estimated_performance) - 
+    										(@maximum_estimated_production_cost * @greenhouse_estimated_performance)) %>
 
-	    <tbody id="sales">
-	      <tr>
-	      	<td>Man Power</td>
-	      	<td class="alnright"><%= number_to_currency(@manpower_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Fertigation</td>
-	      	<td class="alnright"><%= number_to_currency(@fertigation_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Applications</td>
-	      	<td class="alnright"><%= number_to_currency(@applications_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Operating costs</td>
-	      	<td class="alnright"><%= number_to_currency(@operating_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Administration costs</td>
-	      	<td class="alnright"><%= number_to_currency(@administration_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td><strong>Total Expenses</strong></td>
-	      	<td class="alnright"><strong><%= number_to_currency(@total_expenses, precision: 2) %></strong></td>
-	      </tr>
-	    </tbody>
-	  </table>
+    	<% @performance_per_m2 = greenhouse.harvests.sum(:total_harvested) / greenhouse.area %>
+    	<% @greenhouse_performance = greenhouse.area * @performance_per_m2 %>
+    	<% @production_cost = @total_expenses / @greenhouse_performance %>
+    	<% @average_selling_price_per_kg = greenhouse.sales.sum(:total_price) / greenhouse.sales.count %>
+    	<% @total_profit = ((@average_selling_price_per_kg * @greenhouse_performance) - 
+    										(@production_cost * @greenhouse_performance)) %>
+
+		<div class="col-md-10">
+			<h3><%= greenhouse.name %></h3>
+		</div>
+
+		<div class="col-md-4">
+			<div class="table-responsive">
+			  <table class="table table-hover dataTable table-striped table-bordered">
+			  <thead>
+			      <tr>
+			        <th>Global Concepts</th>
+			        <th>Cost</th>
+			      </tr>
+			    </thead>
+
+			    <tbody id="sales">
+			      <tr>
+			      	<td>Man Power</td>
+			      	<td class="alnright"><%= number_to_currency(@manpower_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Fertigation</td>
+			      	<td class="alnright"><%= number_to_currency(@fertigation_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Applications</td>
+			      	<td class="alnright"><%= number_to_currency(@applications_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Operating costs</td>
+			      	<td class="alnright"><%= number_to_currency(@operating_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Administration costs</td>
+			      	<td class="alnright"><%= number_to_currency(@administration_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td><strong>Total Expenses</strong></td>
+			      	<td class="alnright"><strong><%= number_to_currency(@total_expenses, precision: 2) %></strong></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="table-responsive">
+			  <table class="table table-hover dataTable table-striped table-bordered">
+			  <thead>
+			      <tr>
+			        <th colspan="2">Esperado</th>
+			      </tr>
+			    </thead>
+
+			    <tbody id="sales">
+			      <tr>
+			      	<td>Rendimiento esperado por m2</td>
+			      	<td class="alnright"><%= number_with_precision(@estimated_performance_per_m2, precision: 2) %> Kg</td>
+			      </tr>
+			      <tr>
+			      	<td>Rendimiento esperado por nave (2500 m2)</td>
+			      	<td class="alnright"><%= number_with_precision(@greenhouse_estimated_performance, precision: 2) %> Kg</td>
+			      </tr>
+			      <tr>
+			      	<td>Costo de produccion maximo esperado</td>
+			      	<td class="alnright"><%= number_to_currency(@maximum_estimated_production_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Precio de venta promedio esperado (por kg)</td>
+			      	<td class="alnright"><%= number_to_currency(@expected_average_selling_price_per_kg, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Gastos Totales esperados</td>
+			      	<td class="alnright"><%= number_to_currency(@expected_total_expenses, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td><strong>Ganancia Total esperada</strong></td>
+			      	<td class="alnright"><strong><%= number_to_currency(@expected_total_profit, precision: 2) %></strong></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="table-responsive">
+			  <table class="table table-hover dataTable table-striped table-bordered">
+			  <thead>
+			      <tr>
+			        <th colspan="2">Actual / Real</th>
+			      </tr>
+			    </thead>
+
+			    <tbody id="sales">
+			      <tr>
+			      	<td>Rendimiento por m2</td>
+			      	<td class="alnright"><%= number_with_precision(@performance_per_m2, precision: 2) %> Kg</td>
+			      </tr>
+			      <tr>
+			      	<td>Rendimiento por nave (2500 m2)</td>
+			      	<td class="alnright"><%= number_with_precision(@greenhouse_performance, precision: 2) %> Kg</td>
+			      </tr>
+			      <tr>
+			      	<td>Costo de produccion maximo</td>
+			      	<td class="alnright"><%= number_to_currency(@production_cost, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Precio de venta promedio (por kg)</td>
+			      	<td class="alnright"><%= number_to_currency(@average_selling_price_per_kg, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td>Gastos Totales</td>
+			      	<td class="alnright"><%= number_to_currency(@total_expenses, precision: 2) %></td>
+			      </tr>
+			      <tr>
+			      	<td><strong>Ganancia Total</strong></td>
+			      	<td class="alnright"><strong><%= number_to_currency(@total_profit, precision: 2) %></strong></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+	<% end %>
+<% else %>
+	<div class="col-md-2">
+		<%= simple_form_for :report, url: reports_quick_general_status_path, :method => :get do |f| %>
+		    <%= f.input :company_id, collection: @companies, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+		    <%= f.submit 'Generar', class: 'btn btn-default' %>
+		<% end %>
 	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="table-responsive">
-	  <table class="table table-hover dataTable table-striped table-bordered">
-	  <thead>
-	      <tr>
-	        <th colspan="2">Esperado</th>
-	      </tr>
-	    </thead>
-
-	    <tbody id="sales">
-	      <tr>
-	      	<td>Rendimiento esperado por m2</td>
-	      	<td class="alnright"><%= number_with_precision(@estimated_performance_per_m2, precision: 2) %> Kg</td>
-	      </tr>
-	      <tr>
-	      	<td>Rendimiento esperado por nave (2500 m2)</td>
-	      	<td class="alnright"><%= number_with_precision(@greenhouse_estimated_performance, precision: 2) %> Kg</td>
-	      </tr>
-	      <tr>
-	      	<td>Costo de produccion maximo esperado</td>
-	      	<td class="alnright"><%= number_to_currency(@maximum_estimated_production_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Precio de venta promedio esperado (por kg)</td>
-	      	<td class="alnright"><%= number_to_currency(@expected_average_selling_price_per_kg, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Gastos Totales esperados</td>
-	      	<td class="alnright"><%= number_to_currency(@expected_total_expenses, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td><strong>Ganancia Total esperada</strong></td>
-	      	<td class="alnright"><strong><%= number_to_currency(@expected_total_profit, precision: 2) %></strong></td>
-	      </tr>
-	    </tbody>
-	  </table>
-	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="table-responsive">
-	  <table class="table table-hover dataTable table-striped table-bordered">
-	  <thead>
-	      <tr>
-	        <th colspan="2">Actual / Real</th>
-	      </tr>
-	    </thead>
-
-	    <tbody id="sales">
-	      <tr>
-	      	<td>Rendimiento por m2</td>
-	      	<td class="alnright"><%= number_with_precision(@performance_per_m2, precision: 2) %> Kg</td>
-	      </tr>
-	      <tr>
-	      	<td>Rendimiento por nave (2500 m2)</td>
-	      	<td class="alnright"><%= number_with_precision(@greenhouse_performance, precision: 2) %> Kg</td>
-	      </tr>
-	      <tr>
-	      	<td>Costo de produccion maximo</td>
-	      	<td class="alnright"><%= number_to_currency(@production_cost, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Precio de venta promedio (por kg)</td>
-	      	<td class="alnright"><%= number_to_currency(@average_selling_price_per_kg, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td>Gastos Totales</td>
-	      	<td class="alnright"><%= number_to_currency(@total_expenses, precision: 2) %></td>
-	      </tr>
-	      <tr>
-	      	<td><strong>Ganancia Total</strong></td>
-	      	<td class="alnright"><strong><%= number_to_currency(@total_profit, precision: 2) %></strong></td>
-	      </tr>
-	    </tbody>
-	  </table>
-	</div>
-</div>
+<% end %>

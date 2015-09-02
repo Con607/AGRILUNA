@@ -2,7 +2,7 @@
 
 <h1>Companies</h1>
 
-<table class="table table-hover">
+<table class="table table-hover dataTable table-striped table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,15 +16,7 @@
 
   <tbody id="companies">
     <% @companies.each do |company| %>
-      <tr id="company_<% company.id %>">
-        <td><%= company.name %></td>
-        <td><%= company.description %></td>
-        <td><%= company.address %></td>
-        <td><%= company.telephone %></td>
-        <td><%= company.greenhouse_ids %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render "company", :company => company %>
     <% end %>
   </tbody>
 </table>

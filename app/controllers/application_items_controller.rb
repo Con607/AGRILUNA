@@ -1,5 +1,4 @@
 class ApplicationItemsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_application_item, only: [:show, :edit, :update, :destroy]
   before_action :get_application_before_destroy, only: [:destroy]
   before_action :set_cost_per_unit, only: [:create]
@@ -159,4 +158,18 @@ class ApplicationItemsController < ApplicationController
       application_product.total_cost = application_product.unit_cost * application_product.quantity_available
       application_product.save
     end
+
+    # This check is because the module is in development mode
+    def check_if_allowed_controller
+      if is_allowed?('development') != true
+        redirect_to root_path
+      end
+    end
+
+    def check_if_allowed_controller
+      if is_allowed?('development') != true
+        redirect_to root_path
+      end
+    end
+
 end

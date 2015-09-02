@@ -1,5 +1,4 @@
 class HarvestsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_harvest, only: [:show, :edit, :update, :destroy]
   before_action :get_total_harvested, only: [:update, :create]
 
@@ -79,7 +78,8 @@ class HarvestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def harvest_params
-      params.require(:harvest).permit(:event_date, :greenhouse_id, :product_id, :product_variety_id, :product_presentation_id, :product_quantity, :total_harvested)
+      params.require(:harvest).permit(:event_date, :greenhouse_id, :product_id, :product_variety_id, 
+        :product_presentation_id, :product_quantity, :total_harvested)
     end
 
     def get_total_harvested

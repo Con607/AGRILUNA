@@ -1,5 +1,4 @@
 class AdministrationCostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_administration_cost, only: [:show, :edit, :update, :destroy]
   before_action :set_total, only: [:update, :create]
 

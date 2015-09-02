@@ -1,5 +1,4 @@
 class FertigationItemsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_fertigation_item, only: [:show, :edit, :update, :destroy]
   before_action :get_fertigation_before_destroy, only: [:destroy]
   before_action :set_cost_per_unit, only: [:create]

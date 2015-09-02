@@ -1,0 +1,3 @@
+//alert('I was called');
+$("<%= escape_javascript(render @permission) %>").appendTo("#permissions").effect("highlight", {color: '#00DCB7'}, 2000);
+$('#new_permission_form')[0].reset();

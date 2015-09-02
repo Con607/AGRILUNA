@@ -10,4 +10,7 @@ class Greenhouse < ActiveRecord::Base
 	has_many :leachates
 	has_many :environmental_conditions
 	has_many :cycles
+	has_many :pay_rolls
+	has_many :sales
+	has_many :harvests
 end

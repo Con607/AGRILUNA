@@ -1,5 +1,4 @@
 class AssistancesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_assistance, only: [:show, :edit, :update, :destroy]
 
   # GET /assistances
@@ -7,13 +6,7 @@ class AssistancesController < ApplicationController
   def index
     @assistances = Assistance.all
     @assistance = Assistance.new
-
-    #respond_to do |format|
-    #  format.html
-    #  format.json
-    #  format.js
-    #end
-  end
+  end 
 
   # GET /assistances/1
   # GET /assistances/1.json
@@ -36,9 +29,13 @@ class AssistancesController < ApplicationController
 
   # GET /assistances/1/edit
   def edit
-    respond_to do |format|
-      format.js
-      format.html
+    if is_allowed?('view_assistances') == true
+      respond_to do |format|
+        format.js
+        format.html
+      end
+    else
+      redirect_to root_path
     end
   end
 
@@ -95,4 +92,8 @@ class AssistancesController < ApplicationController
     def assistance_params
       params.require(:assistance).permit(:employee_id, :assistance_date, :assisted, :pay_roll_item_id)
     end
+
+    
+
+    
 end

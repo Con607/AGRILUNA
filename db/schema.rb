@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831161824) do
+ActiveRecord::Schema.define(version: 20150901235417) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.integer  "greenhouse_id", limit: 4
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.integer  "greenhouse_ids", limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "user_ids",       limit: 4
+    t.integer  "role_id",        limit: 4
   end
 
   create_table "cycles", force: :cascade do |t|
@@ -102,6 +104,7 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.float    "expected_total_profit",                 limit: 24
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.boolean  "active"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -183,6 +186,10 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.integer  "leachate_ids",                limit: 4
     t.integer  "company_id",                  limit: 4
     t.integer  "cycle_ids",                   limit: 4
+    t.integer  "area",                        limit: 4
+    t.integer  "pay_roll_ids",                limit: 4
+    t.integer  "sale_ids",                    limit: 4
+    t.integer  "harvest_ids",                 limit: 4
   end
 
   create_table "harvests", force: :cascade do |t|
@@ -255,6 +262,16 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.float    "total",             limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "greenhouse_id",     limit: 4
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "role_permission_ids", limit: 4
+    t.string   "name",                limit: 255
+    t.text     "description",         limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "value",               limit: 255
   end
 
   create_table "phenological_stages", force: :cascade do |t|
@@ -324,6 +341,23 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.datetime "updated_at",                             null: false
   end
 
+  create_table "role_permissions", force: :cascade do |t|
+    t.integer  "role_id",       limit: 4
+    t.integer  "permission_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "company_id",          limit: 4
+    t.integer  "user_role_ids",       limit: 4
+    t.string   "name",                limit: 255
+    t.text     "description",         limit: 65535
+    t.integer  "role_permission_ids", limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
   create_table "sale_items", force: :cascade do |t|
     t.integer  "sale_id",            limit: 4
     t.integer  "product_quality_id", limit: 4
@@ -345,6 +379,7 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.integer  "sale_item_ids",           limit: 4
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "greenhouse_id",           limit: 4
   end
 
   create_table "selection_items", force: :cascade do |t|
@@ -405,6 +440,20 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.integer  "fertigation_item_ids",        limit: 4
   end
 
+  create_table "user_companies", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "company_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "role_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -418,6 +467,11 @@ ActiveRecord::Schema.define(version: 20150831161824) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.integer  "company_ids",            limit: 4
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.string   "second_last_name",       limit: 255
+    t.integer  "user_role_ids",          limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

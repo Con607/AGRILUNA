@@ -1,0 +1,12 @@
+<%= simple_form_for(@role_permission) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :role_id %>
+    <%= f.input :permision_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

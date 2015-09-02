@@ -1,0 +1,6 @@
+<tr id="user_company_<%= user_company.id %>">
+        <td><%= user_company.user.full_name %></td>
+        <td><%= user_company.company.name %></td>
+        <td><%= link_to 'Show', user_company %></td>
+        <td><%= link_to 'Destroy', user_company, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

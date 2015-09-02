@@ -1,44 +1,31 @@
 Myapp::Application.routes.draw do
-  resources :cycles
-  resources :cycles
+  resources :user_roles
+  resources :permissions
+  resources :roles
+  resources :role_permissions
+  resources :user_companies
   resources :cycles
   resources :companies
-  devise_for :users
   get 'reports/index'
 
   get 'reports/quick_general_status'
 
   resources :unit_conversions
   resources :unit_types
-  resources :unit_types
-  resources :selections
-  resources :selections
   resources :selections
   resources :product_varieties
   resources :product_presentations
   resources :product_qualities
   resources :selection_items
   resources :sales
-  resources :selections
   resources :sale_items
-  resources :sale_items
-  resources :selections
-  resources :sales
-  resources :selection_items
   resources :products
-  resources :product_qualities
-  resources :product_presentations
-  resources :product_varieties
   resources :harvests
-  resources :products
-  resources :products
   resources :weathers
   resources :environments
   resources :environmental_conditions
   resources :phenological_stages
   resources :leachates
-  resources :product_application_buys
-  resources :product_application_buys
   resources :suppliers
   resources :product_application_buys
   resources :administration_costs
@@ -68,6 +55,20 @@ Myapp::Application.routes.draw do
 
   get "home/index"
   get "home/minor"
+
+  devise_for :users
+
+  devise_scope :user do 
+    get "users_list" => "manage_users#index"
+    get "edit_user" => "manage_users#edit_user"
+    get "new_user" => "manage_users#new_user"
+    post "create_user" => "manage_users#create_user"
+    post "update_user" => "manage_users#update_user"
+    get "show_user" => "manage_users#show_user"
+  end
+
+  #get "users_list", to: "users/registrations#index"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

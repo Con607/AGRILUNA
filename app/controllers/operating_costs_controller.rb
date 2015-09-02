@@ -1,5 +1,4 @@
 class OperatingCostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_operating_cost, only: [:show, :edit, :update, :destroy]
   before_action :set_total, only: [:update, :create]
 

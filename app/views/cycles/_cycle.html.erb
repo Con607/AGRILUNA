@@ -1,0 +1,15 @@
+<tr id="cycle_<%= cycle.id %>">
+        <td><%= cycle.greenhouse.name %></td>
+        <td><%= cycle.name %></td>
+        <td><%= cycle.start_date %></td>
+        <td><%= cycle.end_date %></td>
+        <td><%= cycle.active %></td>
+        <td><%= cycle.estimated_performance_per_m2 %></td>
+        <td><%= cycle.greenhouse_estimated_performance %></td>
+        <td><%= cycle.maximum_estimated_production_cost %></td>
+        <td><%= cycle.expected_average_selling_price_per_kg %></td>
+        <td><%= cycle.expected_total_expenses %></td>
+        <td><%= cycle.expected_total_profit %></td>
+        <td><%= link_to 'Show', cycle %></td>
+        <td><%= link_to 'Destroy', cycle, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
