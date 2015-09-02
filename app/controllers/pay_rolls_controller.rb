@@ -1,6 +1,6 @@
 class PayRollsController < ApplicationController
   before_action :set_pay_roll, only: [:show, :edit, :update, :destroy]
-  after_action :get_assistances, only: [:create]
+  #after_action :get_assistances, only: [:create]
 
   # GET /pay_rolls
   # GET /pay_rolls.json
@@ -108,13 +108,15 @@ class PayRollsController < ApplicationController
       employee_ids.each do |employee_id|
         puts "!!!!!!!!!!!!!!!!!!! employee_id = #{employee_id.employee_id}"
         pay_roll_item = PayRollItem.new
-        pay_roll_item.save
+        #pay_roll_item.save
         employee = employee_id.employee
         pay_roll_item.employee = employee
-        pay_roll_item.assistances = employee.assistances.where("payed != ?", true)
-        #pay_roll_item.save
+        pay_roll_item.assistances = employee.assistances.where(payed: [false, nil]).where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(pay_roll_item_id: nil)
+        pay_roll_item.save
         pay_roll_item.total_assistances = pay_roll_item.assistances.where(assisted: true).count
         puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        pay_roll_item.assistances = #{employee.assistances.where(payed: [false, nil]).where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(pay_roll_item_id: nil)}
+        pay_roll_item.total_assistances = #{pay_roll_item.assistances.where(assisted: true).where("payed != ?", true).count}
         employee = #{employee_id.employee.first_name}
         pay_roll_item.employee = #{pay_roll_item.employee.first_name}
         pay_roll_item.assistances.count = #{pay_roll_item.assistances.count}

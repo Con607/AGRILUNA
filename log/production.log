@@ -349,3 +349,193 @@ ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   bin/rails:4:in `<main>'
 
 
+I, [2015-09-02T10:27:58.950233 #4169]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2015-09-02 10:27:58 -0500
+I, [2015-09-02T10:27:59.144419 #4169]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-09-02T10:27:59.249092 #4169]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (1.0ms)
+I, [2015-09-02T10:27:59.249213 #4169]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (42.7ms)
+I, [2015-09-02T10:28:11.379616 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (1.9ms)
+I, [2015-09-02T10:28:11.380827 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.7ms)
+I, [2015-09-02T10:28:11.381962 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.3ms)
+I, [2015-09-02T10:28:11.382320 #4169]  INFO -- : Completed 200 OK in 12238ms (Views: 12178.7ms | ActiveRecord: 11.3ms)
+I, [2015-09-02T10:28:11.591911 #4169]  INFO -- : Started GET "/assets/application-ebb6b03a9b1f4f9542821b762adb0474.css" for 127.0.0.1 at 2015-09-02 10:28:11 -0500
+I, [2015-09-02T10:28:11.594106 #4169]  INFO -- : Started GET "/assets/application-aae8430d66c9bdb7f5a47cfa6984c8a5.js" for 127.0.0.1 at 2015-09-02 10:28:11 -0500
+I, [2015-09-02T10:28:11.692166 #4169]  INFO -- : Started GET "/assets/patterns/header-profile-d98c6b0179ab1f1422d151d07b250ed5.png" for 127.0.0.1 at 2015-09-02 10:28:11 -0500
+I, [2015-09-02T10:28:11.719043 #4169]  INFO -- : Started GET "/assets/fontawesome-webfont-17f4494fac42c9ec1f23aa9908e9265b.woff?v=4.4.0" for 127.0.0.1 at 2015-09-02 10:28:11 -0500
+I, [2015-09-02T10:28:19.038450 #4169]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-09-02 10:28:19 -0500
+I, [2015-09-02T10:28:19.039640 #4169]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2015-09-02T10:28:19.039709 #4169]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"bUIdNi18r7crZ4w4bF9KS10W96TlPoXxgiJ185X8ynkrWuQx/hI4CQ6LfKPBhzVLtE2sozmrir1SDv0+JNWz6g==", "user"=>{"email"=>"conexxionbusiness@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+I, [2015-09-02T10:28:19.267762 #4169]  INFO -- : Completed 401 Unauthorized in 228ms (ActiveRecord: 0.4ms)
+I, [2015-09-02T10:28:19.270479 #4169]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-09-02T10:28:19.270563 #4169]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"bUIdNi18r7crZ4w4bF9KS10W96TlPoXxgiJ185X8ynkrWuQx/hI4CQ6LfKPBhzVLtE2sozmrir1SDv0+JNWz6g==", "user"=>{"email"=>"conexxionbusiness@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+I, [2015-09-02T10:28:19.420207 #4169]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (0.2ms)
+I, [2015-09-02T10:28:19.420342 #4169]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (3.1ms)
+I, [2015-09-02T10:28:19.421068 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (0.2ms)
+I, [2015-09-02T10:28:19.421331 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.1ms)
+I, [2015-09-02T10:28:19.421559 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T10:28:19.421818 #4169]  INFO -- : Completed 200 OK in 151ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+I, [2015-09-02T10:28:32.861015 #4169]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-09-02 10:28:32 -0500
+I, [2015-09-02T10:28:32.861952 #4169]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2015-09-02T10:28:32.862024 #4169]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"3wKRv/3K8cQgRtRhpy+S9uAzSV7DUt54pWyAgaxeYqGZGmi4LqRmegWqJPoK9+32CWgSWR/H0TR1QAhMHXcbMg==", "user"=>{"email"=>"conexxionbusiness@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+I, [2015-09-02T10:28:33.360138 #4169]  INFO -- : Redirected to http://localhost:3000/
+I, [2015-09-02T10:28:33.360431 #4169]  INFO -- : Completed 302 Found in 498ms (ActiveRecord: 199.3ms)
+I, [2015-09-02T10:28:33.370812 #4169]  INFO -- : Started GET "/" for 127.0.0.1 at 2015-09-02 10:28:33 -0500
+I, [2015-09-02T10:28:33.380226 #4169]  INFO -- : Processing by HomeController#index as HTML
+I, [2015-09-02T10:28:33.415464 #4169]  INFO -- :   Rendered home/index.html.erb within layouts/application (2.1ms)
+I, [2015-09-02T10:28:33.425106 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (6.1ms)
+I, [2015-09-02T10:28:33.426614 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.9ms)
+I, [2015-09-02T10:28:33.427528 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2015-09-02T10:28:33.428451 #4169]  INFO -- : Completed 200 OK in 48ms (Views: 44.9ms | ActiveRecord: 0.7ms)
+I, [2015-09-02T10:32:39.616955 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 10:32:39 -0500
+I, [2015-09-02T10:32:39.641042 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T10:32:39.832851 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (65.0ms)
+I, [2015-09-02T10:32:39.837629 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (3.5ms)
+I, [2015-09-02T10:32:39.847891 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (2.9ms)
+I, [2015-09-02T10:32:39.849300 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2015-09-02T10:32:39.850758 #4169]  INFO -- : Completed 200 OK in 209ms (Views: 172.8ms | ActiveRecord: 11.1ms)
+I, [2015-09-02T10:32:59.270447 #4169]  INFO -- : Started GET "/pay_rolls/new" for 127.0.0.1 at 2015-09-02 10:32:59 -0500
+I, [2015-09-02T10:32:59.274618 #4169]  INFO -- : Processing by PayRollsController#new as HTML
+I, [2015-09-02T10:32:59.479313 #4169]  INFO -- :   Rendered pay_rolls/_form.html.erb (89.6ms)
+I, [2015-09-02T10:32:59.480266 #4169]  INFO -- :   Rendered pay_rolls/new.html.erb within layouts/application (102.7ms)
+I, [2015-09-02T10:32:59.497328 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (14.8ms)
+I, [2015-09-02T10:32:59.497847 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.2ms)
+I, [2015-09-02T10:32:59.498272 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T10:32:59.498865 #4169]  INFO -- : Completed 200 OK in 224ms (Views: 199.1ms | ActiveRecord: 4.0ms)
+I, [2015-09-02T10:33:22.029497 #4169]  INFO -- : Started POST "/pay_rolls" for 127.0.0.1 at 2015-09-02 10:33:22 -0500
+I, [2015-09-02T10:33:22.030303 #4169]  INFO -- : Processing by PayRollsController#create as HTML
+I, [2015-09-02T10:33:22.030512 #4169]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"qtfsNDqZIFUHsG8ZWVm+mmGsybmApMDmuEx8asaNgpuM22k4qRm+3Z7OV6usZj+sMiMbbLDyoOJGAMRJi1stoQ==", "pay_roll"=>{"start_date(3i)"=>"27", "start_date(2i)"=>"3", "start_date(1i)"=>"2015", "end_date(3i)"=>"3", "end_date(2i)"=>"4", "end_date(1i)"=>"2015", "greenhouse_id"=>"3"}, "commit"=>"Crear Pay roll"}
+I, [2015-09-02T10:33:22.179459 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls/11
+I, [2015-09-02T10:33:23.005272 #4169]  INFO -- : Completed 302 Found in 975ms (ActiveRecord: 576.6ms)
+I, [2015-09-02T10:33:23.011112 #4169]  INFO -- : Started GET "/pay_rolls/11" for 127.0.0.1 at 2015-09-02 10:33:23 -0500
+I, [2015-09-02T10:33:23.012659 #4169]  INFO -- : Processing by PayRollsController#show as HTML
+I, [2015-09-02T10:33:23.012790 #4169]  INFO -- :   Parameters: {"id"=>"11"}
+I, [2015-09-02T10:33:23.181877 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (12.7ms)
+I, [2015-09-02T10:33:23.185003 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (2.8ms)
+I, [2015-09-02T10:33:23.194767 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (8.9ms)
+I, [2015-09-02T10:33:23.217554 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (21.6ms)
+I, [2015-09-02T10:33:23.222862 #4169]  INFO -- :   Rendered pay_rolls/show.html.erb within layouts/application (119.1ms)
+I, [2015-09-02T10:33:23.241567 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (12.2ms)
+I, [2015-09-02T10:33:23.243608 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (1.1ms)
+I, [2015-09-02T10:33:23.245272 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2015-09-02T10:33:23.246353 #4169]  INFO -- : Completed 200 OK in 233ms (Views: 143.5ms | ActiveRecord: 18.2ms)
+I, [2015-09-02T10:39:29.453222 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 10:39:29 -0500
+I, [2015-09-02T10:39:29.454004 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T10:39:29.466719 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (5.6ms)
+I, [2015-09-02T10:39:29.469394 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (2.0ms)
+I, [2015-09-02T10:39:29.470603 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (1.0ms)
+I, [2015-09-02T10:39:29.470969 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T10:39:29.471232 #4169]  INFO -- : Completed 200 OK in 17ms (Views: 9.8ms | ActiveRecord: 1.2ms)
+I, [2015-09-02T10:39:33.521071 #4169]  INFO -- : Started DELETE "/pay_rolls/11" for 127.0.0.1 at 2015-09-02 10:39:33 -0500
+I, [2015-09-02T10:39:33.522503 #4169]  INFO -- : Processing by PayRollsController#destroy as HTML
+I, [2015-09-02T10:39:33.522610 #4169]  INFO -- :   Parameters: {"authenticity_token"=>"b++ZU1Omu6Sb2Amj8LqOaW5Ux/Fvc3dW8DzZHKH1e2VJ4xxfwCYlLAKmMREFhQ9fPdsVJF8lF1IOcGE/7CPUXw==", "id"=>"11"}
+I, [2015-09-02T10:39:33.764650 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls
+I, [2015-09-02T10:39:33.765585 #4169]  INFO -- : Completed 302 Found in 241ms (ActiveRecord: 133.5ms)
+I, [2015-09-02T10:39:33.775160 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 10:39:33 -0500
+I, [2015-09-02T10:39:33.777987 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T10:39:33.803351 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (10.2ms)
+I, [2015-09-02T10:39:33.817762 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (12.0ms)
+I, [2015-09-02T10:39:33.818828 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.2ms)
+I, [2015-09-02T10:39:33.819107 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T10:39:33.819482 #4169]  INFO -- : Completed 200 OK in 41ms (Views: 25.5ms | ActiveRecord: 2.8ms)
+I, [2015-09-02T10:39:35.291894 #4169]  INFO -- : Started DELETE "/pay_rolls/8" for 127.0.0.1 at 2015-09-02 10:39:35 -0500
+I, [2015-09-02T10:39:35.292858 #4169]  INFO -- : Processing by PayRollsController#destroy as HTML
+I, [2015-09-02T10:39:35.292944 #4169]  INFO -- :   Parameters: {"authenticity_token"=>"VF+d01r8+XUgfH276q4fQKii+dKHRZ6eyXz2CfVy44ByUxjfyXxn/bkCRQkfkZ52+y0rB7cT/po3ME4quKRMug==", "id"=>"8"}
+I, [2015-09-02T10:39:35.308829 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls
+I, [2015-09-02T10:39:35.309100 #4169]  INFO -- : Completed 302 Found in 16ms (ActiveRecord: 5.6ms)
+I, [2015-09-02T10:39:35.320948 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 10:39:35 -0500
+I, [2015-09-02T10:39:35.324194 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T10:39:35.373587 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (12.4ms)
+I, [2015-09-02T10:39:35.383792 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (7.5ms)
+I, [2015-09-02T10:39:35.386577 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.5ms)
+I, [2015-09-02T10:39:35.387057 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T10:39:35.387473 #4169]  INFO -- : Completed 200 OK in 62ms (Views: 20.0ms | ActiveRecord: 8.8ms)
+E, [2015-09-02T10:42:16.818018 #4250] ERROR -- : Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== 1)' at line 1: SELECT COUNT(*) FROM `assistances` WHERE (payed == 1)
+E, [2015-09-02T10:46:48.682959 #4250] ERROR -- : Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':payed = 'NULL')' at line 1: SELECT COUNT(*) FROM `assistances` WHERE (:payed = 'NULL')
+E, [2015-09-02T10:47:15.211397 #4250] ERROR -- : Mysql2::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== 0)' at line 1: SELECT COUNT(*) FROM `assistances` WHERE (payed == 0)
+I, [2015-09-02T10:52:41.058515 #4169]  INFO -- : Started GET "/pay_rolls/new" for 127.0.0.1 at 2015-09-02 10:52:41 -0500
+I, [2015-09-02T10:52:41.060998 #4169]  INFO -- : Processing by PayRollsController#new as HTML
+I, [2015-09-02T10:52:41.118800 #4169]  INFO -- :   Rendered pay_rolls/_form.html.erb (36.1ms)
+I, [2015-09-02T10:52:41.119596 #4169]  INFO -- :   Rendered pay_rolls/new.html.erb within layouts/application (37.0ms)
+I, [2015-09-02T10:52:41.127324 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (5.8ms)
+I, [2015-09-02T10:52:41.128295 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.4ms)
+I, [2015-09-02T10:52:41.129293 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2015-09-02T10:52:41.130220 #4169]  INFO -- : Completed 200 OK in 69ms (Views: 47.1ms | ActiveRecord: 2.4ms)
+I, [2015-09-02T10:55:05.893210 #4169]  INFO -- : Started POST "/pay_rolls" for 127.0.0.1 at 2015-09-02 10:55:05 -0500
+I, [2015-09-02T10:55:05.895317 #4169]  INFO -- : Processing by PayRollsController#create as HTML
+I, [2015-09-02T10:55:05.895632 #4169]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"zkrX+yZPRf0dFTpGEAhe2DDlvknDobIXOIku0aHnTjnoRlL3tc/bdYRrAvTlN9/uY2psnPP30hPGxZby7DHhAw==", "pay_roll"=>{"start_date(3i)"=>"27", "start_date(2i)"=>"3", "start_date(1i)"=>"2015", "end_date(3i)"=>"3", "end_date(2i)"=>"4", "end_date(1i)"=>"2015", "greenhouse_id"=>"3"}, "commit"=>"Crear Pay roll"}
+I, [2015-09-02T10:55:06.052664 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls/12
+I, [2015-09-02T10:55:06.240797 #4169]  INFO -- : Completed 302 Found in 345ms (ActiveRecord: 264.9ms)
+I, [2015-09-02T10:55:06.247282 #4169]  INFO -- : Started GET "/pay_rolls/12" for 127.0.0.1 at 2015-09-02 10:55:06 -0500
+I, [2015-09-02T10:55:06.248078 #4169]  INFO -- : Processing by PayRollsController#show as HTML
+I, [2015-09-02T10:55:06.248237 #4169]  INFO -- :   Parameters: {"id"=>"12"}
+I, [2015-09-02T10:55:06.263420 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (1.5ms)
+I, [2015-09-02T10:55:06.265487 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (1.9ms)
+I, [2015-09-02T10:55:06.267539 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (1.9ms)
+I, [2015-09-02T10:55:06.271002 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (2.9ms)
+I, [2015-09-02T10:55:06.271619 #4169]  INFO -- :   Rendered pay_rolls/show.html.erb within layouts/application (11.3ms)
+I, [2015-09-02T10:55:06.281007 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (5.2ms)
+I, [2015-09-02T10:55:06.283088 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.8ms)
+I, [2015-09-02T10:55:06.284358 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T10:55:06.284675 #4169]  INFO -- : Completed 200 OK in 36ms (Views: 22.8ms | ActiveRecord: 3.7ms)
+I, [2015-09-02T11:02:43.556179 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 11:02:43 -0500
+I, [2015-09-02T11:02:43.558726 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T11:02:43.580182 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (3.1ms)
+I, [2015-09-02T11:02:43.583066 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (1.8ms)
+I, [2015-09-02T11:02:43.584775 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.6ms)
+I, [2015-09-02T11:02:43.590115 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T11:02:43.590492 #4169]  INFO -- : Completed 200 OK in 31ms (Views: 12.8ms | ActiveRecord: 7.1ms)
+I, [2015-09-02T11:02:46.219236 #4169]  INFO -- : Started DELETE "/pay_rolls/12" for 127.0.0.1 at 2015-09-02 11:02:46 -0500
+I, [2015-09-02T11:02:46.220073 #4169]  INFO -- : Processing by PayRollsController#destroy as HTML
+I, [2015-09-02T11:02:46.220130 #4169]  INFO -- :   Parameters: {"authenticity_token"=>"JZdaYytiKBGEAySUlhNanGjX6R3rwVHQR/84ikPLGMwDm99vuOK2mR19HCZjLNuqO1g7yNuXMdS5s4CpDh239g==", "id"=>"12"}
+I, [2015-09-02T11:02:46.266750 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls
+I, [2015-09-02T11:02:46.266974 #4169]  INFO -- : Completed 302 Found in 47ms (ActiveRecord: 29.0ms)
+I, [2015-09-02T11:02:46.269678 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 11:02:46 -0500
+I, [2015-09-02T11:02:46.270325 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T11:02:46.281232 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (3.0ms)
+I, [2015-09-02T11:02:46.283176 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (1.5ms)
+I, [2015-09-02T11:02:46.283546 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.1ms)
+I, [2015-09-02T11:02:46.283805 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T11:02:46.284392 #4169]  INFO -- : Completed 200 OK in 14ms (Views: 5.6ms | ActiveRecord: 1.8ms)
+I, [2015-09-02T11:03:55.070378 #4169]  INFO -- : Started GET "/pay_rolls/new" for 127.0.0.1 at 2015-09-02 11:03:55 -0500
+I, [2015-09-02T11:03:55.071132 #4169]  INFO -- : Processing by PayRollsController#new as HTML
+I, [2015-09-02T11:03:55.088086 #4169]  INFO -- :   Rendered pay_rolls/_form.html.erb (10.9ms)
+I, [2015-09-02T11:03:55.088244 #4169]  INFO -- :   Rendered pay_rolls/new.html.erb within layouts/application (11.2ms)
+I, [2015-09-02T11:03:55.090654 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (1.8ms)
+I, [2015-09-02T11:03:55.091745 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.3ms)
+I, [2015-09-02T11:03:55.092303 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2015-09-02T11:03:55.092831 #4169]  INFO -- : Completed 200 OK in 22ms (Views: 13.9ms | ActiveRecord: 2.7ms)
+I, [2015-09-02T11:04:12.301113 #4169]  INFO -- : Started POST "/pay_rolls" for 127.0.0.1 at 2015-09-02 11:04:12 -0500
+I, [2015-09-02T11:04:12.302018 #4169]  INFO -- : Processing by PayRollsController#create as HTML
+I, [2015-09-02T11:04:12.302087 #4169]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ey7nPhYV1IDuKWTEyt8dDtNsB3XAh1oKBWXpmgh7W3Y1ImIyhZVKCHdXXHY/4Jw4gOPVoPDROg77KVG5Ra30TA==", "pay_roll"=>{"start_date(3i)"=>"27", "start_date(2i)"=>"3", "start_date(1i)"=>"2015", "end_date(3i)"=>"3", "end_date(2i)"=>"4", "end_date(1i)"=>"2015", "greenhouse_id"=>"3"}, "commit"=>"Crear Pay roll"}
+I, [2015-09-02T11:04:12.492435 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls/13
+I, [2015-09-02T11:04:12.941405 #4169]  INFO -- : Completed 302 Found in 639ms (ActiveRecord: 372.3ms)
+I, [2015-09-02T11:04:12.967798 #4169]  INFO -- : Started GET "/pay_rolls/13" for 127.0.0.1 at 2015-09-02 11:04:12 -0500
+I, [2015-09-02T11:04:12.969176 #4169]  INFO -- : Processing by PayRollsController#show as HTML
+I, [2015-09-02T11:04:12.969341 #4169]  INFO -- :   Parameters: {"id"=>"13"}
+I, [2015-09-02T11:04:13.002393 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (7.8ms)
+I, [2015-09-02T11:04:13.004055 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (1.5ms)
+I, [2015-09-02T11:04:13.005808 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (1.6ms)
+I, [2015-09-02T11:04:13.007635 #4169]  INFO -- :   Rendered pay_rolls/_pay_roll_item.html.erb (1.7ms)
+I, [2015-09-02T11:04:13.007870 #4169]  INFO -- :   Rendered pay_rolls/show.html.erb within layouts/application (16.3ms)
+I, [2015-09-02T11:04:13.010844 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (1.4ms)
+I, [2015-09-02T11:04:13.011794 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.3ms)
+I, [2015-09-02T11:04:13.012140 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T11:04:13.012410 #4169]  INFO -- : Completed 200 OK in 43ms (Views: 17.9ms | ActiveRecord: 6.1ms)
+I, [2015-09-02T11:04:40.485852 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 11:04:40 -0500
+I, [2015-09-02T11:04:40.486582 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T11:04:40.495089 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (2.4ms)
+I, [2015-09-02T11:04:40.496572 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (1.0ms)
+I, [2015-09-02T11:04:40.496793 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.1ms)
+I, [2015-09-02T11:04:40.496987 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2015-09-02T11:04:40.497157 #4169]  INFO -- : Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 1.6ms)
+I, [2015-09-02T11:04:43.571805 #4169]  INFO -- : Started DELETE "/pay_rolls/13" for 127.0.0.1 at 2015-09-02 11:04:43 -0500
+I, [2015-09-02T11:04:43.572741 #4169]  INFO -- : Processing by PayRollsController#destroy as HTML
+I, [2015-09-02T11:04:43.572822 #4169]  INFO -- :   Parameters: {"authenticity_token"=>"sDWMWaWoS8q6XyhY7/r8q0sbAGA/e61Q7cw11r/iMEuWOQlVNijVQiMhEOoaxX2dGJTStQ8tzVQTgI318jSfcQ==", "id"=>"13"}
+I, [2015-09-02T11:04:43.717012 #4169]  INFO -- : Redirected to http://localhost:3000/pay_rolls
+I, [2015-09-02T11:04:43.717481 #4169]  INFO -- : Completed 302 Found in 145ms (ActiveRecord: 124.0ms)
+I, [2015-09-02T11:04:43.740981 #4169]  INFO -- : Started GET "/pay_rolls" for 127.0.0.1 at 2015-09-02 11:04:43 -0500
+I, [2015-09-02T11:04:43.744147 #4169]  INFO -- : Processing by PayRollsController#index as HTML
+I, [2015-09-02T11:04:43.753756 #4169]  INFO -- :   Rendered pay_rolls/index.html.erb within layouts/application (2.3ms)
+I, [2015-09-02T11:04:43.760631 #4169]  INFO -- :   Rendered layouts/_navigation.html.erb (5.8ms)
+I, [2015-09-02T11:04:43.762025 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.5ms)
+I, [2015-09-02T11:04:43.763258 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2015-09-02T11:04:43.765186 #4169]  INFO -- : Completed 200 OK in 21ms (Views: 12.2ms | ActiveRecord: 1.3ms)

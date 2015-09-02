@@ -1,0 +1,15 @@
+<%= simple_form_for(@pay_roll_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.association :pay_roll, :as => :hidden, input_html: { value: @pay_roll.id } %>
+  	<%= f.association :employee, label_method: :full_name, value_method: :id %>
+  	<%= f.input :salary, :input_html => { :value => '0.0' }%>
+    <%= f.input :discounts, :input_html => { :value => '0.0' } %>
+    <%= f.input :bonuses, :input_html => { :value => '0.0' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

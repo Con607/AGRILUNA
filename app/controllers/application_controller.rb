@@ -23,14 +23,7 @@ class ApplicationController < ActionController::Base
 	def is_allowed?(permission)
 		if user_signed_in?
 			current_user.roles.each do |user_role|
-        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            user_role.permissions.count = #{user_role.permissions.count}
-            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 			  user_role.permissions.each do |user_permission|
-          puts "!!!!!!!!!!!!!!!!!!!!!!!!
-                user_permission.value = #{user_permission.value}
-                permission = #{permission}
-                !!!!!!!!!!!!!!!!!!!!!!!!"
 			    if user_permission.value == permission
 			      return true
 			    end

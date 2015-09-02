@@ -3,7 +3,7 @@ class PayRollItemsController < ApplicationController
   before_action :do_calcs, only: [:update]
   after_action :update_pay_roll, only: [:update]
   after_action :set_payed, only: [:create]
-  after_action :set_unpayed, only: [:destroy]
+  after_action :set_unpayed, only: [:destroy] 
 
   # GET /pay_roll_items
   # GET /pay_roll_items.json
@@ -22,6 +22,7 @@ class PayRollItemsController < ApplicationController
 
   # GET /pay_roll_items/new
   def new
+    @pay_roll = PayRoll.find(params[:pay_roll_id])
     @pay_roll_item = PayRollItem.new
   end
 
@@ -36,8 +37,9 @@ class PayRollItemsController < ApplicationController
 
     respond_to do |format|
       if @pay_roll_item.save
+        set_total_and_get_assistances
         format.js
-        format.html { redirect_to @pay_roll_item, notice: 'Pay roll item was successfully created.' }
+        format.html { redirect_to @pay_roll_item.pay_roll, notice: 'Pay roll item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pay_roll_item }
       else
         format.js
@@ -75,17 +77,37 @@ class PayRollItemsController < ApplicationController
   end
 
   def set_payed
-    @pay_roll_item.assistances.each do |assisance|
+    @pay_roll_item.assistances.each do |assistance|
       assistance.payed = true
       assistance.save
     end
   end
 
   def set_unpayed
-    @pay_roll_item.assistances.each do |assisance|
+    @pay_roll_item.assistances.each do |assistance|
       assistance.payed = false
       assistance.save
     end
+  end
+
+  def set_total_and_get_assistances
+    @pay_roll = @pay_roll_item.pay_roll
+    employee_id = @pay_roll_item.employee_id
+    assistances = Assistance.where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(employee_id: employee_id).where(pay_roll_item_id: nil)
+    @pay_roll_item.assistances = assistances
+    @pay_roll_item.save
+    @pay_roll_item.total_assistances = @pay_roll_item.assistances.where(assisted: true).count
+    @pay_roll_item.save
+
+    @pay_roll_item.total = ((@pay_roll_item.salary * @pay_roll_item.total_assistances) - @pay_roll_item.discounts) + @pay_roll_item.bonuses
+    @pay_roll_item.save
+
+    # Update pay_roll
+    @pay_roll.subtotal = (@pay_roll.pay_roll_items.sum(:total) + @pay_roll.pay_roll_items.sum(:discounts)) - @pay_roll.pay_roll_items.sum(:bonuses)
+    @pay_roll.discount = @pay_roll.pay_roll_items.sum(:discounts)
+    @pay_roll.bonus = @pay_roll.pay_roll_items.sum(:bonuses)
+    @pay_roll.total = @pay_roll.pay_roll_items.sum(:total)
+    @pay_roll.save
   end
 
   def do_calcs
