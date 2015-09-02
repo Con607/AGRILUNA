@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  before_action :check_if_allowed_controller
+  #before_action :check_if_allowed_controller, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Prevent CSRF attacks by raising an exception.
@@ -23,7 +23,14 @@ class ApplicationController < ActionController::Base
 	def is_allowed?(permission)
 		if user_signed_in?
 			current_user.roles.each do |user_role|
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            user_role.permissions.count = #{user_role.permissions.count}
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 			  user_role.permissions.each do |user_permission|
+          puts "!!!!!!!!!!!!!!!!!!!!!!!!
+                user_permission.value = #{user_permission.value}
+                permission = #{permission}
+                !!!!!!!!!!!!!!!!!!!!!!!!"
 			    if user_permission.value == permission
 			      return true
 			    end
