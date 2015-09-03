@@ -5,4 +5,4 @@ Things to do
 - Make greenhouses javascript behavior
 - Change icons on the side nav bar
 - Take off employees association from the create form to avoid confusions
-- Validate assistances form
+
