@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :check_if_allowed_controller, if: :user_signed_in?
+  before_action :check_if_allowed_action, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Prevent CSRF attacks by raising an exception.
@@ -16,8 +17,14 @@ class ApplicationController < ActionController::Base
 
     def check_if_allowed_controller
       if is_allowed?(params[:controller]) != true
-        redirect_to root_path
+        redirect_to root_path, notice: (t :not_enough_permissions)
       end
+    end
+
+    def check_if_allowed_action
+       if is_allowed?("#{params[:controller]}/#{params[:action]}") != true
+        redirect_to root_path, notice: (t :not_enough_permissions)
+       end
     end
 
 	def is_allowed?(permission)
@@ -31,7 +38,6 @@ class ApplicationController < ActionController::Base
 			end
 		else
 			return false
-			redirect_to root_path
 		end
 	end
 

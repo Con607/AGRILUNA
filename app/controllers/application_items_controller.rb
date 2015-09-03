@@ -166,10 +166,10 @@ class ApplicationItemsController < ApplicationController
       end
     end
 
-    def check_if_allowed_controller
-      if is_allowed?('development') != true
-        redirect_to root_path
-      end
-    end
+    #def check_if_allowed_controller
+    #  if is_allowed?('development') != true
+    #    redirect_to root_path
+    #  end
+    #end
 
 end

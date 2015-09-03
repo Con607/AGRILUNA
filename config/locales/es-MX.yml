@@ -1,6 +1,33 @@
 ---
 es-MX:
 
+  show: "Ver"
+  destroy: "Eliminar"
+  are_you_sure: "Seguro desea eliminar?"
+  add: "Añadir"
+  edit: "Editar"
+  back: "Regresar"
+  not_enough_permissions: "Permisos insuficientes"
+
+  # Sales
+  sales: "Ventas"
+  event_date: "Fecha"
+  greenhouse: "Invernadero"
+  product: "Poducto"
+  product_variety: "Variedad"
+  product_presentation: "Presentacion"
+  product_quality: "Calidad"
+  total_price: "Precio Total"
+  status: "Estado"
+  total_sold: "Total Vendido"
+  new_sale: "Nueva Venta"
+  create_sale: "Crear Venta"
+  total_quantity: "Cantidad Total"
+  quantity: "Cantidad"
+  unit_price: "Precio Unitario"
+  payed: "Pagado"
+  credit: "Credito"
+
   # Assistances
   listing_assistances: "Asistencias"
   employee: "Empleado"

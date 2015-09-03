@@ -2,31 +2,31 @@
 
 <div class="col-md-8">
   <div class="col-md-4">
-    <strong>Event date:</strong>
+    <strong><%=t :event_date %>:</strong>
     <%= @sale.event_date %>
   </div>
 
   <div class="col-md-4">
-    <strong>Poduct:</strong>
+    <strong><%=t :product %>:</strong>
     <%= @sale.product.name %>
   </div>
 </div>
 
 <div class="col-md-8">
   <div class="col-md-4">
-    <strong>Product variety:</strong>
+    <strong><%=t :product_variety %>:</strong>
     <%= @sale.product_variety.name %>
   </div>
 
   <div class="col-md-4">
-    <strong>Product presentation:</strong>
+    <strong><%=t :product_presentation %>:</strong>
     <%= @sale.product_presentation.name %>
   </div>
 </div>
 
 <div class="col-md-8">
   <div class="col-md-4">
-    <strong>Status:</strong>
+    <strong><%=t :status %>:</strong>
     <%= @sale.status %>
   </div>
 </div>
@@ -36,11 +36,11 @@
       <table class="table table-hover dataTable table-striped table-bordered">
         <thead>
           <tr>
-            <th>Product quality</th>
-            <th>Quantity</th>
-            <th>Unit price</th>
-            <th>Total price</th>
-            <th>Status</th>
+            <th><%=t :product_quality %></th>
+            <th><%=t :quantity %></th>
+            <th><%=t :unit_price %></th>
+            <th><%=t :total_price %></th>
+            <th><%=t :status %></th>
             <th colspan="2"></th>
           </tr>
         </thead>
@@ -55,8 +55,11 @@
 
     <br>
 
+
     <div class="col-md-8">
-      <%= link_to 'New Sale Item', new_sale_item_path, remote: true, id: 'new_sale_item_link' %>
+      <%= link_to (t :add), new_sale_item_path, remote: true, id: 'new_sale_item_link' %>
+      <br>
+      <br>
     </div>
 
 
@@ -67,14 +70,16 @@
 
         <div class="form-inputs">
           <%= f.association :sale, :as => :hidden, input_html: { value: @sale.id } %>
-          <%= f.association :product_quality %>
-          <%= f.input :quantity %>
-          <%= f.input :unit_price %>
-          <%= f.input :status, collection: ["Payed", "Credit"] %>
+          <%= f.association :product_quality, label: (t :product_quality) %>
+          <%= f.input :quantity, label: (t :quantity) %>
+          <%= f.input :unit_price, label: (t :unit_price) %>
+          <%= f.input :status, collection: [(t :payed), (:credit)] %>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, id: 'new_sale_item_submit_button' %>
+          <%= f.submit (t :add), id: 'new_sale_item_submit_button', class: 'btn btn-default' %>
+          <br>
+          <br>
         </div>
       <% end %>
 
@@ -83,7 +88,7 @@
 
 <div class="col-md-8">
   <div class="col-md-4">
-    <strong>Total price:</strong>
+    <strong><%=t :total_price %>:</strong>
     <div id="sale_total_price"><%= @sale.total_price %></div>
   </div>
 </div>
@@ -91,6 +96,10 @@
 
 
 <div class="col-md-8">
-  <%= link_to 'Edit', edit_sale_path(@sale) %> |
-  <%= link_to 'Back', sales_path %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <%= link_to (t :edit), edit_sale_path(@sale) %> |
+  <%= link_to (t :back), sales_path %>
 </div>

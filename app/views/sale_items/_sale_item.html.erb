@@ -4,6 +4,5 @@
         <td><%= sale_item.unit_price %></td>
         <td><%= sale_item.total_price %></td>
         <td><%= sale_item.status %></td>
-        <td><%= link_to 'Show', sale_item %></td>
-        <td><%= link_to 'Destroy', sale_item, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (t :destroy), sale_item, method: :delete, remote: true, data: { confirm: (t :are_you_sure) } %></td>
       </tr>

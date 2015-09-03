@@ -6,3 +6,4 @@ Things to do
 - Change icons on the side nav bar
 - Take off employees association from the create form to avoid confusions
 
+- Translate assistances and pay_rolls module

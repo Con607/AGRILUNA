@@ -21,6 +21,32 @@
 
 en:
   hello: "Hello world"
+  show: "Show"
+  destroy: "Destroy"
+  are_you_sure: "Are you sure?"
+  add: "Add"
+  edit: "Edit"
+  back: "Back"
+  not_enough_permissions: "Not enough permissions."
+
+  # Sales
+  sales: "Sales"
+  event_date: "Event date"
+  greenhouse: "Greenhouse"
+  product: "Poduct"
+  product_variety: "variety"
+  product_presentation: "Presentation"
+  product_quality: "Quality"
+  total_price: "Total price"
+  status: "Status"
+  total_sold: "Total Sold"
+  new_sale: "New Sale"
+  create_sale: "Create Sale"
+  total_quantity: "Total quantity"
+  quantity: "Quantity"
+  unit_price: "Unit price"
+  payed: "Payed"
+  credit: "Credit"
 
   # Assistances
   listing_assistances: "Assitances"
