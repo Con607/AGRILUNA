@@ -7,3 +7,4 @@ Things to do
 - Take off employees association from the create form to avoid confusions
 
 - Translate assistances and pay_rolls module
+- Add destroy nullify on permissions destroy and on roles destroy

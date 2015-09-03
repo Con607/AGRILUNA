@@ -22,6 +22,9 @@ class ApplicationController < ActionController::Base
     end
 
     def check_if_allowed_action
+      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if is_allowed?(#{params[:controller]}/#{params[:action]})
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
        if is_allowed?("#{params[:controller]}/#{params[:action]}") != true
         redirect_to root_path, notice: (t :not_enough_permissions)
        end

@@ -1,6 +1,6 @@
 <tr id="role_permission_<%= role_permission.id %>">
-        <td><%= role_permission.role.name %></td>
-        <td><%= role_permission.permission.name %></td>
+        <td><%= role_permission.role.name unless role_permission.role.nil? %></td>
+        <td><%= role_permission.permission.name unless role_permission.permission.nil? %></td>
         <td><%= link_to 'Show', role_permission %></td>
         <td><%= link_to 'Destroy', role_permission, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
       </tr>
