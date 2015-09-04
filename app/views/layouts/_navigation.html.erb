@@ -16,109 +16,128 @@
                       </ul>
                     <% else %>
                       <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+                          <li><%= link_to (t :login), new_user_session_path, :class => 'navbar-link'  %></li>
                       </ul>
                     <% end %>
                 </div>
                 <div class="logo-element">
+                    <!-- <%= link_to(image_tag('logo/Logo Conexxion Business opcion 7.png'), root_path) %> -->
                     IN+
                 </div>
             </li>
             <% if user_signed_in? %>
-                <li class="<%= 'active' if current_page?('/home/minor') %>">
-                    <%= link_to companies_path do %>
-                    <i class="fa fa-desktop"></i> <span class="nav-label">Companies</span>
-                    <% end %>
-                </li>
-                <li class="<%= 'active' if current_page?('/home/minor') %>">
-                    <%= link_to greenhouses_path do %>
-                    <i class="fa fa-desktop"></i> <span class="nav-label">Greenhouses</span>
-                    <% end %>
-                </li>
-                <li class="<%= 'active' if current_page?('/home/minor') %>">
-                    <%= link_to cycles_path do %>
-                    <i class="fa fa-desktop"></i> <span class="nav-label">Cycles</span>
-                    <% end %>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Activities</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><%= link_to 'Applications', applications_path %></li>
-                        <li><%= link_to 'Fertigations', fertigations_path %></li>
-                        <li><%= link_to 'Leachates', leachates_path %></li>
-                        <li><%= link_to 'Environmental Conditions', environmental_conditions_path %></li>
-                        <li><%= link_to 'Harvests', harvests_path %></li>
-                        <li><%= link_to 'Selections', selections_path %></li>
-                        <li><%= link_to 'Sales', sales_path %></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Manpower</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><%= link_to 'Assistances', assistances_path %></li>
-                        <li><%= link_to 'Pay Rolls', pay_rolls_path %></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Expenses</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><%= link_to 'Operating Costs', operating_costs_path %></li>
-                        <li><%= link_to 'Administration Costs', administration_costs_path %></li>
-                        <li><%= link_to 'Product Application Buys', product_application_buys_path %></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Catalogs</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">Applications<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><%= link_to 'Application Products', application_products_path %></li>
-                                <li><%= link_to 'Application Processes', application_processes_path %></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Products<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><%= link_to 'Products', products_path %></li>
-                                <li><%= link_to 'Product Presentations', product_presentations_path %></li>
-                                <li><%= link_to 'Product Qualities', product_qualities_path %></li>
-                                <li><%= link_to 'Product Varieties', product_varieties_path %></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Manpower<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><%= link_to 'Employees', employees_path %></li>
-                                <li><%= link_to 'Job Positions', job_positions_path %></li>
-                            </ul>
-                        </li>
-                        <li><%= link_to 'Unit Types', unit_types_path %></li>
-                        <li><%= link_to 'Unit Conversions', unit_conversions_path %></li>
-                        <li><%= link_to 'Phenological Stages', phenological_stages_path %></li>
-                        <li><%= link_to 'Environments', environments_path %></li>
-                        <li><%= link_to 'Weathers', weathers_path %></li>
-                        <li><%= link_to 'Suppliers', suppliers_path %></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><%= link_to 'Listado', reports_index_path %></li>
-                        <li><%= link_to 'General Status', reports_quick_general_status_path %></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Admin</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><%= link_to 'Users_Companies', user_companies_path %></li>
-                        <li><%= link_to 'Users List', users_list_path %></li>
-                        <li><%= link_to 'Permissions', permissions_path %></li>
-                        <li><%= link_to 'Roles', roles_path %></li>
-                        <li><%= link_to 'Role Permissions', role_permissions_path %></li>
-                        <li><%= link_to 'User Roles', user_roles_path %></li>
-                    </ul>
-                </li>
+                <% if is_allowed?('companies/index') == true %>
+                    <li class="<%= 'active' if current_page?('/home/minor') %>">
+                        <%= link_to companies_path do %>
+                            <i class="fa fa-desktop"></i> <span class="nav-label"><%=t :companies %></span>
+                        <% end %>
+                    </li>
+                <% end %>
+                <% if is_allowed?('greenhouses/index') == true %>
+                    <li class="<%= 'active' if current_page?('/home/minor') %>">
+                        <%= link_to greenhouses_path do %>
+                            <i class="fa fa-desktop"></i> <span class="nav-label"><%=t :greenhouses %></span>
+                        <% end %>
+                    </li>
+                <% end %>
+                <% if is_allowed?('cycles/index') == true %>
+                    <li class="<%= 'active' if current_page?('/home/minor') %>">
+                        <%= link_to cycles_path do %>
+                            <i class="fa fa-desktop"></i> <span class="nav-label"><%=t :cycles %></span>
+                        <% end %>
+                    </li>
+                <% end %>
+                <% if is_allowed?('menu_activities') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :activities %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><%= link_to (t :applications), applications_path if is_allowed?('applications/index') == true %></li>
+                            <li><%= link_to (t :fertigations), fertigations_path if is_allowed?('fertigations/index') == true %></li>
+                            <li><%= link_to (t :leachates), leachates_path if is_allowed?('leachates/index') == true %></li>
+                            <li><%= link_to (t :environmental_conditions), environmental_conditions_path if is_allowed?('environmental_conditions/index') == true %></li>
+                            <li><%= link_to (t :harvests), harvests_path if is_allowed?('harvests/index') == true %></li>
+                            <li><%= link_to (t :selections), selections_path if is_allowed?('selections/index') == true %></li>
+                            <li><%= link_to (t :sales), sales_path if is_allowed?('sales/index') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
+                <% if is_allowed?('menu_manpower') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :manpower %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><%= link_to (t :assistances), assistances_path if is_allowed?('assistances/index') == true %></li>
+                            <li><%= link_to (t :pay_rolls), pay_rolls_path if is_allowed?('pay_rolls/index') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
+                <% if is_allowed?('menu_expenses') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :expenses %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><%= link_to (t :operating_costs), operating_costs_path if is_allowed?('operating_costs/index') == true %></li>
+                            <li><%= link_to (t :administration_costs), administration_costs_path if is_allowed?('administration_costs/index') == true %></li>
+                            <li><%= link_to (t :product_application_buys), product_application_buys_path if is_allowed?('product_application_buys/index') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
+                <% if is_allowed?('menu_catalogs') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :catalogs %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#"><%=t :applications %><span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li><%= link_to (t :application_products), application_products_path if is_allowed?('application_products/index') == true %></li>
+                                    <li><%= link_to (t :application_processes), application_processes_path if is_allowed?('application_processes/index') == true %></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><%=t :products %><span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li><%= link_to (t :products), products_path if is_allowed?('products/index') == true %></li>
+                                    <li><%= link_to (t :product_presentations), product_presentations_path if is_allowed?('product_presentations/index') == true %></li>
+                                    <li><%= link_to (t :product_qualities), product_qualities_path if is_allowed?('product_qualities/index') == true %></li>
+                                    <li><%= link_to (t :product_varieties), product_varieties_path if is_allowed?('product_varieties/index') == true %></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><%=t :manpower %><span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li><%= link_to (t :employees), employees_path if is_allowed?('employees/index') == true %></li>
+                                    <li><%= link_to (t :job_positions), job_positions_path if is_allowed?('job_positions/index') == true %></li>
+                                </ul>
+                            </li>
+                            <li><%= link_to (t :unit_types), unit_types_path if is_allowed?('unit_types/index') == true %></li>
+                            <li><%= link_to (t :unit_conversions), unit_conversions_path if is_allowed?('unit_conversions/index') == true %></li>
+                            <li><%= link_to (t :phenological_stages), phenological_stages_path if is_allowed?('phenological_stages/index') == true %></li>
+                            <li><%= link_to (t :environments), environments_path if is_allowed?('environments/index') == true %></li>
+                            <li><%= link_to (t :weathers), weathers_path if is_allowed?('weathers/index') == true %></li>
+                            <li><%= link_to (t :suppliers), suppliers_path if is_allowed?('suppliers/index') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
+                <% if is_allowed?('menu_reports') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :reports %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><%= link_to (t :reports_listing), reports_index_path if is_allowed?('reports/index') == true %></li>
+                            <li><%= link_to (t :general_status), reports_quick_general_status_path if is_allowed?('reports/quick_general_status') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
+                <% if is_allowed?('menu_admin') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :admin %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><%= link_to (t :user_companies), user_companies_path if is_allowed?('user_companies/index') == true %></li>
+                            <li><%= link_to (t :users_list), users_list_path if is_allowed?('manage_users/index') == true %></li>
+                            <li><%= link_to (t :permissions), permissions_path if is_allowed?('permissions/index') %></li>
+                            <li><%= link_to (t :roles), roles_path if is_allowed?('roles/index') == true %></li>
+                            <li><%= link_to (t :role_permissions), role_permissions_path if is_allowed?('role_permissions/index') == true %></li>
+                            <li><%= link_to (t :user_roles), user_roles_path if is_allowed?('user_roles/index') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
             <% end %>
         </ul>
 

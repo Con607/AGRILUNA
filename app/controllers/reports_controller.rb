@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
     if params[:report]
       @show_report = true
       @company = Company.find(params[:report][:company_id])
+      @number_of_kgs = 0
     else
       @companies = current_user.companies
     end
