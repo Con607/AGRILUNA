@@ -4,6 +4,9 @@ class ApplicationProduct < ActiveRecord::Base
 	has_many :fertigation_items
 	has_many :product_application_buys
 
+	validates :name, :unit_type, presence: true
+	validates :name, uniqueness: true
+
 	def name_abbreviation
 		"#{name} (#{unit_type.abbreviation})"
 	end

@@ -40,8 +40,7 @@
 
     <div class="form-inputs">
       <%= f.input :buy_date %>
-      <%= f.association :application_product, :label_method => lambda { |item| "#{item.name} (#{item.unit_type.abbreviation unless item.unit_type.nil?})".html_safe },
-                                              value_method: :id %>
+      <%= f.association :application_product, collection: @application_products, label_method: :name_abbreviation, value_method: :id %>
       <%= f.input :quanity %>
       <%= f.association :unit_type %>
       <%= f.input :total_cost %>

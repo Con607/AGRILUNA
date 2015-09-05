@@ -4,6 +4,8 @@ class ProductApplicationBuy < ActiveRecord::Base
 	belongs_to :unit_type
 
 	#validate :check_measure_type
+	validates :buy_date, :application_product, :quanity, 
+				:unit_cost, :total_cost, :supplier, :unit_type, presence: true
 
 	def check_measure_type
 		application_product = ApplicationProduct.find(application_product_id)
