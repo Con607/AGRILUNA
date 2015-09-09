@@ -114,8 +114,12 @@ class ApplicationItemsController < ApplicationController
     def update_application_and_costs
       quantity = @application_item.quantity
       h2o = @application_item.h2o_quantity_liters
-      total_product_used = @application_item.total_product_used
-      @application_item.quantity = total_product_used / h2o # Get product used per liter of water
+      #total_product_used = @application_item.total_product_used
+      #@application_item.quantity = total_product_used / h2o # Get product used per liter of water
+      application_product = @application_item.application_product
+      unit_type = @application_item.unit_type
+      total_product_used = quantity * h2o
+      @application_item.total_product_used = unit_type.convert_to(total_product_used, application_product.unit_type.abbreviation)
       @application_item.save
       @application_item.total_cost = @application_item.cost_per_unit * @application_item.total_product_used
       @application_item.save
@@ -135,10 +139,7 @@ class ApplicationItemsController < ApplicationController
 
     def update_application_products
       application_product = @application_item.application_product
-      unit_type = @application_item.unit_type
-      quantity = @application_item.total_product_used
-      converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
-      application_product.quantity_available -= converted_quantity
+      application_product.quantity_available -= @application_item.total_product_used
       application_product.save
 
       # Now update the total_cost
@@ -148,10 +149,7 @@ class ApplicationItemsController < ApplicationController
 
     def update_application_product_destroy
       application_product = @application_item.application_product
-      unit_type = @application_item.unit_type
-      quantity = @application_item.total_product_used
-      converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
-      application_product.quantity_available += converted_quantity
+      application_product.quantity_available += @application_item.total_product_used
       application_product.save
 
       # Now update the total_cost
@@ -160,11 +158,11 @@ class ApplicationItemsController < ApplicationController
     end
 
     # This check is because the module is in development mode
-    def check_if_allowed_controller
-      if is_allowed?('development') != true
-        redirect_to root_path
-      end
-    end
+    #def check_if_allowed_controller
+    #  if is_allowed?('development') != true
+    #    redirect_to root_path
+    #  end
+    #end
 
     #def check_if_allowed_controller
     #  if is_allowed?('development') != true

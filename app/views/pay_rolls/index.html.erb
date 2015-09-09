@@ -1,17 +1,17 @@
-<h1>Listing pay_rolls</h1>
+<h1><%=t :listing_pay_rolls %></h1>
 
 <div class="table-responsive">
   <table class="table table-hover dataTable table-striped table-bordered">
     <thead>
       <tr>
         <th>Id</th>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Greenhouse</th>
-        <th>Subtotal</th>
-        <th>Discount</th>
-        <th>Bonus</th>
-        <th>Total</th>
+        <th><%= t :start_date %></th>
+        <th><%= t :end_date %></th>
+        <th><%= t :greenhouse %></th>
+        <th><%= t :subtotal %></th>
+        <th><%= t :discount %></th>
+        <th><%= t :bonus %></th>
+        <th><%= t :total %></th>
         <th></th>
         <th></th>
       </tr>
@@ -28,8 +28,8 @@
           <td><%= pay_roll.discount %></td>
           <td><%= pay_roll.bonus %></td>
           <td><%= pay_roll.total %></td>
-          <td><%= link_to 'Show', pay_roll %></td>
-          <td><%= link_to 'Destroy', pay_roll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to (t :show), pay_roll %></td>
+          <td><%= link_to (t :destroy), pay_roll, method: :delete, data: { confirm: (t :are_you_sure) } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Pay roll', new_pay_roll_path %>
+<%= link_to (t :new_pay_roll), new_pay_roll_path %>

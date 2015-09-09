@@ -6,7 +6,7 @@
               <% end %>
             </td>
             <td><%= pay_roll_item.total_assistances %></td>
-            <td><%= pay_roll_item.salary %></td>
+            <td class="alnright"><%= pay_roll_item.salary %></td>
             <td>
               <div class="pay_roll_item_discount_update" id="pay_roll_item_discounts_<%= pay_roll_item.id %>">
                 <!-- discounts value -->
@@ -19,7 +19,7 @@
                 <%= pay_roll_item.bonuses %>
               </div>
             </td>
-            <td><div id="pay_roll_item_total_<%= pay_roll_item.id %>"><%= pay_roll_item.total %></div></td>
-            <td><%= link_to 'Edit', edit_pay_roll_item_path(pay_roll_item), id: "edit_pay_roll_item_link_#{pay_roll_item.id}", class: 'edit_pay_roll_item_link' %></td>
-            <td><%= link_to 'Destroy', pay_roll_item, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+            <td class="alnright"><div id="pay_roll_item_total_<%= pay_roll_item.id %>"><%= number_to_currency(pay_roll_item.total, precision: 2) %></div></td>
+            <td><%= link_to (t :edit), edit_pay_roll_item_path(pay_roll_item), id: "edit_pay_roll_item_link_#{pay_roll_item.id}", class: 'edit_pay_roll_item_link' %></td>
+            <td><%= link_to (t :destroy), pay_roll_item, method: :delete, remote: true, data: { confirm: :are_you_sure } %></td>
           </tr>

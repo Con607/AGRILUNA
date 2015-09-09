@@ -30,6 +30,23 @@ en:
   not_enough_permissions: "Not enough permissions."
   login: "Login"
 
+  # pay_rolls
+  listing_pay_rolls: "Listing pay_rolls"
+  start_date: "Start Date"
+  end_date: "End Date"
+  subtotal: "Subtotal"
+  discount: "Discount"
+  bonus: "Bonus"
+  total: "Total"
+  new_pay_roll: "New Pay roll"
+  days_assisted: "Days assisted"
+  num_assistances: "Num Assistances"
+  salary: "Salary"
+  discounts: "Discounts"
+  bonuses: "Bonuses"
+  add_employee: "Add employee"
+  create_pay_roll: "Create Pay Roll"
+
   # navigation menu
   companies: "Companies"
   greenhouses: "Greenhouses"

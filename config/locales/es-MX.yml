@@ -10,6 +10,23 @@ es-MX:
   not_enough_permissions: "Permisos insuficientes"
   login: "Iniciar Sesion"
 
+  # pay_rolls
+  listing_pay_rolls: "Listas de Raya"
+  start_date: "Fecha de Iinicio"
+  end_date: "Fecha de Termino"
+  subtotal: "Subtotal"
+  discount: "Descuento"
+  bonus: "Bono"
+  total: "Total"
+  new_pay_roll: "Nueva lista de raya"
+  days_assisted: "Days assisted"
+  num_assistances: "Num Asistencias"
+  salary: "Salario"
+  discounts: "Descuentos"
+  bonuses: "Bonos"
+  add_employee: "Añadir empleado"
+  create_pay_roll: "Crear Lista de Raya"
+
   # navigation menu
   companies: "Compañias"
   greenhouses: "Invernaderos"

@@ -2,12 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.association :greenhouse %>
+    <%= f.input :start_date, label: (t :start_date) %>
+    <%= f.input :end_date, label: (t :end_date) %>
+    <%= f.association :greenhouse, label: (t :greenhouse) %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit (t :create_pay_roll), class: "btn btn-default" %>
   </div>
 <% end %>

@@ -3,13 +3,13 @@
 
   <div class="form-inputs">
   	<%= f.association :pay_roll, :as => :hidden, input_html: { value: @pay_roll.id } %>
-  	<%= f.association :employee, label_method: :full_name, value_method: :id %>
-  	<%= f.input :salary, :input_html => { :value => '0.0' }%>
-    <%= f.input :discounts, :input_html => { :value => '0.0' } %>
-    <%= f.input :bonuses, :input_html => { :value => '0.0' } %>
+  	<%= f.association :employee, label: (t :employee), label_method: :full_name, value_method: :id %>
+  	<%= f.input :salary, label: (t :salary), :input_html => { :value => '0.0' }%>
+    <%= f.input :discounts, label: (t :discounts), :input_html => { :value => '0.0' } %>
+    <%= f.input :bonuses, label: (t :bonuses), :input_html => { :value => '0.0' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit (t :add_employee), class: 'btn btn-default' %>
   </div>
 <% end %>

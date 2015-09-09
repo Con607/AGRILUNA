@@ -6,6 +6,8 @@ class RolePermissionsController < ApplicationController
   def index
     @role_permissions = RolePermission.all
     @role_permission = RolePermission.new
+    @roles = Role.all
+    @permissions = Permission.all
   end
 
   # GET /role_permissions/1

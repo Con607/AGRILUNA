@@ -1,32 +1,34 @@
 <p id="notice"><%= notice %></p>
-
+<br>
 <div class="col-md-4">
-  <strong>End date:</strong>
+  <strong><%=t :greenhouse %>:</strong>
   <%= @pay_roll.greenhouse.name unless @pay_roll.greenhouse.nil? %>
 </div>
 
 <div class="col-md-4">
-  <strong>Start date:</strong>
+  <strong><%=t :start_date %>:</strong>
   <%= @pay_roll.start_date %>
 </div>
 
 <div class="col-md-4">
-  <strong>End date:</strong>
+  <strong><%=t :end_date %>:</strong>
   <%= @pay_roll.end_date %>
 </div>
 
 <div class="col-md-8">
+  <br>
   <div class="table-responsive">
     <table class="table table-hover dataTable table-striped table-bordered">
       <thead>
         <tr>
-          <th>Employee</th>
-          <th>Days Assisted</th>
-          <th>Num Assistances</th>
-          <th>Salary</th>
-          <th>Discounts</th>
-          <th>Bonuses</th>
-          <th>Total</th>
+          <th><%=t :emplpyee %></th>
+          <th><%=t :days_assisted %></th>
+          <th><%=t :num_assistances %></th>
+          <th><%=t :salary %></th>
+          <th><%=t :discounts %></th>
+          <th><%=t :bonuses %></th>
+          <th><%=t :total %></th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -43,28 +45,28 @@
 </div>
 
 <div class="col-md-8">
-  <%= link_to 'Add Employee', new_pay_roll_item_path(pay_roll_id: @pay_roll.id) %>
+  <%= link_to (t :add_employee), new_pay_roll_item_path(pay_roll_id: @pay_roll.id) %>
 </div>
 
 <div class="col-md-8">
     <br>
-    <div class="col-md-2"><strong>Subtotal:</strong></div>
-    <div class="col-md-1 text-right" id="pay_roll_subtotal"><%= @pay_roll.subtotal %></div>
+    <div class="col-md-2"><strong><%=t :subtotal %>:</strong></div>
+    <div class="col-md-1 text-right" id="pay_roll_subtotal"><%= number_to_currency(@pay_roll.subtotal, precision: 2) %></div>
 </div>
   
 <div class="col-md-8">
-    <div class="col-md-2"><strong>Discount:</strong></div>
-    <div class="col-md-1 text-right" id="pay_roll_discount"><%= @pay_roll.discount %></div>
+    <div class="col-md-2"><strong><%=t :discount %>:</strong></div>
+    <div class="col-md-1 text-right" id="pay_roll_discount"><%= number_to_currency(@pay_roll.discount, precision: 2) %></div>
 </div>
   
 <div class="col-md-8"> 
-    <div class="col-md-2"><strong>Bonus:</strong></div>
-    <div class="col-md-1 text-right" id="pay_roll_bonus"><%= @pay_roll.bonus %></div>
+    <div class="col-md-2"><strong><%=t :bonus %>:</strong></div>
+    <div class="col-md-1 text-right" id="pay_roll_bonus"><%= number_to_currency(@pay_roll.bonus, precision: 2) %></div>
 </div>
   
 <div class="col-md-8">
-    <div class="col-md-2"><strong>Total:</strong></div>
-    <div class="col-md-1 text-right" id="pay_roll_total"><%= @pay_roll.total %></div>
+    <div class="col-md-2"><strong><%=t :total %>:</strong></div>
+    <div class="col-md-1 text-right" id="pay_roll_total"><%= number_to_currency(@pay_roll.total, precision: 2) %></div>
 </div>
   
 
@@ -76,8 +78,8 @@
   <br>
   <br>
   <br>
-  <%= link_to 'Edit', edit_pay_roll_path(@pay_roll) %> |
-  <%= link_to 'Back', pay_rolls_path %>
+  <%= link_to (t :edit), edit_pay_roll_path(@pay_roll) %> |
+  <%= link_to (t :back), pay_rolls_path %>
 </div>
 
 

@@ -1,6 +1,6 @@
 <tr id="user_role_<%= user_role.id %>">
         <td><%= user_role.user.full_name %></td>
-        <td><%= user_role.role.name %></td>
+        <td><%= user_role.role.name unless user_role.role.nil? %></td>
         <td><%= link_to 'Show', user_role %></td>
         <td><%= link_to 'Destroy', user_role, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
       </tr>
