@@ -1,5 +1,6 @@
 class ApplicationItemsController < ApplicationController
   before_action :set_application_item, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_product_is_available, only: [:create, :update]
   before_action :get_application_before_destroy, only: [:destroy]
   before_action :set_cost_per_unit, only: [:create]
   after_action :update_application_and_costs, only: [:create, :update]
@@ -99,6 +100,20 @@ class ApplicationItemsController < ApplicationController
       # We get the cost_per_unit from the application products catalog that has the cost per unit calculated when a product is bought
       application_product = ApplicationProduct.find(params[:application_item][:application_product_id])
       params[:application_item][:cost_per_unit] = application_product.unit_cost
+    end
+
+    def check_if_product_is_available
+      quantity = params[:application_item][:quantity].to_f
+      h2o_quantity_liters = params[:application_item][:h2o_quantity_liters].to_f
+      application_product = ApplicationProduct.find(params[:application_item][:application_product_id])
+      unit_type = UnitType.find(params[:application_item][:unit_type_id])
+      converted_quantity = unit_type.convert_to((quantity * h2o_quantity_liters), application_product.unit_type.abbreviation)
+      puts "!!!!!!!!!!!!!!!!!!1 
+      converted_quantity = #{converted_quantity}, application_product.quantity_available = #{application_product.quantity_available}
+      !!!!!!!!!!!!!!!!!!!!!!!!!"
+      if converted_quantity > application_product.quantity_available 
+        redirect_to application_path(params[:application_item][:application_id]), notice: 'Not enough quantity available of selected product.'
+      end
     end
 
     def check_measure_type

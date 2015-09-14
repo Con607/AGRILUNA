@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Application Products</h1>
+<h1><%=t :listing_application_products %></h1>
 
 <div class="table-responsive">
   <table class="table table-hover dataTable table-striped table-bordered">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Units of measure</th>
-        <th>Quantity available</th>
-        <th>Unit Cost</th>
-        <th>Total Cost</th>
+        <th><%=t :name %></th>
+        <th><%=t :description %></th>
+        <th><%=t :unit_of_measure %></th>
+        <th><%=t :quantity_available %></th>
+        <th><%=t :unit_cost %></th>
+        <th><%=t :total_cost %></th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -31,13 +31,13 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.association :unit_type %>
+      <%= f.input :name, label: t(:name ) %>
+      <%= f.input :description, label: t(:description ) %>
+      <%= f.association :unit_type, label: t(:unit_of_measure ) %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, id: 'new_application_product_submit_button' %>
+      <%= f.submit t(:create_new_product), id: 'new_application_product_submit_button', class: 'btn btn-default' %>
     </div>
   <% end %>
 </div>
@@ -45,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New Application product', new_application_product_path, remote: true, id: "new_application_product_link" %>
+<%= link_to t(:add_product), new_application_product_path, remote: true, id: "new_application_product_link" %>

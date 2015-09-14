@@ -35,6 +35,7 @@ class ProductApplicationBuysController < ApplicationController
   def create
     @product_application_buy = ProductApplicationBuy.new(product_application_buy_params)
     raise "Cannot create product application buy, different measure type" if check_measure_type
+    #raise "Cannot create product application buy, not enough product available." if check_if_product_is_available == true
 
     respond_to do |format|
       if @product_application_buy.save
@@ -52,6 +53,7 @@ class ProductApplicationBuysController < ApplicationController
   # PATCH/PUT /product_application_buys/1
   # PATCH/PUT /product_application_buys/1.json
   def update
+    #raise "Cannot create product application buy, not enough product available." if check_if_product_is_available == true 
     respond_to do |format|
       if @product_application_buy.update(product_application_buy_params)
         format.html { redirect_to @product_application_buy, notice: 'Product application buy was successfully updated.' }

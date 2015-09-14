@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  before_action :check_if_allowed_controller, if: :user_signed_in?
-  before_action :check_if_allowed_action, if: :user_signed_in?
+  #before_action :check_if_allowed_controller, if: :user_signed_in?
+  #efore_action :check_if_allowed_action, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :is_allowed?

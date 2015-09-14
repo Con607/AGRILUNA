@@ -5,10 +5,10 @@
         <td><%= application.greenhouse.name %></td>
         <td>
           <% application.application_items.each do |application_item| %>
-            <%= application_item.application_product.name %><br>
+            <%= application_item.application_product.name unless application_item.application_product.nil? %><br>
           <% end %>
         </td>
-        <td><%= application.application_cost %></td>
+        <td class="alnright"><%= number_to_currency(application.application_cost, precision: 2) %></td>
         <td><%= link_to 'Show', application %></td>
         <td><%= link_to 'Destroy', application, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
       </tr>

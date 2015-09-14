@@ -39,6 +39,7 @@ class ApplicationProductsController < ApplicationController
         format.html { redirect_to @application_product, notice: 'Application product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @application_product }
       else
+        flash[:notice] = 'This is a test!'
         format.js
         format.html { render action: 'new' }
         format.json { render json: @application_product.errors, status: :unprocessable_entity }

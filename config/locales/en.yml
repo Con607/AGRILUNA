@@ -30,6 +30,20 @@ en:
   not_enough_permissions: "Not enough permissions."
   login: "Login"
 
+  # Commonly used
+  name: "Name"
+  description: "Description"
+
+  # application_products
+  listing_application_products: "Listing Chemical Products"
+  unit_of_measure: "Unit of Measure"
+  quantity_available: "Quantity Available"
+  unit_cost: "Unit Cost"
+  total_cost: "Total Cost"
+  create_new_product: "New Product"
+  add_product: "Add Product"
+
+
   # pay_rolls
   listing_pay_rolls: "Listing pay_rolls"
   start_date: "Start Date"

@@ -10,6 +10,19 @@ es-MX:
   not_enough_permissions: "Permisos insuficientes"
   login: "Iniciar Sesion"
 
+  # Commonly used
+  name: "Nombre"
+  description: "Descripcion"
+
+  # application_products
+  listing_application_products: "Productos Quimicos"
+  unit_of_measure: "Unidad de Medida"
+  quantity_available: "Cantidad Disponible"
+  unit_cost: "Precio Unitario"
+  total_cost: "Costo Total"
+  create_new_product: "Crear Producto"
+  add_product: "Añadir Producto"
+
   # pay_rolls
   listing_pay_rolls: "Listas de Raya"
   start_date: "Fecha de Iinicio"

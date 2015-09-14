@@ -6,6 +6,6 @@
       <td><%= application_product.quantity_available %></td>
       <td><%= application_product.unit_cost %></td>
       <td><%= application_product.total_cost %></td>
-      <td><%= link_to 'Show', application_product %></td>
-      <td><%= link_to 'Destroy', application_product, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to (t :show), application_product %></td>
+      <td><%= link_to (t :destroy), application_product, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
     </tr>
