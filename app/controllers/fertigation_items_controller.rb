@@ -1,5 +1,6 @@
 class FertigationItemsController < ApplicationController
   before_action :set_fertigation_item, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_product_is_available, only: [:create, :update]
   before_action :get_fertigation_before_destroy, only: [:destroy]
   before_action :set_cost_per_unit, only: [:create]
   after_action :update_fertigation_and_costs, only: [:create, :update]
@@ -102,6 +103,21 @@ class FertigationItemsController < ApplicationController
         return true
         #puts 'inside check_measure_type!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
         errors.add(:unit_type, "has different measure type than the selected product in inventory")
+      end
+    end
+
+    def check_if_product_is_available
+      quantity = params[:fertigation_item][:fertilizer_quantity].to_f
+      fertigation = Fertigation.find(params[:fertigation_item][:fertigation_id])
+      h2o_quantity_liters = fertigation.h2o_quantity
+      application_product = ApplicationProduct.find(params[:fertigation_item][:application_product_id])
+      unit_type = UnitType.find(params[:fertigation_item][:unit_type_id])
+      converted_quantity = unit_type.convert_to((quantity * h2o_quantity_liters), application_product.unit_type.abbreviation)
+      puts "!!!!!!!!!!!!!!!!!!1 
+      converted_quantity = #{converted_quantity}, application_product.quantity_available = #{application_product.quantity_available}
+      !!!!!!!!!!!!!!!!!!!!!!!!!"
+      if converted_quantity > application_product.quantity_available 
+        redirect_to fertigation_path(params[:fertigation_item][:fertigation_id]), notice: 'Not enough quantity available of selected product.'
       end
     end
 

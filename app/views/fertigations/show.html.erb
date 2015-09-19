@@ -53,7 +53,7 @@
 
       <div class="form-inputs">
         <%= f.association :fertigation, :as => :hidden, input_html: { value: @fertigation.id } %>
-        <%= f.association :application_product, collection: ApplicationProduct.where("quantity_available > ?", 0), label_method: :name_quantity_available, value_method: :id %>
+        <%= f.association :application_product, collection: ApplicationProduct.where("quantity_available > ?", 0).order(:name), label_method: :name_quantity_available, value_method: :id %>
         <%= f.association :unit_type, collection: @unit_types, label_method: :name_abbreviation, value_method: :id %>
         <%= f.input :fertilizer_quantity %>
         <!-- Lo dejaremos pendiente hasta saber como utilizarlo
