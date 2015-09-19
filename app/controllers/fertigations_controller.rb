@@ -14,6 +14,7 @@ class FertigationsController < ApplicationController
   def show
     @fertigation_item = FertigationItem.new
     @fertigation_items = @fertigation.fertigation_items
+    @unit_types = UnitType.where('abbreviation = ? OR abbreviation = ?', 'gr', 'L')
     respond_to do |format|
       format.js
       format.html

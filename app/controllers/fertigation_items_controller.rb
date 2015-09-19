@@ -113,16 +113,16 @@ class FertigationItemsController < ApplicationController
 
     def update_fertigation_and_costs
       application_product = @fertigation_item.application_product
-      quantity = @fertigation_item.fertilizer_quantity
+      quantity = @fertigation_item.fertilizer_quantity # fertilizer_quantity means quantity of fertilizer in gr or L
       h2o = @fertigation_item.fertigation.h2o_quantity
       unit_type = @fertigation_item.unit_type
       
       # Convert quantity to gr to get the concentration in gr/ml
-      convert_to = 'ml' if unit_type.measure_type == 'Volume'
-      convert_to = 'gr' if unit_type.measure_type == 'Weight'
+      # convert_to = 'ml' if unit_type.measure_type == 'Volume'
+      # convert_to = 'gr' if unit_type.measure_type == 'Weight'
 
-      quantity_in_gr = unit_type.convert_to(quantity, convert_to)
-      @fertigation_item.concentration = quantity_in_gr / h2o
+      #quantity_in_gr = unit_type.convert_to(quantity, convert_to)
+      @fertigation_item.concentration = quantity / h2o
       
       # Now we get the cost of the fertigation_item, we convert the units first to match the product aplication unit type and get the true cost
       quantity_in_product_units = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
