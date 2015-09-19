@@ -74,7 +74,7 @@
 <br>
   <div class="col-md-4">
     <strong>Total cost:</strong>
-    <div id="fertigation_cost"><%= @fertigation.total_cost %></div>
+    <div id="fertigation_cost"><strong><%= number_to_currency(@fertigation.total_cost, precision: 2) %></strong></div>
   </div>
 </div>
 

@@ -112,7 +112,7 @@ class FertigationItemsController < ApplicationController
       h2o_quantity_liters = fertigation.h2o_quantity
       application_product = ApplicationProduct.find(params[:fertigation_item][:application_product_id])
       unit_type = UnitType.find(params[:fertigation_item][:unit_type_id])
-      converted_quantity = unit_type.convert_to((quantity * h2o_quantity_liters), application_product.unit_type.abbreviation)
+      converted_quantity = unit_type.convert_to(quantity, application_product.unit_type.abbreviation)
       puts "!!!!!!!!!!!!!!!!!!1 
       converted_quantity = #{converted_quantity}, application_product.quantity_available = #{application_product.quantity_available}
       !!!!!!!!!!!!!!!!!!!!!!!!!"
