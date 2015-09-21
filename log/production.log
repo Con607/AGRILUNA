@@ -539,3 +539,118 @@ I, [2015-09-02T11:04:43.760631 #4169]  INFO -- :   Rendered layouts/_navigation.
 I, [2015-09-02T11:04:43.762025 #4169]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.5ms)
 I, [2015-09-02T11:04:43.763258 #4169]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
 I, [2015-09-02T11:04:43.765186 #4169]  INFO -- : Completed 200 OK in 21ms (Views: 12.2ms | ActiveRecord: 1.3ms)
+I, [2015-09-21T14:28:04.036238 #4638]  INFO -- : Started GET "/assistances" for 127.0.0.1 at 2015-09-21 14:28:04 -0500
+I, [2015-09-21T14:28:04.260312 #4638]  INFO -- : Processing by AssistancesController#index as HTML
+I, [2015-09-21T14:28:04.278696 #4638]  INFO -- : Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms)
+I, [2015-09-21T14:28:04.294415 #4638]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2015-09-21 14:28:04 -0500
+I, [2015-09-21T14:28:04.297675 #4638]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-09-21T14:28:04.337225 #4638]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-3.5.2/app/views/devise/shared/_links.html.erb (1.2ms)
+I, [2015-09-21T14:28:04.337563 #4638]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-3.5.2/app/views/devise/sessions/new.html.erb within layouts/application (6.2ms)
+I, [2015-09-21T14:28:04.794139 #4638]  INFO -- :   Rendered layouts/_navigation.html.erb (36.5ms)
+I, [2015-09-21T14:28:04.795373 #4638]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.8ms)
+I, [2015-09-21T14:28:04.796301 #4638]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2015-09-21T14:28:04.796582 #4638]  INFO -- : Completed 200 OK in 499ms (Views: 468.7ms | ActiveRecord: 3.4ms)
+I, [2015-09-21T14:28:04.957757 #4638]  INFO -- : Started GET "/assets/fontawesome-webfont-b4162ecf90a4889ff3ed2f5dff4e2baa.woff2?v=4.4.0" for 127.0.0.1 at 2015-09-21 14:28:04 -0500
+I, [2015-09-21T14:28:17.833058 #4638]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2015-09-21 14:28:17 -0500
+I, [2015-09-21T14:28:17.834198 #4638]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2015-09-21T14:28:17.834305 #4638]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"EkFm+39Q7JP1TwixiZ0uIlBZuBCqwaUcZNlSIPUc9wIkPfSkGRRPYIG7pqMq/fTIyx1cBwdb5/ZTh5O8Ci1lVA==", "user"=>{"email"=>"conexxionbusiness@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+I, [2015-09-21T14:28:18.218533 #4638]  INFO -- : Redirected to http://localhost:3000/assistances
+I, [2015-09-21T14:28:18.218847 #4638]  INFO -- : Completed 302 Found in 384ms (ActiveRecord: 260.7ms)
+I, [2015-09-21T14:28:18.221824 #4638]  INFO -- : Started GET "/assistances" for 127.0.0.1 at 2015-09-21 14:28:18 -0500
+I, [2015-09-21T14:28:18.223945 #4638]  INFO -- : Processing by AssistancesController#index as HTML
+I, [2015-09-21T14:28:18.276462 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (25.4ms)
+I, [2015-09-21T14:28:18.277459 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.8ms)
+I, [2015-09-21T14:28:18.278060 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.278540 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.4ms)
+I, [2015-09-21T14:28:18.279210 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.280306 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.0ms)
+I, [2015-09-21T14:28:18.280939 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.281578 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.282231 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.282839 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.283450 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.284124 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:18.285087 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.8ms)
+I, [2015-09-21T14:28:18.285839 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:18.286919 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.0ms)
+I, [2015-09-21T14:28:18.287553 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:18.288266 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:18.289146 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:18.289706 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.4ms)
+I, [2015-09-21T14:28:18.290433 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:18.292095 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.4ms)
+I, [2015-09-21T14:28:18.293971 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.5ms)
+I, [2015-09-21T14:28:18.295464 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.1ms)
+I, [2015-09-21T14:28:18.298973 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (3.0ms)
+I, [2015-09-21T14:28:18.300354 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.2ms)
+I, [2015-09-21T14:28:18.302025 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.5ms)
+I, [2015-09-21T14:28:18.302948 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:18.303934 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.8ms)
+I, [2015-09-21T14:28:18.305457 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.1ms)
+I, [2015-09-21T14:28:18.310831 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (4.2ms)
+I, [2015-09-21T14:28:18.313113 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.8ms)
+I, [2015-09-21T14:28:18.317292 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (3.3ms)
+I, [2015-09-21T14:28:18.333711 #4638]  INFO -- :   Rendered assistances/index.html.erb within layouts/application (100.2ms)
+I, [2015-09-21T14:28:18.333940 #4638]  INFO -- : Completed 500 Internal Server Error in 110ms (ActiveRecord: 7.7ms)
+F, [2015-09-21T14:28:18.334843 #4638] FATAL -- : 
+ActionView::Template::Error (undefined method `greenhouse_id' for #<Assistance:0x9fdfb5c>):
+    29: 
+    30:     <div class="form-inputs">
+    31:       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    32:       <%= f.association :greenhouse, label: t(:greenhouse) %>
+    33:       <%= f.association :employee, collection: Employee.order(:first_name), label: t(:employee), label_method: :first_name, value_method: :id %>
+    34:       <%= f.input :assistance_date, label: t(:assistance_date) %>
+    35:       <%= f.input :assisted, label: t(:assisted) %>
+  app/views/assistances/index.html.erb:32:in `block in _app_views_assistances_index_html_erb___915572187_79653620'
+  app/views/assistances/index.html.erb:27:in `_app_views_assistances_index_html_erb___915572187_79653620'
+
+
+I, [2015-09-21T14:28:53.884600 #4638]  INFO -- : Started GET "/assistances" for 127.0.0.1 at 2015-09-21 14:28:53 -0500
+I, [2015-09-21T14:28:53.885860 #4638]  INFO -- : Processing by AssistancesController#index as HTML
+I, [2015-09-21T14:28:53.891595 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.0ms)
+I, [2015-09-21T14:28:53.893005 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.895456 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.7ms)
+I, [2015-09-21T14:28:53.897287 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.7ms)
+I, [2015-09-21T14:28:53.898011 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.898965 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.8ms)
+I, [2015-09-21T14:28:53.899689 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.900548 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.7ms)
+I, [2015-09-21T14:28:53.902222 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.905173 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (2.5ms)
+I, [2015-09-21T14:28:53.907005 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.4ms)
+I, [2015-09-21T14:28:53.907687 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.908686 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.8ms)
+I, [2015-09-21T14:28:53.909387 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.910190 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.910831 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.911570 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.912448 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.7ms)
+I, [2015-09-21T14:28:53.913108 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.913797 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.914543 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.915256 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.915911 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.916605 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.917327 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.918097 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.6ms)
+I, [2015-09-21T14:28:53.919591 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.2ms)
+I, [2015-09-21T14:28:53.922099 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.6ms)
+I, [2015-09-21T14:28:53.922846 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.5ms)
+I, [2015-09-21T14:28:53.924313 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.2ms)
+I, [2015-09-21T14:28:53.925604 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (0.9ms)
+I, [2015-09-21T14:28:53.926913 #4638]  INFO -- :   Rendered assistances/_assistance.html.erb (1.1ms)
+I, [2015-09-21T14:28:53.939050 #4638]  INFO -- :   Rendered assistances/index.html.erb within layouts/application (49.8ms)
+I, [2015-09-21T14:28:53.939543 #4638]  INFO -- : Completed 500 Internal Server Error in 53ms (ActiveRecord: 5.1ms)
+F, [2015-09-21T14:28:53.941186 #4638] FATAL -- : 
+ActionView::Template::Error (undefined method `greenhouse_id' for #<Assistance:0xb7cc10c>):
+    29: 
+    30:     <div class="form-inputs">
+    31:       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    32:       <%= f.association :greenhouse, label: t(:greenhouse) %>
+    33:       <%= f.association :employee, collection: Employee.order(:first_name), label: t(:employee), label_method: :first_name, value_method: :id %>
+    34:       <%= f.input :assistance_date, label: t(:assistance_date) %>
+    35:       <%= f.input :assisted, label: t(:assisted) %>
+  app/views/assistances/index.html.erb:32:in `block in _app_views_assistances_index_html_erb___915572187_79653620'
+  app/views/assistances/index.html.erb:27:in `_app_views_assistances_index_html_erb___915572187_79653620'
+
+
