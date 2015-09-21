@@ -3,6 +3,7 @@ es-MX:
 
   show: "Ver"
   destroy: "Eliminar"
+  update: "Actualizar"
   are_you_sure: "Seguro desea eliminar?"
   add: "Añadir"
   edit: "Editar"

@@ -28,6 +28,7 @@
           <th><%=t :discounts %></th>
           <th><%=t :bonuses %></th>
           <th><%=t :total %></th>
+          <th><%=t :payed %></th>
           <th></th>
           <th></th>
         </tr>
@@ -69,8 +70,9 @@
     <div class="col-md-1 text-right" id="pay_roll_total"><%= number_to_currency(@pay_roll.total, precision: 2) %></div>
 </div>
   
-
-
+<div class="col-md-8">
+    <div class="col-md-4"><h2><% if @pay_roll.payed? %><%=t :payed %><% end %></h2></div>
+</div>
 
 
 

@@ -20,9 +20,11 @@ class PayRollsController < ApplicationController
   def show
     @pay_roll_items = @pay_roll.pay_roll_items
     @new_pay_roll_item = PayRollItem.new
-    @assistances = Assistance.where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(pay_roll_item_id: nil)
+    @assistances = Assistance.where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(
+                                        greenhouse_id: @pay_roll.greenhouse_id).where(
+                                        pay_roll_item_id: nil)
     @employee_ids = @assistances.where(assisted: true).distinct.pluck(:employee_id)
-    @employees = Employee.where(id: @employee_ids.first..@employee_ids.last)
+    @employees = Employee.find(@employee_ids)
 
     respond_to do |format|
       format.js
@@ -113,6 +115,8 @@ class PayRollsController < ApplicationController
         end
       end
     end
+
+
 
     # Get assistances on a given range of dates
     def get_assistances

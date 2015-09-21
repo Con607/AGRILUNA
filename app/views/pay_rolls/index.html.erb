@@ -12,6 +12,7 @@
         <th><%= t :discount %></th>
         <th><%= t :bonus %></th>
         <th><%= t :total %></th>
+        <th><%= t :payed %></th>
         <th></th>
         <th></th>
       </tr>
@@ -24,10 +25,11 @@
           <td><%= pay_roll.start_date %></td>
           <td><%= pay_roll.end_date %></td>
           <td><%= pay_roll.greenhouse.name unless pay_roll.greenhouse.nil? %></td>
-          <td><%= pay_roll.subtotal %></td>
-          <td><%= pay_roll.discount %></td>
-          <td><%= pay_roll.bonus %></td>
-          <td><%= pay_roll.total %></td>
+          <td class="alnright"><%= number_to_currency(pay_roll.subtotal, precision: 2) %></td>
+          <td class="alnright"><%= number_to_currency(pay_roll.discount, precision: 2) %></td>
+          <td class="alnright"><%= number_to_currency(pay_roll.bonus, precision: 2) %></td>
+          <td class="alnright"><%= number_to_currency(pay_roll.total, precision: 2) %></td>
+          <td><%= pay_roll.payed %></td>
           <td><%= link_to (t :show), pay_roll %></td>
           <td><%= link_to (t :destroy), pay_roll, method: :delete, data: { confirm: (t :are_you_sure) } %></td>
         </tr>

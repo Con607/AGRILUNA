@@ -4,6 +4,7 @@ class PayRollItemsController < ApplicationController
   before_action :set_unpayed, only: [:destroy]
   after_action :update_pay_roll, only: [:update]
   after_action :set_payed, only: [:create]
+  after_action :set_pay_roll_payed, only: [:create, :update]
    
 
   # GET /pay_roll_items
@@ -25,6 +26,11 @@ class PayRollItemsController < ApplicationController
   def new
     @pay_roll = PayRoll.find(params[:pay_roll_id])
     @pay_roll_item = PayRollItem.new
+    @assistances = Assistance.where(assistance_date: @pay_roll.start_date..@pay_roll.end_date).where(
+                                        greenhouse_id: @pay_roll.greenhouse_id).where(
+                                        pay_roll_item_id: nil)
+    @employee_ids = @assistances.where(assisted: true).distinct.pluck(:employee_id)
+    @employees = Employee.find(@employee_ids)
   end
 
   # GET /pay_roll_items/1/edit
@@ -180,6 +186,21 @@ class PayRollItemsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @pay_roll_item.errors.full_messages, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def set_pay_roll_payed
+    pay_roll = @pay_roll_item.pay_roll
+    all_true = true
+    pay_roll.pay_roll_items.each do |pay_roll_item|
+      all_true = false if pay_roll_item.payed != true
+    end
+    if all_true == true
+      pay_roll.payed = true
+      pay_roll.save
+    else
+      pay_roll.payed = false
+      pay_roll.save
     end
   end
 

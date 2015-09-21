@@ -23,6 +23,7 @@ en:
   hello: "Hello world"
   show: "Show"
   destroy: "Destroy"
+  update: "Update"
   are_you_sure: "Are you sure?"
   add: "Add"
   edit: "Edit"

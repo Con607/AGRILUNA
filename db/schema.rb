@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914184950) do
+ActiveRecord::Schema.define(version: 20150921180738) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.integer  "greenhouse_id", limit: 4
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150914184950) do
     t.datetime "updated_at"
     t.integer  "pay_roll_item_id", limit: 4
     t.boolean  "payed"
+    t.integer  "greenhouse_id",    limit: 4
   end
 
   create_table "companies", force: :cascade do |t|
@@ -191,6 +192,7 @@ ActiveRecord::Schema.define(version: 20150914184950) do
     t.integer  "pay_roll_ids",                limit: 4
     t.integer  "sale_ids",                    limit: 4
     t.integer  "harvest_ids",                 limit: 4
+    t.integer  "assistance_ids",              limit: 4
   end
 
   create_table "harvests", force: :cascade do |t|
@@ -251,6 +253,7 @@ ActiveRecord::Schema.define(version: 20150914184950) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "assistance_ids",    limit: 4
+    t.boolean  "payed"
   end
 
   create_table "pay_rolls", force: :cascade do |t|
@@ -264,6 +267,7 @@ ActiveRecord::Schema.define(version: 20150914184950) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "greenhouse_id",     limit: 4
+    t.boolean  "payed"
   end
 
   create_table "permissions", force: :cascade do |t|

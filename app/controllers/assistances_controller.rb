@@ -90,7 +90,7 @@ class AssistancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def assistance_params
-      params.require(:assistance).permit(:employee_id, :assistance_date, :assisted, :pay_roll_item_id)
+      params.require(:assistance).permit(:employee_id, :assistance_date, :assisted, :pay_roll_item_id, :greenhouse_id)
     end
 
     

@@ -2,12 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<%= f.input :salary %>
-    <%= f.input :discounts, :input_html => { :value => '0.0' } %>
-    <%= f.input :bonuses, :input_html => { :value => '0.0' } %>
+  	<%= f.input :salary, label: (t :salary) %>
+    <%= f.input :discounts, label: (t :discounts), :input_html => { :value => '0.0' } %>
+    <%= f.input :bonuses, label: (t :bonuses), :input_html => { :value => '0.0' } %>
+    <%= f.input :payed, label: (t :payed) %>
   </div>
+  <br>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit (t :update), class: "btn btn-default" %>
   </div>
 <% end %>
+<br><br>

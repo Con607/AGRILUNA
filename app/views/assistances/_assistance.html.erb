@@ -1,5 +1,6 @@
 
       <tr id="assistance_<%= assistance.id %>">
+      	<td><%= assistance.greenhouse.name unless assistance.greenhouse.nil? %></td>
         <td><%= assistance.employee.first_name %></td>
         <td><%= assistance.assistance_date %></td>
         <td><% if assistance.assisted %><li class="fa fa-check-square-o"></li><% end %></td>
