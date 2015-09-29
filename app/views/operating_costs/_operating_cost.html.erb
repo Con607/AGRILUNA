@@ -3,9 +3,9 @@
         <td><%= operating_cost.event_date %></td>
         <td><%= operating_cost.concept %></td>
         <td><%= operating_cost.display %></td>
-        <td><%= operating_cost.unit_price %></td>
-        <td><%= operating_cost.quantity %></td>
-        <td><%= operating_cost.total %></td>
+        <td class="alnright"><%= number_to_currency(operating_cost.unit_price, precision: 2) %></td>
+        <td class="alnright"><%= operating_cost.quantity %></td>
+        <td class="alnright"><%= number_to_currency(operating_cost.total, precision: 2) %></td>
         <td><%= link_to 'Show', operating_cost %></td>
         <td><%= link_to 'Destroy', operating_cost, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
       </tr>

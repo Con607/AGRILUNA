@@ -1,45 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Fertigations</h1>
+<% if @show_fertigations == true  %>
+  <h1>Listing Fertigations</h1>
 
-<div class="table-responsive">
-  <table class="table table-hover dataTable table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Greenhouse</th>
-        <th>Fertigation datetime</th>
-        <th>Water quantity</th>
-        <th>Fertigation item ids</th>
-        <th>Total cost</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <div class="table-responsive">
+    <table class="table table-hover dataTable table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Greenhouse</th>
+          <th>Fertigation datetime</th>
+          <th>Water quantity</th>
+          <th>Fertigation item ids</th>
+          <th>Total cost</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-    <tbody id="fertigations">
-      <% @fertigations.each do |fertigation| %>
-        <%= render "fertigation", :fertigation => fertigation %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      <tbody id="fertigations">
+        <% @fertigations.each do |fertigation| %>
+          <%= render "fertigation", :fertigation => fertigation %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<br>
+  <br>
 
-<%= link_to 'New Fertigation', new_fertigation_path, remote: true, id: 'new_fertigation_link' %>
+  <%= link_to 'New Fertigation', new_fertigation_path, remote: true, id: 'new_fertigation_link' %>
 
-<div class="col-md-5" id="div_new_fertigation_form">
-  <%= simple_form_for(@fertigation, remote: true, html: { id: 'new_fertigation_from' }) do |f| %>
-    <%= f.error_notification %>
+  <div class="col-md-5" id="div_new_fertigation_form">
+    <%= simple_form_for(@fertigation, remote: true, html: { id: 'new_fertigation_from' }) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :fertigation_datetime %>
-      <%= f.association :greenhouse %>
-      <%= f.input :h2o_quantity, label: 'Water quantity' %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :fertigation_datetime %>
+        <%= f.association :greenhouse, :as => :hidden, input_html: { value: @greenhouse.id } %>
+        <%= f.input :h2o_quantity, label: 'Water quantity' %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, id: 'new_fertigation_submit_button' %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, id: 'new_fertigation_submit_button' %>
+      </div>
+    <% end %>
 
-</div>
+  </div>
+
+<% else %>
+  <div class="col-md-2">
+    <%= simple_form_for :search, url: fertigations_path, :method => :get do |f| %>
+        <%= f.input :company_id, collection: @companies, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.input :greenhouse_id, collection: @greenhouses, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.submit 'Generar', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+<% end %>

@@ -5,8 +5,21 @@ class OperatingCostsController < ApplicationController
   # GET /operating_costs
   # GET /operating_costs.json
   def index
-    @operating_costs = OperatingCost.all
-    @operating_cost = OperatingCost.new
+    if params[:search]
+      company_id = params[:search][:company_id]
+      greenhouse_id = params[:search][:greenhouse_id]
+      @show_operating_costs = true
+      @greenhouse = Greenhouse.find(greenhouse_id)
+      @cycle = Cycle.where(greenhouse_id: greenhouse_id).active.first
+      from_date = @cycle.start_date
+      to_date = @cycle.end_date
+      @operating_costs = OperatingCost.where(greenhouse_id: greenhouse_id).where(event_date: from_date..to_date).order(:event_date)
+      @operating_cost = OperatingCost.new
+    else
+      @show_operating_costs == false
+      @companies = current_user.companies
+      @greenhouses = Greenhouse.where(company_id: @companies.first.id..@companies.last.id)
+    end
   end
 
   # GET /operating_costs/1

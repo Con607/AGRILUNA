@@ -1,3 +1,3 @@
 class AdministrationCost < ActiveRecord::Base
-	belongs_to :greenhouse
+	belongs_to :company
 end

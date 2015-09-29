@@ -1,53 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Selections</h1>
+<% if @show_selections == true  %>
+  <h1>Selections</h1>
 
-<div class="table-responsive">
-  <table class="table table-hover dataTable table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Event date</th>
-        <th>Greenhouse</th>
-        <th>Product</th>
-        <th>Product variety</th>
-        <th>Product presentation</th>
-        <th>Seleccion</th>
-        <th>Total weight</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
+  <div class="table-responsive">
+    <table class="table table-hover dataTable table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Event date</th>
+          <th>Greenhouse</th>
+          <th>Product</th>
+          <th>Product variety</th>
+          <th>Product presentation</th>
+          <th>Seleccion</th>
+          <th>Total weight</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
-    <tbody id="selections">
-      <% @selections.each do |selection| %>
-        <%= render "selection", :selection => selection %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      <tbody id="selections">
+        <% @selections.each do |selection| %>
+          <%= render "selection", :selection => selection %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<br>
+  <br>
 
-<div class="col-md-8">
-  <%= link_to 'New Selection', new_selection_path, remote: true, id: 'new_selection_link' %>
-</div>
+  <div class="col-md-8">
+    <%= link_to 'New Selection', new_selection_path, remote: true, id: 'new_selection_link' %>
+  </div>
 
 
-<br>
-<div class="col-md-5" id="div_new_selection_form">
-  <%= simple_form_for(@selection, remote: true, html: { id: 'new_selection_from' }) do |f| %>
-    <%= f.error_notification %>
+  <br>
+  <div class="col-md-5" id="div_new_selection_form">
+    <%= simple_form_for(@selection, remote: true, html: { id: 'new_selection_from' }) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :event_date %>
-      <%= f.association :greenhouse %>
-      <%= f.association :product %>
-      <%= f.association :product_variety %>
-      <%= f.association :product_presentation %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :event_date %>
+        <%= f.association :greenhouse, :as => :hidden, input_html: { value: @greenhouse.id } %>
+        <%= f.association :product %>
+        <%= f.association :product_variety %>
+        <%= f.association :product_presentation %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, id: 'new_selection_submit_button' %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, id: 'new_selection_submit_button' %>
+      </div>
+    <% end %>
 
-</div>
+  </div>
+
+<% else %>
+  <div class="col-md-2">
+    <%= simple_form_for :search, url: selections_path, :method => :get do |f| %>
+        <%= f.input :company_id, collection: @companies, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.input :greenhouse_id, collection: @greenhouses, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.submit 'Generar', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+<% end %>

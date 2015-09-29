@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921194309) do
+ActiveRecord::Schema.define(version: 20150928163258) do
 
   create_table "administration_costs", force: :cascade do |t|
-    t.integer  "greenhouse_id", limit: 4
     t.date     "event_date"
-    t.string   "concept",       limit: 255
-    t.string   "display",       limit: 255
-    t.float    "unit_price",    limit: 24
-    t.integer  "quantity",      limit: 4
-    t.float    "total",         limit: 24
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "concept",    limit: 255
+    t.string   "display",    limit: 255
+    t.float    "unit_price", limit: 24
+    t.integer  "quantity",   limit: 4
+    t.float    "total",      limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "company_id", limit: 4
   end
 
   create_table "application_items", force: :cascade do |t|
@@ -82,15 +82,16 @@ ActiveRecord::Schema.define(version: 20150921194309) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.text     "description",    limit: 65535
-    t.text     "address",        limit: 65535
-    t.string   "telephone",      limit: 255
-    t.integer  "greenhouse_ids", limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "user_ids",       limit: 4
-    t.integer  "role_id",        limit: 4
+    t.string   "name",                    limit: 255
+    t.text     "description",             limit: 65535
+    t.text     "address",                 limit: 65535
+    t.string   "telephone",               limit: 255
+    t.integer  "greenhouse_ids",          limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "user_ids",                limit: 4
+    t.integer  "role_id",                 limit: 4
+    t.integer  "administration_cost_ids", limit: 4
   end
 
   create_table "cycles", force: :cascade do |t|
@@ -183,7 +184,6 @@ ActiveRecord::Schema.define(version: 20150921194309) do
     t.datetime "updated_at"
     t.integer  "application_ids",             limit: 4
     t.integer  "operating_cost_ids",          limit: 4
-    t.integer  "administration_cost_ids",     limit: 4
     t.integer  "application_product_buy_ids", limit: 4
     t.integer  "leachate_ids",                limit: 4
     t.integer  "company_id",                  limit: 4

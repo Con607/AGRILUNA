@@ -5,8 +5,21 @@ class HarvestsController < ApplicationController
   # GET /harvests
   # GET /harvests.json
   def index
-    @harvests = Harvest.all
-    @harvest = Harvest.new
+    if params[:search]
+      company_id = params[:search][:company_id]
+      greenhouse_id = params[:search][:greenhouse_id]
+      @show_harvests = true
+      @greenhouse = Greenhouse.find(greenhouse_id)
+      @cycle = Cycle.where(greenhouse_id: greenhouse_id).active.first
+      from_date = @cycle.start_date
+      to_date = @cycle.end_date
+      @harvests = Harvest.where(greenhouse_id: greenhouse_id).where(event_date: from_date..to_date).order(:event_date)
+      @harvest = Harvest.new
+    else
+      @show_harvests == false
+      @companies = current_user.companies
+      @greenhouses = Greenhouse.where(company_id: @companies.first.id..@companies.last.id)
+    end
   end
 
   # GET /harvests/1

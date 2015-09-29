@@ -2,11 +2,19 @@ class AdministrationCostsController < ApplicationController
   before_action :set_administration_cost, only: [:show, :edit, :update, :destroy]
   before_action :set_total, only: [:update, :create]
 
+
   # GET /administration_costs
   # GET /administration_costs.json
   def index
-    @administration_costs = AdministrationCost.all
-    @administration_cost = AdministrationCost.new
+    if params[:search]
+      @current_company = Company.find(params[:search][:company_id])
+      @administration_costs = AdministrationCost.where(company_id: @current_company.id).order(:event_date)
+      @administration_cost = AdministrationCost.new
+      @show_administration_costs = true
+    else
+      @companies = current_user.companies
+      @show_administration_costs = false
+    end
   end
 
   # GET /administration_costs/1
@@ -74,7 +82,7 @@ class AdministrationCostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def administration_cost_params
-      params.require(:administration_cost).permit(:greenhouse_id, :event_date, :concept, :display, :unit_price, :quantity, :total)
+      params.require(:administration_cost).permit(:company_id, :event_date, :concept, :display, :unit_price, :quantity, :total)
     end
 
     def set_total

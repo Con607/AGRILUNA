@@ -1,5 +1,5 @@
 //alert('I was called');
 $('div#administration_cost_total').fadeOut();
-$('div#administration_cost_total').text("<%= number_to_currency(@administration_cost.greenhouse.administration_costs.sum(:total), precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);
+$('div#administration_cost_total').text("<%= number_to_currency(@administration_cost.company.administration_costs.sum(:total), precision: 2) %>").effect("highlight", {color: '#00DCB7'}, 2000);
 $("<%= escape_javascript(render @administration_cost) %>").appendTo("#administration_costs").effect("highlight", {color: '#00DCB7'}, 2000);
 $('#new_administration_cost_form')[0].reset();

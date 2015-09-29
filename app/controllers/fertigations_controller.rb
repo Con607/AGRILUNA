@@ -5,8 +5,21 @@ class FertigationsController < ApplicationController
   # GET /fertigations
   # GET /fertigations.json
   def index
-    @fertigations = Fertigation.all
-    @fertigation = Fertigation.new
+    if params[:search]
+      company_id = params[:search][:company_id]
+      greenhouse_id = params[:search][:greenhouse_id]
+      @show_fertigations = true
+      @greenhouse = Greenhouse.find(greenhouse_id)
+      @cycle = Cycle.where(greenhouse_id: greenhouse_id).active.first
+      from_date = @cycle.start_date
+      to_date = @cycle.end_date
+      @fertigations = Fertigation.where(greenhouse_id: greenhouse_id).where(fertigation_datetime: from_date..to_date).order(:fertigation_datetime)
+      @fertigation = Fertigation.new
+    else
+      @show_fertigations == false
+      @companies = current_user.companies
+      @greenhouses = Greenhouse.where(company_id: @companies.first.id..@companies.last.id)
+    end
   end
 
   # GET /fertigations/1

@@ -1,49 +1,64 @@
-<h1><%=t :listing_pay_rolls %></h1>
+<% if @show_pay_rolls == true %>
+  <h1><%=t :listing_pay_rolls %></h1>
 
-<div class="table-responsive">
-  <table class="table table-hover dataTable table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th><%= t :start_date %></th>
-        <th><%= t :end_date %></th>
-        <th><%= t :greenhouse %></th>
-        <th><%= t :subtotal %></th>
-        <th><%= t :discount %></th>
-        <th><%= t :bonus %></th>
-        <th><%= t :total %></th>
-        <th><%= t :payed %></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @pay_rolls.each do |pay_roll| %>
+  <div class="table-responsive">
+    <table class="table table-hover dataTable table-striped table-bordered">
+      <thead>
         <tr>
-          <td><%= pay_roll.id %></td>
-          <td><%= pay_roll.start_date %></td>
-          <td><%= pay_roll.end_date %></td>
-          <td><%= pay_roll.greenhouse.name unless pay_roll.greenhouse.nil? %></td>
-          <td class="alnright"><%= number_to_currency(pay_roll.subtotal, precision: 2) %></td>
-          <td class="alnright"><%= number_to_currency(pay_roll.discount, precision: 2) %></td>
-          <td class="alnright"><%= number_to_currency(pay_roll.bonus, precision: 2) %></td>
-          <td class="alnright"><%= number_to_currency(pay_roll.total, precision: 2) %></td>
-          <td><%= pay_roll.payed %></td>
-          <td><%= link_to (t :show), pay_roll %></td>
-          <td><%= link_to (t :destroy), pay_roll, method: :delete, data: { confirm: (t :are_you_sure) } %></td>
+          <th>Id</th>
+          <th><%= t :start_date %></th>
+          <th><%= t :end_date %></th>
+          <th><%= t :greenhouse %></th>
+          <th><%= t :subtotal %></th>
+          <th><%= t :discount %></th>
+          <th><%= t :bonus %></th>
+          <th><%= t :total %></th>
+          <th><%= t :payed %></th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
 
-<br>
+      <tbody>
+        <% @pay_rolls.each do |pay_roll| %>
+          <tr>
+            <td><%= pay_roll.id %></td>
+            <td><%= pay_roll.start_date %></td>
+            <td><%= pay_roll.end_date %></td>
+            <td><%= pay_roll.greenhouse.name unless pay_roll.greenhouse.nil? %></td>
+            <td class="alnright"><%= number_to_currency(pay_roll.subtotal, precision: 2) %></td>
+            <td class="alnright"><%= number_to_currency(pay_roll.discount, precision: 2) %></td>
+            <td class="alnright"><%= number_to_currency(pay_roll.bonus, precision: 2) %></td>
+            <td class="alnright"><%= number_to_currency(pay_roll.total, precision: 2) %></td>
+            <td><%= pay_roll.payed %></td>
+            <td><%= link_to (t :show), pay_roll %></td>
+            <td><%= link_to (t :destroy), pay_roll, method: :delete, data: { confirm: (t :are_you_sure) } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<div class="col-md-8"></div>
-<div class="col-md-2 pull-right"><%= number_to_currency(@pay_rolls.sum(:total), decimal: 2) %></div>
-<div class="col-md-2 pull-right"><strong>Total:</strong></div>
+  <br>
 
-<br>
+  <div class="col-md-8">
+    <strong>Total:</strong>
+    <strong><%= number_to_currency(@pay_rolls.sum(:total), decimal: 2) %></strong>
+    <br><br>
+  </div>
 
-<%= link_to (t :new_pay_roll), new_pay_roll_path %>
+  <br>
+
+  <div class="col-md-8">
+    <%= link_to (t :new_pay_roll), new_pay_roll_path %>
+  </div>
+  
+<% else %>
+  <div class="col-md-2">
+    <%= simple_form_for :search, url: pay_rolls_path, :method => :get do |f| %>
+        <%= f.input :company_id, collection: @companies, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.input :greenhouse_id, collection: @greenhouses, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.submit 'Generar', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+<% end %>

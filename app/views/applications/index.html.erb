@@ -1,47 +1,67 @@
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Applications</h1>
+<% if @show_applications == true  %>
+  <h1>Listing Applications</h1>
 
-<div class="table-responsive">
-  <table class="table table-hover dataTable table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Application date</th>
-        <th>Application process</th>
-        <th>Purpose</th>
-        <th>Greenhouse</th>
-        <th>Application items</th>
-        <th>Application cost</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
+  <div class="table-responsive">
+    <table class="table table-hover dataTable table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Application date</th>
+          <th>Application process</th>
+          <th>Purpose</th>
+          <th>Greenhouse</th>
+          <th>Application items</th>
+          <th>Application cost</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
-    <tbody id="applications">
-      <% @applications.each do |application| %>
-        <%= render "application", :application => application %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      <tbody id="applications">
+        <% @applications.each do |application| %>
+          <%= render "application", :application => application %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<br>
+  <div class="col-md-8">
+    <br>
+    <strong>Total:</strong>
+    <div id="operating_cost_total"><strong><%= number_to_currency(@applications.sum(:application_cost), precision: 2) %></strong></div>
+    <br><br>
+  </div>
 
-<%= link_to 'New Application', new_application_path, remote: true, id: 'new_application_link' %>
+  <br>
 
-<div class="col-md-5" id="div_new_application_form">
-  <%= simple_form_for(@application, remote: true, html: { id: 'new_application_form' }) do |f| %>
-  <%= f.error_notification %>
+  <div class="col-md-8">
+    <%= link_to 'New Application', new_application_path, remote: true, id: 'new_application_link' %>
+  </div>
 
-  <div class="form-inputs">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= f.input :application_date %>
-      <%= f.association :application_process %>
-      <%= f.input :purpose %>
-      <%= f.association :greenhouse %>
-    </div>
+  <div class="col-md-5" id="div_new_application_form">
+    <%= simple_form_for(@application, remote: true, html: { id: 'new_application_form' }) do |f| %>
+    <%= f.error_notification %>
 
-    <div class="form-actions">
-      <%= f.button :submit, remote: true, id: 'new_application_submit_button' %>
-    </div>
-  <% end %>
-</div>
+    <div class="form-inputs">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= f.association :greenhouse, :as => :hidden, input_html: { value: @greenhouse.id } %>
+        <%= f.input :application_date %>
+        <%= f.association :application_process %>
+        <%= f.input :purpose %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, remote: true, id: 'new_application_submit_button' %>
+      </div>
+    <% end %>
+  </div>
+
+<% else %>
+  <div class="col-md-2">
+    <%= simple_form_for :search, url: applications_path, :method => :get do |f| %>
+        <%= f.input :company_id, collection: @companies, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.input :greenhouse_id, collection: @greenhouses, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.submit 'Generar', class: 'btn btn-default' %>
+    <% end %>
+  </div>
+<% end %>

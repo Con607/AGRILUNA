@@ -5,7 +5,6 @@ class Greenhouse < ActiveRecord::Base
 	has_many :applications
 	has_many :fertigations
 	has_many :operating_costs
-	has_many :administration_costs
 	has_many :product_application_buys
 	has_many :leachates
 	has_many :environmental_conditions
