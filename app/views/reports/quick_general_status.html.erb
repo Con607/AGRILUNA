@@ -1,7 +1,8 @@
 <h1>General status report by greenhouse</h1>
 
+<% if @show_report == true  %> 
 
-<!-- Starts company status table -->
+	<!-- Starts company status table -->
 
 	<div class="col-md-10">
 		<h3><%= @company.name %></h3>
@@ -38,8 +39,7 @@
 	</div>
 	<!-- Ends company status table -->
 
-
-<% if @show_report == true  %> 
+	
 	<% @company.greenhouses.joins(:cycles).where(cycles: { active: true }).each do |greenhouse| %>
 		<% @manpower_cost = greenhouse.pay_rolls.sum(:total) %>
 		<% @fertigation_cost = greenhouse.fertigations.sum(:total_cost) %>
