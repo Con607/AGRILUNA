@@ -6,5 +6,6 @@
         <td class="alnright"><%= administration_cost.quantity %></td>
         <td class="alnright"><%= number_to_currency(administration_cost.total, precision: 2) %></td>
         <td><%= link_to 'Show', administration_cost %></td>
+        <td><%= link_to 'Edit', edit_administration_cost_path(administration_cost) %></td>
         <td><%= link_to 'Destroy', administration_cost, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
       </tr>

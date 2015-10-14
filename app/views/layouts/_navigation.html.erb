@@ -135,6 +135,7 @@
                             <li><%= link_to (t :roles), roles_path if is_allowed?('roles/index') == true %></li>
                             <li><%= link_to (t :role_permissions), role_permissions_path if is_allowed?('role_permissions/index') == true %></li>
                             <li><%= link_to (t :user_roles), user_roles_path if is_allowed?('user_roles/index') == true %></li>
+                            <li><%= link_to (t :user_companies), user_companies_path if is_allowed?('user_companies/index') == true %></li>
                         </ul>
                     </li>
                 <% end %>
