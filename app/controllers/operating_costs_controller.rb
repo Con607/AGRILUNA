@@ -10,7 +10,7 @@ class OperatingCostsController < ApplicationController
       greenhouse_id = params[:search][:greenhouse_id]
       @show_operating_costs = true
       @greenhouse = Greenhouse.find(greenhouse_id)
-      @cycle = Cycle.where(greenhouse_id: greenhouse_id).active.first
+      @cycle = @greenhouse.cycles.where(active: true).first
       from_date = @cycle.start_date
       to_date = @cycle.end_date
       @operating_costs = OperatingCost.where(greenhouse_id: greenhouse_id).where(event_date: from_date..to_date).order(:event_date)
@@ -30,6 +30,12 @@ class OperatingCostsController < ApplicationController
   # GET /operating_costs/new
   def new
     @operating_cost = OperatingCost.new
+    @greenhouse = @operating_cost.greenhouse
+    greenhouse_id = @greenhouse.id
+    @cycle = @greenhouse.cycles.where(active: true).first
+      from_date = @cycle.start_date
+      to_date = @cycle.end_date
+    @operating_costs = OperatingCost.where(greenhouse_id: greenhouse_id).where(event_date: from_date..to_date).order(:event_date)
   end
 
   # GET /operating_costs/1/edit
@@ -40,6 +46,12 @@ class OperatingCostsController < ApplicationController
   # POST /operating_costs.json
   def create
     @operating_cost = OperatingCost.new(operating_cost_params)
+    @greenhouse = @operating_cost.greenhouse
+    greenhouse_id = @greenhouse.id
+    @cycle = @greenhouse.cycles.where(active: true).first
+      from_date = @cycle.start_date
+      to_date = @cycle.end_date
+    @operating_costs = OperatingCost.where(greenhouse_id: greenhouse_id).where(event_date: from_date..to_date).order(:event_date)
 
     respond_to do |format|
       if @operating_cost.save
