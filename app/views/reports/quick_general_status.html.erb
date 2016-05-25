@@ -41,13 +41,15 @@
 
 	
 	<% @company.greenhouses.joins(:cycles).where(cycles: { active: true }).each do |greenhouse| %>
-		<% @manpower_cost = greenhouse.pay_rolls.sum(:total) %>
-		<% @fertigation_cost = greenhouse.fertigations.sum(:total_cost) %>
-		<% @application_cost = greenhouse.applications.sum(:application_cost) %>
-		<% @operating_cost = greenhouse.operating_costs.sum(:total) %>
+		<% @cycle = greenhouse.cycles.active.first %>
+		<% @from_date = @cycle.start_date %>
+		<% @to_date = @cycle.end_date %>
+		<% @manpower_cost = greenhouse.pay_rolls.where(start_date: @from_date..@to_date).sum(:total) %>
+		<% @fertigation_cost = greenhouse.fertigations.where(fertigation_datetime: @from_date..@to_date).sum(:total_cost) %>
+		<% @application_cost = greenhouse.applications.where(application_date: @from_date..@to_date).sum(:application_cost) %>
+		<% @operating_cost = greenhouse.operating_costs.where(event_date: @from_date..@to_date).sum(:total) %>
 		<% @total_expenses = @manpower_cost + @fertigation_cost + @application_cost + @operating_cost %>
 
-		<% @cycle = greenhouse.cycles.active.first %>
 		<% @estimated_performance_per_m2 = @cycle.estimated_performance_per_m2 %>
 		<% @greenhouse_estimated_performance = greenhouse.area * @estimated_performance_per_m2 %>
 		<% @maximum_estimated_production_cost = @cycle.maximum_estimated_production_cost %>
@@ -56,18 +58,19 @@
 		<% @expected_total_profit = ((@expected_average_selling_price_per_kg * @greenhouse_estimated_performance) - 
     										(@maximum_estimated_production_cost * @greenhouse_estimated_performance)) %>
 
-    	<% @performance_per_m2 = greenhouse.harvests.sum(:total_harvested) / greenhouse.area %>
+    	<% @performance_per_m2 = greenhouse.harvests.where(event_date: @from_date..@to_date).sum(:total_harvested) / greenhouse.area %>
     	<% @greenhouse_performance = greenhouse.area * @performance_per_m2 %>
     	<% @production_cost = @total_expenses / @greenhouse_performance %>
-    	<% greenhouse.sales.each do |sale| %>
+    	<% greenhouse.sales.where(event_date: @from_date..@to_date).each do |sale| %>
     		<% @number_of_kgs += (sale.sale_items.sum(:quantity) * sale.product_presentation.quantity) %>
     	<% end %>
-    	<% @average_selling_price_per_kg = greenhouse.sales.sum(:total_price) / @number_of_kgs %>
+    	<% @average_selling_price_per_kg = greenhouse.sales.where(event_date: @from_date..@to_date).sum(:total_price) / @number_of_kgs %>
     	<% @total_profit = ((@average_selling_price_per_kg * @number_of_kgs) - 
     										@total_expenses) %>
 
 		<div class="col-md-10">
 			<h3><%= greenhouse.name %></h3>
+			<h3><%= @cycle.name %></h3>
 		</div>
 
 		<div class="col-md-4">
@@ -125,7 +128,7 @@
 			      	<td class="alnright"><%= number_with_precision(@greenhouse_estimated_performance, precision: 2) %> Kg</td>
 			      </tr>
 			      <tr>
-			      	<td>Costo de produccion maximo esperado</td>
+			      	<td>Costo de produccion maximo esperado (por kg)</td>
 			      	<td class="alnright"><%= number_to_currency(@maximum_estimated_production_cost, precision: 2) %></td>
 			      </tr>
 			      <tr>
