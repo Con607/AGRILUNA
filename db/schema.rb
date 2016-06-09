@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928163258) do
+ActiveRecord::Schema.define(version: 20160609055100) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
-    t.string   "concept",    limit: 255
-    t.string   "display",    limit: 255
-    t.float    "unit_price", limit: 24
-    t.integer  "quantity",   limit: 4
-    t.float    "total",      limit: 24
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "company_id", limit: 4
+    t.string   "concept",                          limit: 255
+    t.string   "display",                          limit: 255
+    t.float    "unit_price",                       limit: 24
+    t.integer  "quantity",                         limit: 4
+    t.float    "total",                            limit: 24
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.integer  "company_id",                       limit: 4
+    t.integer  "apportionment_per_greenhouse_ids", limit: 4
   end
 
   create_table "application_items", force: :cascade do |t|
@@ -68,6 +69,16 @@ ActiveRecord::Schema.define(version: 20150928163258) do
     t.float    "application_cost",       limit: 24
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+  end
+
+  create_table "apportionment_per_greenhouses", force: :cascade do |t|
+    t.date     "event_date"
+    t.integer  "administration_cost_id", limit: 4
+    t.integer  "greenhouse_id",          limit: 4
+    t.float    "percentage",             limit: 24
+    t.float    "amount",                 limit: 24
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "assistances", force: :cascade do |t|

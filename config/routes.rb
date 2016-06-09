@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  resources :apportionment_per_greenhouses
   resources :user_roles
   resources :permissions
   resources :roles

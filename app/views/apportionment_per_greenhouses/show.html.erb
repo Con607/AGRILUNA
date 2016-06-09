@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @apportionment_per_greenhouse.event_date %>
+</p>
+
+<p>
+  <strong>Administration cost:</strong>
+  <%= @apportionment_per_greenhouse.administration_cost_id %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @apportionment_per_greenhouse.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @apportionment_per_greenhouse.percentage %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @apportionment_per_greenhouse.amount %>
+</p>
+
+<%= link_to 'Edit', edit_apportionment_per_greenhouse_path(@apportionment_per_greenhouse) %> |
+<%= link_to 'Back', apportionment_per_greenhouses_path %>

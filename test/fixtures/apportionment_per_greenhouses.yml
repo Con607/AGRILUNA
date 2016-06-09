@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_date: 2016-06-09
+  administration_cost_id: 1
+  greenhouse_id: 1
+  percentage: 1.5
+  amount: 1.5
+
+two:
+  event_date: 2016-06-09
+  administration_cost_id: 1
+  greenhouse_id: 1
+  percentage: 1.5
+  amount: 1.5

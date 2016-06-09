@@ -1,0 +1,9 @@
+	  <tr id="apportionment_per_greenhouse_<% apportionment_per_greenhouse.id %>">
+        <td><%= apportionment_per_greenhouse.event_date %></td>
+        <td><%= apportionment_per_greenhouse.administration_cost_id %></td>
+        <td><%= apportionment_per_greenhouse.greenhouse_id %></td>
+        <td><%= apportionment_per_greenhouse.percentage %></td>
+        <td><%= apportionment_per_greenhouse.amount %></td>
+        <td><%= link_to 'Show', apportionment_per_greenhouse %></td>
+        <td><%= link_to 'Destroy', apportionment_per_greenhouse, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+      </tr>

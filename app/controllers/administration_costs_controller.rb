@@ -38,6 +38,26 @@ class AdministrationCostsController < ApplicationController
 
     respond_to do |format|
       if @administration_cost.save
+        # Create apportionments per greenhouse
+        @cycles = Cycle.where(active: true)
+        @area_sum = 0.0
+        @cycles.each do |cycle|
+          @area_sum += cycle.greenhouse.area
+        end
+        @total_amount = @administration_cost.total
+        @cycles.each do |cycle|
+          event_date = @administration_cost.event_date
+          greenhouse = cycle.greenhouse
+          greenhouse_id = greenhouse.id
+          area = greenhouse.area
+          percentage = (area * 100) / @area_sum
+          amount = @total_amount * (percentage / 100)
+          @apportionment_per_greenhouse = @administration_cost.apportionment_per_greenhouses.create(event_date: event_date,
+                                                                                                    greenhouse_id: greenhouse_id,
+                                                                                                    percentage: percentage,
+                                                                                                    amount: amount)
+        end
+
         format.js
         format.html { redirect_to @administration_cost, notice: 'Administration cost was successfully created.' }
         format.json { render action: 'show', status: :created, location: @administration_cost }
