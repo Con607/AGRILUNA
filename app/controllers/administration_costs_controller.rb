@@ -8,7 +8,15 @@ class AdministrationCostsController < ApplicationController
   def index
     if params[:search]
       @current_company = Company.find(params[:search][:company_id])
-      @administration_costs = AdministrationCost.where(company_id: @current_company.id).order(:event_date)
+      @month_start = Date.civil(params[:search]["month_start(1i)"].to_i,
+                                params[:search]["month_start(2i)"].to_i,
+                                params[:search]["month_start(3i)"].to_i)
+      @month_end = Date.civil(params[:search]["month_end(1i)"].to_i,
+                                params[:search]["month_end(2i)"].to_i,
+                                params[:search]["month_end(3i)"].to_i)
+      @administration_costs = AdministrationCost.where(company_id: @current_company.id
+                                                  ).where(event_date: @month_start..@month_end
+                                                  ).order(:event_date)
       @administration_cost = AdministrationCost.new
       @show_administration_costs = true
     else
@@ -102,7 +110,7 @@ class AdministrationCostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def administration_cost_params
-      params.require(:administration_cost).permit(:company_id, :event_date, :concept, :display, :unit_price, :quantity, :total)
+      params.require(:administration_cost).permit(:company_id, :event_date, :concept, :display, :unit_price, :quantity, :total, :image1)
     end
 
     def set_total

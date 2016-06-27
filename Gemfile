@@ -5,12 +5,14 @@ gem 'rails', '4.2.3'
 gem 'bootstrap-sass', '3.3.0.0'
 gem "font-awesome-rails"
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 gem 'simple_form'
 gem 'country_select'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'devise'
+
+gem "paperclip", "~> 5.0.0.beta1"
 
 group :development, :test, :production do
   gem 'thin'

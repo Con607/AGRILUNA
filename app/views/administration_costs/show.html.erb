@@ -31,5 +31,10 @@
   <%= @administration_cost.total %>
 </p>
 
-<%= link_to 'Edit', edit_administration_cost_path(@administration_cost) %> |
-<%= link_to 'Back', administration_costs_path %>
+<p>
+  <%= link_to image_tag(@administration_cost.image1.url(:front)) %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_administration_cost_path(@administration_cost) %> 

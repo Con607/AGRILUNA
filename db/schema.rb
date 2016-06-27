@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609055100) do
+ActiveRecord::Schema.define(version: 20160627072920) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20160609055100) do
     t.datetime "updated_at",                                   null: false
     t.integer  "company_id",                       limit: 4
     t.integer  "apportionment_per_greenhouse_ids", limit: 4
+    t.string   "image1_file_name",                 limit: 255
+    t.string   "image1_content_type",              limit: 255
+    t.integer  "image1_file_size",                 limit: 4
+    t.datetime "image1_updated_at"
   end
 
   create_table "application_items", force: :cascade do |t|
