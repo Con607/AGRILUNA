@@ -99,7 +99,7 @@ class OperatingCostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def operating_cost_params
-      params.require(:operating_cost).permit(:greenhouse_id, :event_date, :concept, :display, :unit_price, :quantity, :total)
+      params.require(:operating_cost).permit(:greenhouse_id, :event_date, :concept, :display, :unit_price, :quantity, :total, :image1)
     end
 
     def set_total

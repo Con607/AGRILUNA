@@ -84,6 +84,8 @@ en:
   pay_rolls: "Pay Rolls"
   operating_costs: "Operating Costs"
   administration_costs: "Administration Costs"
+  direct_costs: "Direct Costs"
+  inderct_costs: "Indirect Costs"
   product_application_buys: "Product Buys"
   application_products: "Chemical Products"
   application_processes: "Processes"

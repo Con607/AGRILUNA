@@ -74,8 +74,8 @@
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :expenses %></span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><%= link_to (t :operating_costs), operating_costs_path if is_allowed?('operating_costs/index') == true %></li>
-                            <li><%= link_to (t :administration_costs), administration_costs_path if is_allowed?('administration_costs/index') == true %></li>
+                            <li><%= link_to (t :direct_costs), operating_costs_path if is_allowed?('operating_costs/index') == true %></li>
+                            <li><%= link_to (t :indirect_costs), administration_costs_path if is_allowed?('administration_costs/index') == true %></li>
                             <li><%= link_to (t :product_application_buys), product_application_buys_path if is_allowed?('product_application_buys/index') == true %></li>
                         </ul>
                     </li>

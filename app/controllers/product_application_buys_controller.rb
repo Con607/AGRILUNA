@@ -85,7 +85,7 @@ class ProductApplicationBuysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_application_buy_params
       params.require(:product_application_buy).permit(:buy_date, :application_product_id, :quanity, 
-                                                        :unit_cost, :total_cost, :supplier_id, :unit_type_id)
+                                                        :unit_cost, :total_cost, :supplier_id, :unit_type_id, :image1)
     end
 
     def set_unit_cost

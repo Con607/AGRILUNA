@@ -35,5 +35,9 @@
   <%= @operating_cost.total %>
 </p>
 
+<p>
+  <%= link_to image_tag(@operating_cost.image1.url(:front)) %>
+</p>
+
 <%= link_to 'Edit', edit_operating_cost_path(@operating_cost) %> |
 <%= link_to 'Back', operating_costs_path %>

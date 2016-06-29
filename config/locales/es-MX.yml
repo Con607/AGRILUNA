@@ -63,6 +63,8 @@ es-MX:
   pay_rolls: "Listas de Raya"
   operating_costs: "Gastos Operativos"
   administration_costs: "Gastos Administrativos"
+  direct_costs: "Gastos Directos"
+  indirect_costs: "Gastos Indirectos"
   product_application_buys: "Compras de Quimicos"
   application_products: "Productos Quimicos"
   application_processes: "Procesos de Aplicaciones"

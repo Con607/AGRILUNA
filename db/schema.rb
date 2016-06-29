@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627072920) do
+ActiveRecord::Schema.define(version: 20160629070557) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -246,15 +246,19 @@ ActiveRecord::Schema.define(version: 20160627072920) do
   end
 
   create_table "operating_costs", force: :cascade do |t|
-    t.integer  "greenhouse_id", limit: 4
+    t.integer  "greenhouse_id",       limit: 4
     t.date     "event_date"
-    t.string   "concept",       limit: 255
-    t.string   "display",       limit: 255
-    t.float    "unit_price",    limit: 24
-    t.integer  "quantity",      limit: 4
-    t.float    "total",         limit: 24
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "concept",             limit: 255
+    t.string   "display",             limit: 255
+    t.float    "unit_price",          limit: 24
+    t.integer  "quantity",            limit: 4
+    t.float    "total",               limit: 24
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "image1_file_name",    limit: 255
+    t.string   "image1_content_type", limit: 255
+    t.integer  "image1_file_size",    limit: 4
+    t.datetime "image1_updated_at"
   end
 
   create_table "pay_roll_items", force: :cascade do |t|
@@ -309,9 +313,13 @@ ActiveRecord::Schema.define(version: 20160627072920) do
     t.float    "unit_cost",              limit: 24
     t.float    "total_cost",             limit: 24
     t.integer  "supplier_id",            limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "unit_type_id",           limit: 4
+    t.string   "image1_file_name",       limit: 255
+    t.string   "image1_content_type",    limit: 255
+    t.integer  "image1_file_size",       limit: 4
+    t.datetime "image1_updated_at"
   end
 
   create_table "product_presentations", force: :cascade do |t|

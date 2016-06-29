@@ -14,6 +14,7 @@
         <th>Unit type</th>
         <th>Total cost</th>
         <th>Supplier</th>
+        <th>Images</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -37,6 +38,7 @@
 <div class="col-md-5" id="div_new_product_application_buy_form">
   <%= simple_form_for(@product_application_buy, remote: true, html: { id: 'new_product_application_buy_from' }) do |f| %>
     <%= f.error_notification %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
     <div class="form-inputs">
       <%= f.input :buy_date %>
@@ -45,6 +47,7 @@
       <%= f.association :unit_type %>
       <%= f.input :total_cost %>
       <%= f.association :supplier %>
+      <%= f.input :image1, as: :file %>
     </div>
 
     <div class="form-actions">
