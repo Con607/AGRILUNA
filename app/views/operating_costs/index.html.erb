@@ -50,7 +50,10 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
       <div class="form-inputs">
+        <%= f.association :company, :as => :hidden, input_html: { value: @company.id } %>
         <%= f.association :greenhouse, :as => :hidden, input_html: { value: @greenhouse.id } %>
+        <%= f.input :month_start, :as => :hidden, input_html: { value: @month_start } %>
+        <%= f.input :month_end, :as => :hidden, input_html: { value: @month_end } %>
         <%= f.input :event_date %>
         <%= f.input :concept %>
         <%= f.input :display %>
@@ -60,7 +63,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, id: 'new_operating_cost_submit_button' %>
+        <%= f.button :submit, id: 'new_operating_cost_submit_button', month_start: @month_start, month_end: @month_end %>
       </div>
     <% end %>
   </div>
@@ -69,6 +72,8 @@
     <%= simple_form_for :search, url: operating_costs_path, :method => :get do |f| %>
         <%= f.input :company_id, collection: @companies, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
         <%= f.input :greenhouse_id, collection: @greenhouses, label_method: :name, value_method: :id, placeholder: 'Select the company' %>
+        <%= f.input :month_start, as: :date, required: true, placeholder: 'From' %>
+        <%= f.input :month_end, as: :date, required: true, placeholder: 'To' %>
         <%= f.submit 'Generar', class: 'btn btn-default' %>
     <% end %>
   </div>

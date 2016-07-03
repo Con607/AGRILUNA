@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629070557) do
+ActiveRecord::Schema.define(version: 20160703172509) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -97,16 +97,18 @@ ActiveRecord::Schema.define(version: 20160629070557) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name",                    limit: 255
-    t.text     "description",             limit: 65535
-    t.text     "address",                 limit: 65535
-    t.string   "telephone",               limit: 255
-    t.integer  "greenhouse_ids",          limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.integer  "user_ids",                limit: 4
-    t.integer  "role_id",                 limit: 4
-    t.integer  "administration_cost_ids", limit: 4
+    t.string   "name",                        limit: 255
+    t.text     "description",                 limit: 65535
+    t.text     "address",                     limit: 65535
+    t.string   "telephone",                   limit: 255
+    t.integer  "greenhouse_ids",              limit: 4
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.integer  "user_ids",                    limit: 4
+    t.integer  "role_id",                     limit: 4
+    t.integer  "administration_cost_ids",     limit: 4
+    t.integer  "operating_cost_ids",          limit: 4
+    t.integer  "product_application_buy_ids", limit: 4
   end
 
   create_table "cycles", force: :cascade do |t|
@@ -259,6 +261,7 @@ ActiveRecord::Schema.define(version: 20160629070557) do
     t.string   "image1_content_type", limit: 255
     t.integer  "image1_file_size",    limit: 4
     t.datetime "image1_updated_at"
+    t.integer  "company_id",          limit: 4
   end
 
   create_table "pay_roll_items", force: :cascade do |t|
@@ -320,6 +323,7 @@ ActiveRecord::Schema.define(version: 20160629070557) do
     t.string   "image1_content_type",    limit: 255
     t.integer  "image1_file_size",       limit: 4
     t.datetime "image1_updated_at"
+    t.integer  "company_id",             limit: 4
   end
 
   create_table "product_presentations", force: :cascade do |t|

@@ -7,9 +7,25 @@ class ProductApplicationBuysController < ApplicationController
   # GET /product_application_buys
   # GET /product_application_buys.json
   def index
-    @product_application_buys = ProductApplicationBuy.all
-    @product_application_buy = ProductApplicationBuy.new
-    @application_products = ApplicationProduct.order(:name)
+    if params[:search]
+      @current_company = Company.find(params[:search][:company_id])
+      @companies = current_user.companies
+      @month_start = Date.civil(params[:search]["month_start(1i)"].to_i,
+                                params[:search]["month_start(2i)"].to_i,
+                                params[:search]["month_start(3i)"].to_i)
+      @month_end = Date.civil(params[:search]["month_end(1i)"].to_i,
+                                params[:search]["month_end(2i)"].to_i,
+                                params[:search]["month_end(3i)"].to_i)
+      @product_application_buys = ProductApplicationBuy.where(company_id: @current_company.id
+                                                  ).where(buy_date: @month_start..@month_end
+                                                  ).order(:buy_date)
+      @product_application_buy = ProductApplicationBuy.new
+      @application_products = ApplicationProduct.order(:name)
+      @show_product_application_buys = true
+    else
+      @companies = current_user.companies
+      @show_product_application_buys = false
+    end
   end
 
   # GET /product_application_buys/1
@@ -85,7 +101,7 @@ class ProductApplicationBuysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_application_buy_params
       params.require(:product_application_buy).permit(:buy_date, :application_product_id, :quanity, 
-                                                        :unit_cost, :total_cost, :supplier_id, :unit_type_id, :image1)
+                                                        :unit_cost, :total_cost, :supplier_id, :unit_type_id, :image1, :company_id)
     end
 
     def set_unit_cost

@@ -3,11 +3,12 @@ class AdministrationCostsController < ApplicationController
   before_action :set_total, only: [:update, :create]
 
 
-  # GET /administration_costs
+  # GET /administration_costs 
   # GET /administration_costs.json
   def index
     if params[:search]
       @current_company = Company.find(params[:search][:company_id])
+      @companies = current_user.companies
       @month_start = Date.civil(params[:search]["month_start(1i)"].to_i,
                                 params[:search]["month_start(2i)"].to_i,
                                 params[:search]["month_start(3i)"].to_i)

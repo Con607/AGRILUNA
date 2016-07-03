@@ -2,6 +2,7 @@ class ProductApplicationBuy < ActiveRecord::Base
 	belongs_to :supplier
 	belongs_to :application_product
 	belongs_to :unit_type
+	belongs_to :company
 
 	#validate :check_measure_type
 	validates :buy_date, :application_product, :quanity, 
