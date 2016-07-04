@@ -4,8 +4,8 @@ class AdministrationCost < ActiveRecord::Base
 	
 
 	has_attached_file :image1, styles: { :big => "650x550", :front => "581x326", medium: "300x300>", thumb: "100x100>" },
-								:url => "/public/assets/images/properties/:style/:filename", 
-								:path => ":rails_root/public/assets/images/properties/:style/:filename",
+								:url => "/public/assets/images/administration_costs/:style/:filename", 
+								:path => ":rails_root/public/assets/images/administration_costs/:style/:filename",
 								:default_url => "/public/assets/images/:style/missing.png"
   	validates_attachment_content_type :image1, content_type: /\Aimage\/.*\Z/
 
