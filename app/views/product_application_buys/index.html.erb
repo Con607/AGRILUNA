@@ -28,6 +28,12 @@
     </table>
   </div>
 
+  <div class="col-md-8">
+    <br>
+    <strong>Total:</strong>
+    <div id="product_application_buy_total"><%= number_to_currency(@product_application_buys.sum(:total_cost), precision: 2) %></div>
+  </div>
+
   <br>
 
   <div class="col-md-8">

@@ -18,12 +18,20 @@
 		    </thead>
 		    <tbody id="sales">
 		      <tr>
-		      	<td>Greenhouses Expenses</td>
-		      	<td class="alnright"><%= number_to_currency(@greenhouses_expenses, precision: 2) %></td>
+		      	<td>Direct Costs</td>
+		      	<td class="alnright"><%= number_to_currency(@direct_costs, precision: 2) %></td>
 		      </tr>
 		      <tr>
-		      	<td>Administration Costs</td>
-		      	<td class="alnright"><%= number_to_currency(@administration_cost, precision: 2) %></td>
+		      	<td>Indirect Costs</td>
+		      	<td class="alnright"><%= number_to_currency(@indirect_costs, precision: 2) %></td>
+		      </tr>
+		      <tr>
+		      	<td>Product Application Buys</td>
+		      	<td class="alnright"><%= number_to_currency(@product_application_buys, precision: 2) %></td>
+		      </tr>
+		      <tr>
+		      	<td>Man Power Cost</td>
+		      	<td class="alnright"><%= number_to_currency(@manpower_cost, precision: 2) %></td>
 		      </tr>
 		      <tr>
 		      	<td>Company Sales</td>
@@ -47,8 +55,8 @@
 		<% @manpower_cost = greenhouse.pay_rolls.where(start_date: @from_date..@to_date).sum(:total) %>
 		<% @fertigation_cost = greenhouse.fertigations.where(fertigation_datetime: @from_date..@to_date).sum(:total_cost) %>
 		<% @application_cost = greenhouse.applications.where(application_date: @from_date..@to_date).sum(:application_cost) %>
-		<% @operating_cost = greenhouse.operating_costs.where(event_date: @from_date..@to_date).sum(:total) %>
-		<% @total_expenses = @manpower_cost + @fertigation_cost + @application_cost + @operating_cost %>
+		<% @direct_costs = greenhouse.operating_costs.where(event_date: @from_date..@to_date).sum(:total) %>
+		<% @total_expenses = @manpower_cost + @fertigation_cost + @application_cost + @direct_costs %>
 
 		<% @estimated_performance_per_m2 = @cycle.estimated_performance_per_m2 %>
 		<% @greenhouse_estimated_performance = greenhouse.area * @estimated_performance_per_m2 %>
@@ -97,8 +105,8 @@
 			      	<td class="alnright"><%= number_to_currency(@application_cost, precision: 2) %></td>
 			      </tr>
 			      <tr>
-			      	<td>Operating costs</td>
-			      	<td class="alnright"><%= number_to_currency(@operating_cost, precision: 2) %></td>
+			      	<td>Direct Costs</td>
+			      	<td class="alnright"><%= number_to_currency(@direct_costs, precision: 2) %></td>
 			      </tr>
 			      <tr>
 			      	<td><strong>Total Expenses</strong></td>
