@@ -10,5 +10,5 @@ class Receipe < ActiveRecord::Base
 
   	validates_attachment :document1, :content_type => { :content_type => "application/pdf" }#, 
   										#:size => { :in => 0..5.megabytes }
-  	#before_post_process :book, :presentation
+  	before_post_process :document1
 end

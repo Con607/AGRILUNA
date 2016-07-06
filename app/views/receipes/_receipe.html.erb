@@ -2,7 +2,7 @@
           <td><%= receipe.company_id %></td>
           <td><%= receipe.greenhouse_id %></td>
           <td><%= receipe.date %></td>
-          <td><%= link_to 'Document 1', receipe.document1.url(:big) unless receipe.document1_file_name.nil? %></td>
+          <td><%= link_to 'Document 1', receipe.document1.url(:original) unless receipe.document1_file_name.nil? %></td>
           <td><%= link_to 'Show', receipe %></td>
           <td><%= link_to 'Edit', edit_receipe_path(receipe) %></td>
           <td><%= link_to 'Destroy', receipe, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
