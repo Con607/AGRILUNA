@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @receipe.company_id %>
+</p>
+
+<p>
+  <strong>Greenhouse:</strong>
+  <%= @receipe.greenhouse_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @receipe.date %>
+</p>
+
+<%= link_to 'Edit', edit_receipe_path(@receipe) %> |
+<%= link_to 'Back', receipes_path %>

@@ -80,6 +80,14 @@
                         </ul>
                     </li>
                 <% end %>
+                <% if is_allowed?('menu_documents') == true %>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :documents %></span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><%= link_to (t :receipes), receipes_path if is_allowed?('receipes/index') == true %></li>
+                        </ul>
+                    </li>
+                <% end %>
                 <% if is_allowed?('menu_catalogs') == true %>
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label"><%=t :catalogs %></span><span class="fa arrow"></span></a>

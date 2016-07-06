@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704000201) do
+ActiveRecord::Schema.define(version: 20160706195608) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160704000201) do
     t.integer  "administration_cost_ids",     limit: 4
     t.integer  "product_application_buy_ids", limit: 4
     t.integer  "operating_cost_ids",          limit: 4
+    t.integer  "receipe_ids",                 limit: 4
   end
 
   create_table "cycles", force: :cascade do |t|
@@ -210,6 +211,7 @@ ActiveRecord::Schema.define(version: 20160704000201) do
     t.integer  "sale_ids",                    limit: 4
     t.integer  "harvest_ids",                 limit: 4
     t.integer  "assistance_ids",              limit: 4
+    t.integer  "receipe_ids",                 limit: 4
   end
 
   create_table "harvests", force: :cascade do |t|
@@ -371,6 +373,18 @@ ActiveRecord::Schema.define(version: 20160704000201) do
     t.integer  "sale_ids",                 limit: 4
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+  end
+
+  create_table "receipes", force: :cascade do |t|
+    t.integer  "company_id",             limit: 4
+    t.integer  "greenhouse_id",          limit: 4
+    t.date     "date"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "document1_file_name",    limit: 255
+    t.string   "document1_content_type", limit: 255
+    t.integer  "document1_file_size",    limit: 4
+    t.datetime "document1_updated_at"
   end
 
   create_table "role_permissions", force: :cascade do |t|
