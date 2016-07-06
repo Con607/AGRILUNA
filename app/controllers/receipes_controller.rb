@@ -21,6 +21,7 @@ class ReceipesController < ApplicationController
                                 params[:search]["month_end(2i)"].to_i,
                                 params[:search]["month_end(3i)"].to_i)
       @receipes = Receipe.where(company_id: @current_company.id
+                                                  ).where(greenhouse_id: @greenhouse.id
                                                   ).where(date: @month_start..@month_end
                                                   ).order(:date)
       @receipe = Receipe.new
