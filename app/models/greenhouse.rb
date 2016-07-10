@@ -14,4 +14,5 @@ class Greenhouse < ActiveRecord::Base
 	has_many :harvests
 	has_many :assistances
 	has_many :receipes
+	has_many :events
 end

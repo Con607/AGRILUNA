@@ -1,3 +1,6 @@
+/test/controllers/events_controller_test.rb
+/test/fixtures/events.yml
+/test/models/event_test.rb
 /app/assets/public/assets/images/.keep
 /app/assets/public/assets/images/logo/Logo Conexxion Business opcion 7.png
 /app/assets/public/assets/images/patterns/header-profile-skin-1.png

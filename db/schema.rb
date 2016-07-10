@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706195608) do
+ActiveRecord::Schema.define(version: 20160708205009) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160706195608) do
     t.integer  "product_application_buy_ids", limit: 4
     t.integer  "operating_cost_ids",          limit: 4
     t.integer  "receipe_ids",                 limit: 4
+    t.integer  "event_ids",                   limit: 4
   end
 
   create_table "cycles", force: :cascade do |t|
@@ -162,6 +163,17 @@ ActiveRecord::Schema.define(version: 20160706195608) do
     t.datetime "updated_at",                                null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string   "title",         limit: 255
+    t.text     "description",   limit: 65535
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "company_id",    limit: 4
+    t.integer  "greenhouse_id", limit: 4
+  end
+
   create_table "fertigation_items", force: :cascade do |t|
     t.integer  "fertigation_id",           limit: 4
     t.integer  "application_product_id",   limit: 4
@@ -212,6 +224,7 @@ ActiveRecord::Schema.define(version: 20160706195608) do
     t.integer  "harvest_ids",                 limit: 4
     t.integer  "assistance_ids",              limit: 4
     t.integer  "receipe_ids",                 limit: 4
+    t.integer  "event_ids",                   limit: 4
   end
 
   create_table "harvests", force: :cascade do |t|

@@ -12,6 +12,10 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'devise'
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'gon'
+
 gem "paperclip", "~> 5.0.0.beta1"
 
 group :development, :test, :production do
@@ -39,7 +43,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'#, '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

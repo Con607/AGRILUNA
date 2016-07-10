@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+
+  resources :events
   resources :receipes
   resources :apportionment_per_greenhouses
   resources :user_roles

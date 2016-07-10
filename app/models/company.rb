@@ -7,4 +7,5 @@ class Company < ActiveRecord::Base
 	has_many :product_application_buys
 	has_many :operating_costs
 	has_many :receipes
+	has_many :events
 end

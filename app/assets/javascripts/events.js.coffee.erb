@@ -1,0 +1,45 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+
+
+ready = ->
+
+	###  index view  ###
+	# Hide form from start
+	$('div#div_new_event_form').hide()
+
+	# Show form on click
+	$('#new_event_link').click ->
+		$('#new_event_link').fadeOut()
+		$('div#div_new_event_form').fadeIn()
+
+	# Hide form on click
+	$('#new_event_submit_button').click ->
+		$('div#div_new_event_form').fadeOut()
+		$('#new_event_link').fadeIn()
+
+	$('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		}
+		
+		events: {
+        url: '/events.json',
+        type: 'GET',
+        data: {
+            company_id: gon.company_id,
+            start: gon.start_time,
+            end: gon.end_time,
+            show_events: gon.show_events,
+            json_search: gon.json_search
+        	}
+        }
+	});
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

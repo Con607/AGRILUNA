@@ -19,8 +19,5 @@
 //= require jquery-ui/effect-highlight
 //= require jquery-ui/datepicker
 //= require_tree .
-
-
-
-
-
+//= require moment 
+//= require fullcalendar
