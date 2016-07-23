@@ -60,6 +60,22 @@ group :development do
 	gem 'capistrano-rvm', '~> 0.1.1'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'capybara', '~> 2.5'
+end
+
+group :test do
+  #gem 'shoulda-matchers'#, '~> 3.0.1'
+  gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner', '~> 1.5'
+  gem 'faker', '~> 1.6.1'
+  gem 'selenium-webdriver'
+  gem 'simplecov', :require => false
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
