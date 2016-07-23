@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :check_if_allowed_controller, if: :user_signed_in?
   before_action :check_if_allowed_action, if: :user_signed_in?
-  #before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   helper_method :is_allowed?
 
@@ -15,7 +16,7 @@ class ApplicationController < ActionController::Base
   protected
 
   	def configure_permitted_parameters
-  	  devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :second_lat_name)}
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :second_lat_name])
   	end
 
     def check_if_allowed_controller
@@ -27,7 +28,7 @@ class ApplicationController < ActionController::Base
     def check_if_allowed_action
        if is_allowed?("#{params[:controller]}/#{params[:action]}") != true
         ### Debugging line ###
-        #puts "checking.....  controller = #{params[:controller]}, action = #{params[:action]}, #{params[:controller]}/#{params[:action]}"
+        puts "checking.....  controller = #{params[:controller]}, action = #{params[:action]}, #{params[:controller]}/#{params[:action]}"
         redirect_to root_path, notice: (t :not_enough_permissions)
        end
     end
