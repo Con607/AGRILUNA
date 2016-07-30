@@ -84,6 +84,11 @@ Myapp::Application.routes.draw do
     get "show_user" => "manage_users#show_user"
   end
 
+  authenticated :user do
+    root 'home#index', as: :authenticated_root
+  end
+
+
   #get "users_list", to: "users/registrations#index"
 
 
@@ -92,7 +97,7 @@ Myapp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root to: 'home#index'
+root to: 'static_pages#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
