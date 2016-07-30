@@ -21,3 +21,6 @@
 //= require_tree .
 //= require moment 
 //= require fullcalendar
+//= require inspinia.js
+
+

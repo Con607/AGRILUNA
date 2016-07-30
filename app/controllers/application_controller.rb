@@ -26,11 +26,11 @@ class ApplicationController < ActionController::Base
     end
 
     def check_if_allowed_action
-       if is_allowed?("#{params[:controller]}/#{params[:action]}") != true
-        ### Debugging line ###
-        puts "checking.....  controller = #{params[:controller]}, action = #{params[:action]}, #{params[:controller]}/#{params[:action]}"
-        redirect_to root_path, notice: (t :not_enough_permissions)
-       end
+      ### Debugging line ###
+      puts "checking.....  controller = #{params[:controller]}, action = #{params[:action]}, #{params[:controller]}/#{params[:action]}"
+      if is_allowed?("#{params[:controller]}/#{params[:action]}") != true
+       redirect_to root_path, notice: (t :not_enough_permissions)
+      end
     end
 
   	def is_allowed?(permission)
@@ -46,5 +46,16 @@ class ApplicationController < ActionController::Base
   			return false
   		end
   	end
+
+    # The path used after sign up for inactive accounts.
+    #def after_inactive_sign_up_path_for(resource)
+    #  puts "Im inside after_inactive_sign_up_path_for"
+    #  companies_path
+    #end
+
+    # The path used after sign up.
+    #def after_sign_up_path_for(resource)
+    #  companies_path
+    #end
 
 end

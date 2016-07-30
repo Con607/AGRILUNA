@@ -1,9 +1,11 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  after_action :assign_user, only: [:create]
 
   # GET /companies
   # GET /companies.json
   def index
+    params[:first_steps] == "true" ? @first_steps = true : @first_steps = false
     @companies = current_user.companies
     @company = Company.new
   end
@@ -33,6 +35,8 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
+        #@company.user = current_user
+        #@company.save!
         format.js
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render action: 'show', status: :created, location: @company }
@@ -80,5 +84,10 @@ class CompaniesController < ApplicationController
       params.require(:company).permit(:name, :description, :address, :telephone, :event_ids,
                                             :greenhouse_ids, :user_ids, :administration_cost_ids,
                                             :product_application_buy_ids)
+    end
+
+    def assign_user
+      @company.users << current_user
+      @company.save!
     end
 end

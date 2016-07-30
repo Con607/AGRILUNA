@@ -1,48 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Companies</h1>
+<% if @first_steps == true %>
 
-<table class="table table-hover dataTable table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Telephone</th>
-      <th>Greenhouse ids</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div>
 
-  <tbody id="companies">
-    <% @companies.each do |company| %>
-      <%= render "company", :company => company %>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="home">First tab...</div>
+      <div role="tabpanel" class="tab-pane fade in" id="profile">Second tab...</div>
+      <div role="tabpanel" class="tab-pane fade in" id="messages">Third tab...</div>
+      <div role="tabpanel" class="tab-pane fade in" id="settings">Fourth tab...</div>
+    </div>
+
+  </div>
+
+<% else %>
+
+  <h1>Companies</h1>
+
+  <table class="table table-hover dataTable table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        <th>Greenhouses</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody id="companies">
+      <% @companies.each do |company| %>
+        <%= render "company", :company => company %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <div class="col-md-8">
+    <%= link_to 'New Company', new_company_path, remote: true, id: 'new_company_link' %>
+  </div>
+
+
+  <br>
+  <div class="col-md-5" id="div_new_company_form">
+    <%= simple_form_for(@company, remote: true, html: { id: 'new_company_from' }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :address %>
+        <%= f.input :telephone %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, id: 'new_company_submit_button' %>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+  </div>
 
-<div class="col-md-8">
-  <%= link_to 'New Company', new_company_path, remote: true, id: 'new_company_link' %>
-</div>
+<% end %>
 
 
-<br>
-<div class="col-md-5" id="div_new_company_form">
-  <%= simple_form_for(@company, remote: true, html: { id: 'new_company_from' }) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :address %>
-      <%= f.input :telephone %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, id: 'new_company_submit_button' %>
-    </div>
-  <% end %>
-
-</div>

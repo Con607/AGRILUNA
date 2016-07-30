@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708205009) do
+ActiveRecord::Schema.define(version: 20160724040622) do
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -408,7 +408,6 @@ ActiveRecord::Schema.define(version: 20160708205009) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.integer  "company_id",          limit: 4
     t.integer  "user_role_ids",       limit: 4
     t.string   "name",                limit: 255
     t.text     "description",         limit: 65535
@@ -531,8 +530,13 @@ ActiveRecord::Schema.define(version: 20160708205009) do
     t.string   "last_name",              limit: 255
     t.string   "second_last_name",       limit: 255
     t.integer  "user_role_ids",          limit: 4
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 

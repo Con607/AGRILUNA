@@ -1,5 +1,17 @@
 Myapp::Application.routes.draw do
 
+  get 'static_pages/index'
+
+  get 'steps/first'
+
+  get 'steps/second'
+
+  get 'steps/third'
+
+  get 'steps/fourth'
+
+  get 'steps/finish'
+
   resources :events
   resources :receipes
   resources :apportionment_per_greenhouses
@@ -10,6 +22,7 @@ Myapp::Application.routes.draw do
   resources :user_companies
   resources :cycles
   resources :companies
+  
   get 'reports/index'
 
   get 'reports/quick_general_status'
@@ -60,7 +73,7 @@ Myapp::Application.routes.draw do
   get "home/index"
   get "home/minor"
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   devise_scope :user do 
     get "users_list" => "manage_users#index"

@@ -1,5 +1,4 @@
 <tr id="role_<%= role.id %>">
-        <td><%= role.company.name %></td>
         <td>
         	<% role.users.each do |user| %>
         		<%= user.full_name unless user.nil? %><br>

@@ -8,14 +8,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+   def new
+     super
+   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     super
+     #puts "Im inside create action for regitrations controller"
+   end
 
   # GET /resource/edit
    def edit
@@ -51,21 +52,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    #If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-     devise_parameter_sanitizer.for(:sign_up) << :first_name
+     #devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :second_last_name]
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :second_lat_name])
    end
 
    #If you have extra params to permit, append them to the sanitizer.
    def configure_account_update_params
-     devise_parameter_sanitizer.for(:account_update) << :first_name
+     #devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :second_last_name]
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :second_lat_name])
    end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+   def after_sign_up_path_for(resource)
+     companies_path(first_steps: true)
+   end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+   def after_inactive_sign_up_path_for(resource)
+      puts "Im inside after_inactive_sign_up_path_for"
+      companies_path(first_steps: true)
+   end
+
 end

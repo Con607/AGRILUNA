@@ -7,13 +7,22 @@ describe "Companies" do
   before :each do
     DatabaseCleaner.clean
     @companies_module = FactoryGirl.create(:permission, value: "companies")
-    @companies_index = FactoryGirl.create(:permission, value: "user_companies/index")
-    @companies_create = FactoryGirl.create(:permission, value: "user_companies/create")
-    @companies_new = FactoryGirl.create(:permission, value: "user_companies/new")
-    @companies_show = FactoryGirl.create(:permission, value: "user_companies/show")
+    @companies_index = FactoryGirl.create(:permission, value: "companies/index")
+    @companies_create = FactoryGirl.create(:permission, value: "companies/create")
+    @companies_new = FactoryGirl.create(:permission, value: "companies/new")
+    @companies_show = FactoryGirl.create(:permission, value: "companies/show")
+    @companies_edit = FactoryGirl.create(:permission, value: "companies/edit")
+    @companies_destroy = FactoryGirl.create(:permission, value: "companies/destroy")
+    @companies_update = FactoryGirl.create(:permission, value: "companies/update")
+    #@devise_create = FactoryGirl.create(:permission, value: "devise/sessions/create")
+    #@devise_destroy = FactoryGirl.create(:permission, value: "devise/sessions/destroy")
+    #@devise_update = FactoryGirl.create(:permission, value: "devise/sessions/update")
+    #@devise_new = FactoryGirl.create(:permission, value: "devise/sessions/new")
+    #@devise_sessions = FactoryGirl.create(:permission, value: "devise/sessions")
 
     @role_companies = FactoryGirl.create(:role, permissions: [@companies_module, @companies_index,
-                                                                @companies_create, @companies_new, @companies_show])
+                                                                @companies_create, @companies_new, @companies_show,
+                                                                @companies_edit, @companies_destroy, @companies_update])
     @user = FactoryGirl.create(:user, roles: [@role_companies])
     login_as(@user, :scope => :user)
   end

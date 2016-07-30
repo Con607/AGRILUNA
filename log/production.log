@@ -654,3 +654,40 @@ ActionView::Template::Error (undefined method `greenhouse_id' for #<Assistance:0
   app/views/assistances/index.html.erb:27:in `_app_views_assistances_index_html_erb___915572187_79653620'
 
 
+I, [2016-07-23T17:45:09.430058 #3972]  INFO -- : Started GET "/" for 127.0.0.1 at 2016-07-23 17:45:09 -0500
+I, [2016-07-23T17:45:09.508821 #3972]  INFO -- : Processing by HomeController#index as HTML
+I, [2016-07-23T17:45:09.521327 #3972]  INFO -- :   Rendered home/index.html.erb within layouts/application (1.5ms)
+I, [2016-07-23T17:45:09.724594 #3972]  INFO -- :   Rendered layouts/_navigation.html.erb (28.6ms)
+I, [2016-07-23T17:45:09.727102 #3972]  INFO -- :   Rendered layouts/_topnavbar.html.erb (1.7ms)
+I, [2016-07-23T17:45:09.728264 #3972]  INFO -- :   Rendered layouts/_footer.html.erb (0.3ms)
+I, [2016-07-23T17:45:09.728563 #3972]  INFO -- : Completed 200 OK in 220ms (Views: 211.1ms | ActiveRecord: 0.0ms)
+I, [2016-07-23T17:45:09.765643 #3972]  INFO -- : Started GET "/assets/application-757e8242ee979835df1e7a93d611ad17.css" for 127.0.0.1 at 2016-07-23 17:45:09 -0500
+I, [2016-07-23T17:45:09.772140 #3972]  INFO -- : Started GET "/assets/application-ee747ebdc13684493b9ee5d28d82c1da.js" for 127.0.0.1 at 2016-07-23 17:45:09 -0500
+I, [2016-07-23T17:45:09.973409 #3972]  INFO -- : Started GET "/assets/patterns/header-profile-b7fa0084b22176c451637464ec0835fb.png" for 127.0.0.1 at 2016-07-23 17:45:09 -0500
+I, [2016-07-23T22:18:39.807644 #4751]  INFO -- : Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-07-23 22:18:39 -0500
+I, [2016-07-23T22:18:39.922885 #4751]  INFO -- : Processing by Devise::SessionsController#destroy as HTML
+I, [2016-07-23T22:18:39.923906 #4751]  INFO -- :   Parameters: {"authenticity_token"=>"uaxiFi2aYUNSvQrKZbT0K7Ay872IxcEOa/wx1o34h+/Cx6cRBFYJ2kftZYECj2B10YaET0n4ktGj4D6fqPI7Zg=="}
+I, [2016-07-23T22:18:39.972552 #4751]  INFO -- : Redirected to http://localhost:3000/
+I, [2016-07-23T22:18:39.972864 #4751]  INFO -- : Filter chain halted as :verify_signed_out_user rendered or redirected
+I, [2016-07-23T22:18:39.973353 #4751]  INFO -- : Completed 302 Found in 49ms (ActiveRecord: 0.0ms)
+I, [2016-07-23T22:18:39.991230 #4751]  INFO -- : Started GET "/" for 127.0.0.1 at 2016-07-23 22:18:39 -0500
+I, [2016-07-23T22:18:40.000948 #4751]  INFO -- : Processing by HomeController#index as HTML
+I, [2016-07-23T22:18:40.006835 #4751]  INFO -- :   Rendered home/index.html.erb within layouts/application (1.2ms)
+I, [2016-07-23T22:18:40.268262 #4751]  INFO -- :   Rendered layouts/_navigation.html.erb (39.8ms)
+I, [2016-07-23T22:18:40.269964 #4751]  INFO -- :   Rendered layouts/_topnavbar.html.erb (0.6ms)
+I, [2016-07-23T22:18:40.271068 #4751]  INFO -- :   Rendered layouts/_footer.html.erb (0.3ms)
+I, [2016-07-23T22:18:40.271356 #4751]  INFO -- : Completed 200 OK in 270ms (Views: 269.3ms | ActiveRecord: 0.0ms)
+I, [2016-07-23T22:18:40.314989 #4751]  INFO -- : Started GET "/assets/application-757e8242ee979835df1e7a93d611ad17.css" for 127.0.0.1 at 2016-07-23 22:18:40 -0500
+I, [2016-07-23T22:18:40.317816 #4751]  INFO -- : Started GET "/assets/application-ee747ebdc13684493b9ee5d28d82c1da.js" for 127.0.0.1 at 2016-07-23 22:18:40 -0500
+I, [2016-07-23T22:18:40.509876 #4751]  INFO -- : Started GET "/assets/patterns/header-profile-b7fa0084b22176c451637464ec0835fb.png" for 127.0.0.1 at 2016-07-23 22:18:40 -0500
+I, [2016-07-23T22:18:43.811728 #4751]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2016-07-23 22:18:43 -0500
+I, [2016-07-23T22:18:43.813417 #4751]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2016-07-23T22:18:43.871798 #4751]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (5.9ms)
+I, [2016-07-23T22:18:43.872423 #4751]  INFO -- :   Rendered /home/irving/.rvm/gems/ruby-2.2.2@agriluna/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (19.0ms)
+I, [2016-07-23T22:18:43.875373 #4751]  INFO -- :   Rendered layouts/_navigation.html.erb (1.5ms)
+I, [2016-07-23T22:18:43.877724 #4751]  INFO -- :   Rendered layouts/_topnavbar.html.erb (1.8ms)
+I, [2016-07-23T22:18:43.878716 #4751]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2016-07-23T22:18:43.879228 #4751]  INFO -- : Completed 200 OK in 64ms (Views: 30.7ms | ActiveRecord: 4.8ms)
+I, [2016-07-23T22:18:43.949851 #4751]  INFO -- : Started GET "/assets/application-757e8242ee979835df1e7a93d611ad17.css" for 127.0.0.1 at 2016-07-23 22:18:43 -0500
+I, [2016-07-23T22:18:43.957102 #4751]  INFO -- : Started GET "/assets/application-ee747ebdc13684493b9ee5d28d82c1da.js" for 127.0.0.1 at 2016-07-23 22:18:43 -0500
+I, [2016-07-23T22:18:44.157876 #4751]  INFO -- : Started GET "/assets/patterns/header-profile-b7fa0084b22176c451637464ec0835fb.png" for 127.0.0.1 at 2016-07-23 22:18:44 -0500
