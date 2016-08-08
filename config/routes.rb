@@ -1,5 +1,7 @@
 Myapp::Application.routes.draw do
 
+  resources :accounts
+  resources :plans
   get 'static_pages/index'
 
   get 'steps/first'
@@ -73,7 +75,8 @@ Myapp::Application.routes.draw do
   get "home/index"
   get "home/minor"
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations", 
+                                    sessions: "users/sessions" }
 
   devise_scope :user do 
     get "users_list" => "manage_users#index"

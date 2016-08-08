@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724040622) do
+ActiveRecord::Schema.define(version: 20160808024708) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "plan_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "administration_costs", force: :cascade do |t|
     t.date     "event_date"
@@ -324,6 +331,21 @@ ActiveRecord::Schema.define(version: 20160724040622) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.string   "name",                limit: 255
+    t.integer  "company_ids",         limit: 4
+    t.integer  "greenhouse_ids",      limit: 4
+    t.integer  "user_ids",            limit: 4
+    t.integer  "users_allowed",       limit: 4
+    t.integer  "companies_allowed",   limit: 4
+    t.integer  "greenhouses_allowed", limit: 4
+    t.float    "cost_per_month_usd",  limit: 24
+    t.string   "billing",             limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "account_id",          limit: 4
+  end
+
   create_table "product_application_buys", force: :cascade do |t|
     t.date     "buy_date"
     t.integer  "application_product_id", limit: 4
@@ -534,6 +556,8 @@ ActiveRecord::Schema.define(version: 20160724040622) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
+    t.integer  "plan_id",                limit: 4
+    t.integer  "account_id",             limit: 4
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

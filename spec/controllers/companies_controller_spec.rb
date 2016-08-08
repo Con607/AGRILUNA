@@ -15,8 +15,8 @@ RSpec.describe CompaniesController, type: :controller do
 	describe "GET #index" do
 
 		before :each do
-			@jones = FactoryGirl.create(:user, email: Faker::Internet.email, password: "fgt43r5gdfgE", password_confirmation: "fgt43r5gdfgE")
-			@keneth = FactoryGirl.create(:user, email: Faker::Internet.email, password: "345dfgIy234565", password_confirmation: "345dfgIy234565")
+			@jones = FactoryGirl.create(:user, email: Faker::Internet.email, password: "fgt43r5gdfgE", password_confirmation: "fgt43r5gdfgE", confirmed_at: Date.today)
+			@keneth = FactoryGirl.create(:user, email: Faker::Internet.email, password: "345dfgIy234565", password_confirmation: "345dfgIy234565", confirmed_at: Date.today)
     		@agriluna = FactoryGirl.create(:company, users: [@keneth, subject.current_user])
 			@don_mario = FactoryGirl.create(:company, users: [@jones, @keneth])
 			@monte_bello = FactoryGirl.create(:company, users: [@jones, subject.current_user])

@@ -5,7 +5,6 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    params[:first_steps] == "true" ? @first_steps = true : @first_steps = false
     @companies = current_user.companies
     @company = Company.new
   end

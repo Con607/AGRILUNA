@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accounts</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Plan</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="accounts"> 
+    <% @accounts.each do |account| %>
+      <%= render "account", :account => account %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="col-md-8">
+  <%= link_to 'New Account', new_account_path, id: 'new_account_link' %>
+</div>
+
+
+

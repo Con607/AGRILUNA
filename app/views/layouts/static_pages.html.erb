@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <!-- Add Your favicon here -->
     <!--<link rel="icon" href="img/favicon.ico">-->
 
-    <title>INSPINIA - Landing Page</title>
+    <title>AGROWEB - Landing Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +27,8 @@
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/style.css" rel="stylesheet">
+    <%= csrf_meta_tags %>
+
 </head>
 <body id="page-top">
 
@@ -35,6 +37,9 @@
             <%= yield %>
 
 
+<script src="../assets/jquery.js"></script>
+<script src="../assets/bootstrap-sprockets.js"></script>
+<script src="../assets/jquery_ujs.js"></script>
 <script src="../assets/js/jquery-2.1.1.js"></script>
 <script src="../assets/js/pace.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>

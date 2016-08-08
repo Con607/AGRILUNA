@@ -1,4 +1,8 @@
 class StepsController < ApplicationController
+  skip_before_action :check_user_plan, only: [:first]
+
+  layout 'static_pages'
+
   def first
   end
 
@@ -14,3 +18,4 @@ class StepsController < ApplicationController
   def finish
   end
 end
+ 

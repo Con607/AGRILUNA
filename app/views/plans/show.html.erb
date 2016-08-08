@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Company ids:</strong>
+  <%= @plan.company_ids %>
+</p>
+
+<p>
+  <strong>Greenhouse ids:</strong>
+  <%= @plan.greenhouse_ids %>
+</p>
+
+<p>
+  <strong>User ids:</strong>
+  <%= @plan.user_ids %>
+</p>
+
+<p>
+  <strong>Users allowed:</strong>
+  <%= @plan.users_allowed %>
+</p>
+
+<p>
+  <strong>Companies allowed:</strong>
+  <%= @plan.companies_allowed %>
+</p>
+
+<p>
+  <strong>Greenhouses allowed:</strong>
+  <%= @plan.greenhouses_allowed %>
+</p>
+
+<p>
+  <strong>Cost per month usd:</strong>
+  <%= @plan.cost_per_month_usd %>
+</p>
+
+<p>
+  <strong>Billing:</strong>
+  <%= @plan.billing %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

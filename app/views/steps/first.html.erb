@@ -1,131 +1,363 @@
-<h1>Step 1 of 4</h1>
 
-<br>
+<div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">AGROWEB</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#pricing">Plan</a></li>
+                        <li>
+                            <%= link_to destroy_user_session_path, method: :delete, class: 'page-scroll' do %>
+                                Salir <i class="fa fa-sign-out"></i>
+                            <% end %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>
+<div id="inSlider" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#inSlider" data-slide-to="1"></li>
+        <li data-target="#inSlider" data-slide-to="2"></li>
+        <li data-target="#inSlider" data-slide-to="3"></li>
+        <li data-target="#inSlider" data-slide-to="4"></li>
+        <li data-target="#inSlider" data-slide-to="5"></li>
+        <li data-target="#inSlider" data-slide-to="6"></li>
+        <li data-target="#inSlider" data-slide-to="7"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Aplicacion web<br/>
+                        para el control de<br/>
+                        cultivos en invernaderos.</h1>
+                    <p>Accesa desde cualquier dispositivo con internet.</p>
+                    <p>
+                        <a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a>
+                        <a class="caption-link" href="#" role="button">AGROWEB</a>
+                    </p>
+                </div>
+                <div class="carousel-image wow zoomIn">
+                    <img src="../assets/img/laptop.png" alt="laptop"/>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back three"></div>
 
-<div class="row">
-	<div class="col-sm-9">
-	    <!-- Nav tabs -->
-	    <ul class="nav nav-tabs" role="tablist">
-	      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Billing</a></li>
-	      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-	      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-	      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-	    </ul>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>Manten el registro <br/> de tus gastos al dia.</h1>
+                    <p>Sube imagenes para comprobar los gastos.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back two"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>Controla el fertilizante <br/> utilizado en tus riegos.</h1>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back four"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>Control de listas de raya <br/> y asistencias de jornaleros.</h1>
+                    <p>Genera el monto total a pagar por empleado con un solo click.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back five"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>Controla el inventario <br/> de quimicos comprados.</h1></p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back six"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                    <h1>Controla los quimicos <br/> utilizados en cada aplicacion.</h1>
+                    <p>Ya sean foliares, via riego, en drench, lleva el control de cada una de ellas.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back seven"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back eight"></div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-caption blank">
+                </div>
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back nine"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-	    <!-- Tab panes -->
-	    <div class="tab-content container-fluid">
-	      <div role="tabpanel" class="tab-pane fade in active" id="home">
-	      	<div class="row">
-	      		<div class="col-md-12 panel-group well">
-	      			<br>
-	      			<div class="col-md-3">
-		  			  <div class="panel panel-info">
-		  			  	<div class="panel-heading" style="text-align: center"><h3>Basic Plan</h3></div>
-		  			  	<div class="panel-body">
-		  			  		<h1 style="text-align: center">20 US$/mes</h1>
-		  			  		<br>
-		  			  		<ul class="list-group">
-							  <li class="list-group-item"><span class="badge">1</span> Companies</li>
-							  <li class="list-group-item"><span class="badge">1</span> Greenhouses</li> 
-							  <li class="list-group-item"><span class="badge">1</span> Users</li> 
-							  <li class="list-group-item"> Aplicaciones<span class="fa fa-times pull-right"></span></li>
-							  <li class="list-group-item"> Riegos<span class="fa fa-times pull-right"></span></li>
-							  <li class="list-group-item"> Cosechas<span class="fa fa-times pull-right"></span></li>
-							  <li class="list-group-item"> Selecciones<span class="fa fa-times pull-right"></span></li>
-							  <li class="list-group-item"> Ventas<span class="fa fa-times pull-right"></span></li> 
-							  <li class="list-group-item"> Asistencias<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Listas de Raya<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Gastos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Compras de Quimicos<span class="fa fa-times pull-right"></span></li>
-							  <li class="list-group-item"> Documentos<span class="fa fa-check pull-right"></span></li> 
-							  <li class="list-group-item"> Proveedores<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Reportes<span class="fa fa-check pull-right"></span></li>
-							</ul>
-		  			  	</div>
-			  			<div class="panel-footer" style="text-align: center">
-						    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+
+
+
+
+<section id="pricing" class="pricing">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <br><br>
+                <h1>Paso 1 de 4</h1>
+                <br>
+                <h3>Elige el plan deseado.</h3>
+                <br>
+                <h5>Puedes pagar con tu cuenta de PayPal o con tu tarjeta de credito/debito dando click en el boton Subscribe.</h5>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4 wow zoomIn">
+                <ul class="pricing-plan list-unstyled">
+                    <li class="pricing-title">
+                        Basico
+                    </li>
+                    <li class="pricing-desc">
+                        Paquete para productores pequeños con un invernadero.
+                    </li>
+                    <li class="pricing-price">
+                        <h1><span>19 $USD</span> / mes</h1>
+                    </li>
+                    <li>
+                        <span class="badge pull-right">1</span> Compañias
+                    </li>
+                    <li>
+                        <span class="badge pull-right">1</span> Invernaderos
+                    </li>
+                    <li>
+                        <span class="badge pull-right">1</span> Users
+                    </li>
+                    <li>
+                        Aplicaciones<span class="fa fa-times pull-right">
+                    </li>
+                    <li>
+                        Riegos<span class="fa fa-times pull-right">
+                    </li>
+                    <li>
+                        Selecciones<span class="fa fa-times pull-right">
+                    </li>
+                    <li>
+                        Ventas<span class="fa fa-times pull-right">
+                    </li>
+                    <li>
+                        Asistencias<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Listas de Raya<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Gastos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Compras de Quimicos<span class="fa fa-times pull-right">
+                    </li>
+                    <li>
+                        Documentos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Proveedores<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Reportes<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="5XESV9YB3VSP4">
+                            <input type="image" src="https://www.sandbox.paypal.com/es_XC/MX/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+                            <img alt="" border="0" src="https://www.sandbox.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 wow zoomIn">
+                <ul class="pricing-plan list-unstyled selected">
+                    <li class="pricing-title">
+                        Estandar
+                    </li>
+                    <li class="pricing-desc">
+                        Paquete para productores pequeños y medianos con un invernadero, el paquete mas popular.
+                    </li>
+                    <li class="pricing-price">
+                        <h1><span>39 $USD</span> / mes</h1>
+                    </li>
+                    <li>
+                        <span class="badge pull-right">1</span> Compañias
+                    </li>
+                    <li>
+                        <span class="badge pull-right">5</span> Invernaderos
+                    </li>
+                    <li>
+                        <span class="badge pull-right">3</span> Users
+                    </li>
+                    <li>
+                        Aplicaciones<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Riegos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Selecciones<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Ventas<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Asistencias<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Listas de Raya<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Gastos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Compras de Quimicos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Documentos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Proveedores<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Reportes<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 							<input type="hidden" name="cmd" value="_s-xclick">
 							<input type="hidden" name="hosted_button_id" value="ZHHEVRZHG9JHA">
 							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
 							<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-							</form>
-						</div>
-				      </div>
-				    </div>
-				    <div class="col-md-3 col-md-offset-1">
-			      	  <div class="panel panel-primary">
-		  			  	<div class="panel-heading" style="text-align: center"><h3>Professional Plan</h3></div>
-		  			  	<div class="panel-body">
-		  			  		<h1 style="text-align: center">40 US$/mes</h1>
-		  			  		<br>
-		  			  		<ul class="list-group">
-							  <li class="list-group-item"><span class="badge">1</span> Companies</li>
-							  <li class="list-group-item"><span class="badge">5</span> Greenhouses</li> 
-							  <li class="list-group-item"><span class="badge">3</span> Users</li> 
-							  <li class="list-group-item"> Aplicaciones<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Riegos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Cosechas<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Selecciones<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Ventas<span class="fa fa-check pull-right"></span></li> 
-							  <li class="list-group-item"> Asistencias<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Listas de Raya<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Gastos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Compras de Quimicos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Documentos<span class="fa fa-check pull-right"></span></li> 
-							  <li class="list-group-item"> Proveedores<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Reportes<span class="fa fa-check pull-right"></span></li>
-							</ul>
-		  			  	</div>
-			  				<div class="panel-footer" style="text-align: center">
-						      	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-								<input type="hidden" name="cmd" value="_s-xclick">
-								<input type="hidden" name="hosted_button_id" value="ZHHEVRZHG9JHA">
-								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
-								<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-								</form>
-						    </div>
-				      </div>
-				    </div>
-				    <div class="col-md-3 col-md-offset-1">
-			      	  <div class="panel panel-success">
-		  			  	<div class="panel-heading" style="text-align: center"><h3>Business Plan</h3></div>
-		  			  	<div class="panel-body">
-		  			  		<h1 style="text-align: center">80 US$/mes</h1>
-		  			  		<br>
-		  			  		<ul class="list-group">
-							  <li class="list-group-item"><span class="badge">5</span> Companies</li>
-							  <li class="list-group-item"><span class="badge">15</span> Greenhouses</li>
-							  <li class="list-group-item"><span class="badge">Unlimited</span> Users</li> 
-							  <li class="list-group-item"> Aplicaciones<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Riegos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Cosechas<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Selecciones<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Ventas<span class="fa fa-check pull-right"></span></li> 
-							  <li class="list-group-item"> Asistencias<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Listas de Raya<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Gastos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Compras de Quimicos<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Documentos<span class="fa fa-check pull-right"></span></li> 
-							  <li class="list-group-item"> Proveedores<span class="fa fa-check pull-right"></span></li>
-							  <li class="list-group-item"> Reportes<span class="fa fa-check pull-right"></span></li>
-							</ul>
-		  			  	</div>
-			  				<div class="panel-footer" style="text-align: center">
-						      	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-								<input type="hidden" name="cmd" value="_s-xclick">
-								<input type="hidden" name="hosted_button_id" value="ZHHEVRZHG9JHA">
-								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
-								<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-								</form>
-						    </div>
-				      </div>
-				    </div>
-			    </div>
-		    </div>
-	      </div>
-	      <div role="tabpanel" class="tab-pane fade in" id="profile">Second tab...</div>
-	      <div role="tabpanel" class="tab-pane fade in" id="messages">Third tab...</div>
-	      <div role="tabpanel" class="tab-pane fade in" id="settings">Fourth tab...</div>
-	    </div>
-	</div>
-</div>
+						</form>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 wow zoomIn">
+                <ul class="pricing-plan list-unstyled">
+                    <li class="pricing-title">
+                        Premium
+                    </li>
+                    <li class="pricing-desc">
+                        Paquete multiempresas, para productores con muchos invernaderos o ingenieros que dan asesoria tecnica a varios invernaderos.
+                    </li>
+                    <li class="pricing-price">
+                        <h1><span>119 $USD</span> / mes</h1>
+                    </li>
+                    <li>
+                        <span class="badge pull-right">5</span> Compañias
+                    </li>
+                    <li>
+                        <span class="badge pull-right">15</span> Invernaderos
+                    </li>
+                    <li>
+                        <span class="badge pull-right">30</span> Users
+                    </li>
+                    <li>
+                        Aplicaciones<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Riegos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Selecciones<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Ventas<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Asistencias<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Listas de Raya<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Gastos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Compras de Quimicos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Documentos<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Proveedores<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        Reportes<span class="fa fa-check pull-right"></span>
+                    </li>
+                    <li>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="ZHHEVRZHG9JHA">
+							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+							<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+						</form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row m-t-lg">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+                <p>*En caso de necesitar mas usuarios, empresas o modulos favor de contactarnos a conexxionbusiness@gmail.com.</p>
+                <p>*Obten una prueba gratuita de 30 dias del paquete estandar, no se hara ni un cargo a tu tarjeta durante este periodo, al termino de los 30 dias tendras que comprar el paquete para seguir usandolo, sin contratos ni compromisos.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+	
